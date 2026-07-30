@@ -82,6 +82,24 @@ h1 {
     color:#d6b27c;
     font-size:18px;
     line-height:30px;
+    .boot-text {
+    margin-top:25px;
+    color:#8b5cf6;
+    font-size:18px;
+    letter-spacing:3px;
+}
+
+.blink {
+    margin-top:30px;
+    color:#00d9ff;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity:0;
+    }
+}
 }
 .tv-screen {
     margin-right:70px;
@@ -149,12 +167,13 @@ Classic Games. Memories. Collecting.
 
 <h2>PRESS START</h2>
 
-<p>
-Welcome to Retro Reminder
-</p>
+<div class="boot-text">
+RETRO REMINDER<br>
+CLASSIC GAME COLLECTION
+</div>
 
-<p>
-Classic Games • Memories • Collecting
+<p class="blink">
+▶ INSERT CARTRIDGE
 </p>
 
 </div>
