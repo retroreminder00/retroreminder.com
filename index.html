@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Retro Reminder | Classic Video Games</title>
@@ -8,92 +9,119 @@
 <style>
 
 body {
-    margin: 0;
+    margin:0;
     background:
         linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
         #4a2b18;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
 }
 
 header {
-    padding: 30px 20px;
+    padding:30px 20px;
 }
 
 .logo {
-    max-width: 300px;
-    width: 80%;
+    max-width:300px;
+    width:80%;
 }
 
 h1 {
-    font-size: 42px;
-    color: #8b5cf6;
-    margin-bottom: 10px;
+    font-size:42px;
+    color:#8b5cf6;
+    margin-bottom:10px;
 }
 
 .tagline {
-    font-size: 22px;
-    color: #00d9ff;
+    font-size:22px;
+    color:#00d9ff;
 }
 
+
+/* TV CABINET */
+
 .crt {
-    margin: 40px auto;
-    width: 90%;
-    max-width: 650px;
-    box-sizing: border-box;
-    padding: 30px;
-    position: relative;
-    background: linear-gradient(
+
+    margin:40px auto;
+    width:90%;
+    max-width:650px;
+    box-sizing:border-box;
+    padding:30px;
+    position:relative;
+
+    background:linear-gradient(
         90deg,
         #6b3f1f,
         #9b6335,
         #5a3218
     );
-    border: 12px solid #2b1609;
-    border-radius: 15px;
+
+    border:12px solid #2b1609;
+    border-radius:15px;
+
     box-shadow:
         0 25px 50px rgba(0,0,0,.8);
+
 }
+
+
+/* SCREEN */
 
 .tv-screen {
-    background: #050505;
-    border-radius: 12px;
-    padding: 45px 20px;
-    width: 75%;
-    border: 8px solid #111;
+
+    background:#050505;
+
+    border-radius:12px;
+
+    padding:45px 20px;
+
+    width:75%;
+
+    border:8px solid #111;
+
     box-shadow:
         inset 0 0 50px black;
+
     margin-right:70px;
+
+    transition:.3s;
+
 }
+
 
 .tv-screen h2 {
+
     color:#00d9ff;
+
     letter-spacing:5px;
+
 }
 
-.tv-controls {
-    position: absolute;
-    right:25px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#d6b27c;
-    font-size:18px;
-    line-height:30px;
-}
 
 .boot-text {
+
     margin-top:25px;
+
     color:#8b5cf6;
+
     font-size:18px;
+
     letter-spacing:3px;
+
 }
 
+
 .blink {
+
     margin-top:30px;
+
     color:#00d9ff;
-    animation: blink 1.2s infinite;
+
+    animation:blink 1.2s infinite;
+
 }
+
 
 @keyframes blink {
 
@@ -107,49 +135,160 @@ h1 {
 
 }
 
-.mission {
-    width:85%;
-    max-width:650px;
-    margin:40px auto;
-    padding:25px;
-    box-sizing:border-box;
-    background:rgba(0,0,0,.55);
-    border:2px solid #6b3f1f;
-    border-radius:15px;
+
+
+/* CONTROLS */
+
+.tv-controls {
+
+    position:absolute;
+
+    right:25px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
 }
+
+
+.control-button {
+
+    background:#222;
+
+    color:#d6b27c;
+
+    border:2px solid #d6b27c;
+
+    border-radius:50%;
+
+    width:38px;
+
+    height:38px;
+
+    cursor:pointer;
+
+    display:block;
+
+    margin:auto;
+
+}
+
+
+.control-label {
+
+    font-size:9px;
+
+    color:#d6b27c;
+
+    margin-bottom:12px;
+
+}
+
+
+/* POWER OFF */
+
+.tv-screen.off {
+
+    background:#000;
+
+    box-shadow:none;
+
+}
+
+
+.tv-screen.off * {
+
+    opacity:0;
+
+}
+
+
+/* MISSION */
+
+.mission {
+
+    width:85%;
+
+    max-width:650px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    box-sizing:border-box;
+
+    background:rgba(0,0,0,.55);
+
+    border:2px solid #6b3f1f;
+
+    border-radius:15px;
+
+}
+
 
 .mission h2 {
+
     color:#00d9ff;
-    letter-spacing:2px;
+
 }
+
 
 .mission p {
+
     line-height:1.6;
+
     color:#ddd;
+
 }
+
+
+
+/* LINKS */
 
 .buttons a {
+
     display:inline-block;
+
     margin:10px;
+
     padding:15px 25px;
+
     background:#8b5cf6;
+
     color:white;
+
     text-decoration:none;
+
     border-radius:8px;
+
     font-weight:bold;
+
 }
+
+
 
 .buttons a:hover {
+
     background:#00d9ff;
+
     color:black;
+
 }
+
+
 
 footer {
+
     margin-top:60px;
+
     color:#777;
+
 }
 
-@media (max-width:600px) {
+
+
+@media(max-width:600px){
 
     h1 {
         font-size:32px;
@@ -170,6 +309,7 @@ footer {
 
 }
 
+
 </style>
 
 </head>
@@ -182,11 +322,16 @@ footer {
 
 <img class="logo" src="BF14DC22-B067-4DFE-AC93-59B43FFCD891.PNG" alt="Retro Reminder Logo">
 
-<h1>RETRO REMINDER</h1>
+
+<h1>
+RETRO REMINDER
+</h1>
+
 
 <div class="tagline">
 Classic Games. Memories. Collecting.
 </div>
+
 
 </header>
 
@@ -194,60 +339,119 @@ Classic Games. Memories. Collecting.
 
 <div class="crt">
 
+
 <div class="tv-screen">
 
-<h2>PRESS START</h2>
+
+<h2>
+PRESS START
+</h2>
+
 
 <div class="boot-text">
+
 RETRO REMINDER<br>
+
 CLASSIC GAME COLLECTION
+
 </div>
+
 
 <p class="blink">
+
 ▶ INSERT CARTRIDGE
+
 </p>
 
+
 </div>
+
 
 
 <div class="tv-controls">
-<div>●</div>
-<div>◉</div>
-<div>◉</div>
+
+
+<button onclick="toggleTV()" class="control-button">
+●
+</button>
+
+<div class="control-label">
+POWER
+</div>
+
+
+
+<button class="control-button">
+◉
+</button>
+
+<div class="control-label">
+CHANNEL
+</div>
+
+
+
+<button class="control-button">
+◉
+</button>
+
+<div class="control-label">
+VOLUME
+</div>
+
+
+
 </div>
 
 
 </div>
+
 
 
 
 <div class="mission">
 
-<h2>The Retro Reminder Mission</h2>
+
+<h2>
+The Retro Reminder Mission
+</h2>
+
 
 <p>
 Preserving the memories behind classic video games — one cartridge, one console, and one story at a time.
 </p>
 
+
 <p>
 From childhood favorites to forgotten gems, Retro Reminder celebrates the games that brought friends and families together.
 </p>
 
+
 </div>
+
 
 
 
 <div class="buttons">
 
-<a href="#">eBay Store</a>
+<a href="#">
+eBay Store
+</a>
 
-<a href="#">YouTube</a>
+<a href="#">
+YouTube
+</a>
 
-<a href="#">TikTok</a>
+<a href="#">
+TikTok
+</a>
 
-<a href="#">Instagram</a>
+<a href="#">
+Instagram
+</a>
 
 </div>
+
 
 
 
@@ -258,5 +462,21 @@ From childhood favorites to forgotten gems, Retro Reminder celebrates the games 
 </footer>
 
 
+
+<script>
+
+function toggleTV(){
+
+let screen=document.querySelector(".tv-screen");
+
+screen.classList.toggle("off");
+
+}
+
+</script>
+
+
+
 </body>
+
 </html>
