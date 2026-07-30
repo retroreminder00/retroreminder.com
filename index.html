@@ -88,6 +88,12 @@ h1 {
     font-size:18px;
     letter-spacing:3px;
 }
+    .boot-text {
+    margin-top:25px;
+    color:#8b5cf6;
+    font-size:18px;
+    letter-spacing:3px;
+}
 
 .blink {
     margin-top:30px;
@@ -96,10 +102,14 @@ h1 {
 }
 
 @keyframes blink {
-    50% {
-        opacity:0;
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
     }
 }
+
 
 .tv-screen {
     margin-right:70px;
