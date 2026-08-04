@@ -45,13 +45,13 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    /* LOCK THE ORIGINAL SCREEN SIZE */
+    /* LOCK ORIGINAL SCREEN SIZE */
 
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
 
-    /* HIDE CURRENT SCREEN CONTENT */
+    /* HIDE CURRENT CONTENT */
 
     const screenContents = screen.querySelectorAll("*");
 
@@ -81,29 +81,43 @@ function changeChannel() {
         screen.style.background = "#050505";
 
         screen.innerHTML = `
-            <h2>CH ${channel.number}</h2>
+            <h2 style="
+                margin:5px 0;
+                font-size:24px;
+            ">
+                CH ${channel.number}
+            </h2>
 
             <img
                 src="${channel.logo}"
                 alt="${channel.name} logo"
                 style="
-                    width:70px;
-                    height:70px;
+                    width:50px;
+                    height:50px;
                     object-fit:contain;
-                    margin:15px auto;
+                    margin:5px auto;
                     display:block;
                 "
             >
 
-            <div class="boot-text">
+            <div class="boot-text" style="
+                margin-top:8px;
+                font-size:14px;
+            ">
                 NOW PLAYING
             </div>
 
-            <p class="blink">
+            <p class="blink" style="
+                margin:8px 0;
+                font-size:18px;
+            ">
                 ${channel.name}
             </p>
 
-            <p>
+            <p style="
+                margin:8px 0 0;
+                font-size:12px;
+            ">
                 CLICK THE SCREEN TO VISIT
             </p>
         `;
