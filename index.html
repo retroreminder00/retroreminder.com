@@ -10,21 +10,31 @@
 
 body {
     margin:0;
+
     background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
-        #4a2b18;
+        radial-gradient(
+            circle at center,
+            #252b30 0%,
+            #15191d 55%,
+            #090b0d 100%
+        );
+
     color:white;
     font-family:Arial, sans-serif;
     text-align:center;
+
+    min-height:100vh;
 }
 
 header {
-    padding:30px 20px;
+    padding:25px 20px 10px;
 }
 
+
+/* HIDE THE OLD TOP LOGO */
+
 .logo {
-    max-width:300px;
-    width:80%;
+    display:none;
 }
 
 h1 {
@@ -51,16 +61,44 @@ h1 {
 
     background:linear-gradient(
         90deg,
-        #6b3f1f,
-        #9b6335,
-        #5a3218
+        #5a5a58,
+        #858581,
+        #4a4a48
     );
 
-    border:12px solid #2b1609;
+    border:12px solid #222;
+
     border-radius:15px;
 
     box-shadow:
-        0 25px 50px rgba(0,0,0,.8);
+        0 25px 50px rgba(0,0,0,.8),
+        inset 0 0 20px rgba(255,255,255,.08);
+}
+
+
+/* ETCHED RETRO REMINDER LOGO */
+
+.tv-logo {
+
+    position:absolute;
+
+    right:12px;
+    top:22px;
+
+    width:72px;
+
+    opacity:.38;
+
+    filter:
+        grayscale(1)
+        contrast(1.5)
+        brightness(.55);
+
+    mix-blend-mode:multiply;
+
+    transform:rotate(-1deg);
+
+    pointer-events:none;
 }
 
 
@@ -277,7 +315,7 @@ h1 {
 
     background:rgba(0,0,0,.55);
 
-    border:2px solid #6b3f1f;
+    border:2px solid #444;
 
     border-radius:15px;
 }
@@ -347,6 +385,15 @@ footer {
         font-size:16px;
     }
 
+    .tv-logo {
+
+        width:58px;
+
+        right:8px;
+        top:18px;
+
+    }
+
 }
 
 </style>
@@ -359,17 +406,9 @@ footer {
 
 <header>
 
-<img
-    class="logo"
-    src="BF14DC22-B067-4DFE-AC93-59B43FFCD891.PNG"
-    alt="Retro Reminder Logo"
->
-
-
 <h1>
 RETRO REMINDER
 </h1>
-
 
 <div class="tagline">
 Classic Games. Memories. Collecting.
@@ -380,6 +419,13 @@ Classic Games. Memories. Collecting.
 
 
 <div class="crt">
+
+
+<img
+    class="tv-logo"
+    src="BF14DC22-B067-4DFE-AC93-59B43FFCD891.PNG"
+    alt="Retro Reminder"
+>
 
 
 <div class="tv-screen">
