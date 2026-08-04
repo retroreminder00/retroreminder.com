@@ -252,7 +252,7 @@ h1 {
 }
 
 
-/* RETRO REMINDER TV BADGE */
+/* REFLECTIVE RETRO REMINDER BADGE */
 
 .tv-logo-badge {
 
@@ -266,18 +266,35 @@ h1 {
 
     height:auto;
 
-    opacity:.5;
+    opacity:.95;
 
     filter:
         grayscale(1)
-        contrast(2)
-        brightness(.65);
+        contrast(1.5)
+        brightness(1.15);
 
-    mix-blend-mode:multiply;
+    padding:4px 7px;
+
+    border-radius:3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #777 0%,
+            #eeeeee 18%,
+            #9a9a9a 38%,
+            #f8f8f8 50%,
+            #777 67%,
+            #d5d5d5 82%,
+            #666 100%
+        );
+
+    border:1px solid #333;
 
     box-shadow:
-        1px 1px 0 rgba(255,255,255,.22),
-        -1px -1px 0 rgba(0,0,0,.45);
+        inset 0 1px 1px rgba(255,255,255,.9),
+        inset 0 -1px 1px rgba(0,0,0,.7),
+        1px 2px 4px rgba(0,0,0,.7);
 
     pointer-events:none;
 }
