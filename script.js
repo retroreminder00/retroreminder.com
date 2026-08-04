@@ -33,7 +33,6 @@ const channels = [
 
 let currentChannel = 0;
 
-
 function changeChannel() {
 
     currentChannel++;
@@ -46,24 +45,18 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-
     /* KEEP SCREEN SIZE */
-
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
-
     /* HIDE CURRENT CONTENT */
-
     const screenContents = screen.querySelectorAll("*");
 
     screenContents.forEach(function(element) {
         element.style.opacity = "0";
     });
 
-
-    /* OLD TV STATIC */
-
+    /* TV STATIC */
     screen.style.background = `
         repeating-radial-gradient(
             circle at 50% 50%,
@@ -75,12 +68,8 @@ function changeChannel() {
         )
     `;
 
-
-    /* NEW CHANNEL */
-
+    /* SHOW NEW CHANNEL */
     setTimeout(function() {
-
-        /* KEEP THE GRAY CRT GLASS */
 
         screen.style.background = `
             radial-gradient(
@@ -92,9 +81,7 @@ function changeChannel() {
             )
         `;
 
-
         screen.innerHTML = `
-
             <div style="
                 width:100%;
                 height:100%;
@@ -106,7 +93,6 @@ function changeChannel() {
                 font-family:monospace;
                 position:relative;
             ">
-
 
                 <div style="
                     position:absolute;
@@ -120,7 +106,6 @@ function changeChannel() {
                     CH ${channel.number}
                 </div>
 
-
                 <img
                     src="${channel.logo}"
                     alt="${channel.name} logo"
@@ -132,18 +117,15 @@ function changeChannel() {
                     "
                 >
 
-
                 <div style="
                     color:#00d9ff;
                     font-size:21px;
                     font-weight:bold;
                     letter-spacing:3px;
-                    text-shadow:
-                        0 0 6px #00d9ff;
+                    text-shadow:0 0 6px #00d9ff;
                 ">
                     ${channel.name}
                 </div>
-
 
                 <div style="
                     color:#8b5cf6;
@@ -154,7 +136,6 @@ function changeChannel() {
                     NOW PLAYING
                 </div>
 
-
                 <div style="
                     color:#ffffff;
                     font-size:12px;
@@ -162,7 +143,6 @@ function changeChannel() {
                 ">
                     RETRO REMINDER
                 </div>
-
 
                 <div style="
                     color:#00d9ff;
@@ -174,19 +154,11 @@ function changeChannel() {
                 </div>
 
             </div>
-
         `;
 
-
         screen.onclick = function() {
-
-            window.open(
-                channel.url,
-                "_blank"
-            );
-
+            window.open(channel.url, "_blank");
         };
 
     }, 250);
-
 }
