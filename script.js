@@ -76,11 +76,22 @@ function changeChannel() {
     `;
 
 
-    /* NEW BROADCAST */
+    /* NEW CHANNEL */
 
     setTimeout(function() {
 
-        screen.style.background = "#050505";
+        /* KEEP THE GRAY CRT GLASS */
+
+        screen.style.background = `
+            radial-gradient(
+                ellipse at center,
+                #777 0%,
+                #555 45%,
+                #333 78%,
+                #1b1b1b 100%
+            )
+        `;
+
 
         screen.innerHTML = `
 
@@ -97,8 +108,6 @@ function changeChannel() {
             ">
 
 
-                <!-- CHANNEL NUMBER -->
-
                 <div style="
                     position:absolute;
                     top:0;
@@ -112,8 +121,6 @@ function changeChannel() {
                 </div>
 
 
-                <!-- LOGO -->
-
                 <img
                     src="${channel.logo}"
                     alt="${channel.name} logo"
@@ -125,8 +132,6 @@ function changeChannel() {
                     "
                 >
 
-
-                <!-- CHANNEL NAME -->
 
                 <div style="
                     color:#00d9ff;
@@ -140,8 +145,6 @@ function changeChannel() {
                 </div>
 
 
-                <!-- NOW PLAYING -->
-
                 <div style="
                     color:#8b5cf6;
                     font-size:12px;
@@ -152,8 +155,6 @@ function changeChannel() {
                 </div>
 
 
-                <!-- RETRO REMINDER -->
-
                 <div style="
                     color:#ffffff;
                     font-size:12px;
@@ -162,8 +163,6 @@ function changeChannel() {
                     RETRO REMINDER
                 </div>
 
-
-                <!-- WATCH -->
 
                 <div style="
                     color:#00d9ff;
