@@ -45,7 +45,7 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    /* LOCK ORIGINAL SCREEN SIZE */
+    /* KEEP THE TV SCREEN SIZE */
 
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
@@ -74,52 +74,67 @@ function changeChannel() {
     `;
 
 
-    /* CHANGE CHANNEL */
+    /* NEW CHANNEL */
 
     setTimeout(function() {
 
         screen.style.background = "#050505";
 
         screen.innerHTML = `
-            <h2 style="
-                margin:5px 0;
-                font-size:24px;
+            <div style="
+                width:100%;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                transform:scale(.85);
             ">
-                CH ${channel.number}
-            </h2>
 
-            <img
-                src="${channel.logo}"
-                alt="${channel.name} logo"
-                style="
-                    width:50px;
-                    height:50px;
-                    object-fit:contain;
-                    margin:5px auto;
-                    display:block;
-                "
-            >
+                <h2 style="
+                    margin:2px 0;
+                    font-size:22px;
+                ">
+                    CH ${channel.number}
+                </h2>
 
-            <div class="boot-text" style="
-                margin-top:8px;
-                font-size:14px;
-            ">
-                NOW PLAYING
+                <img
+                    src="${channel.logo}"
+                    alt="${channel.name} logo"
+                    style="
+                        width:45px;
+                        height:45px;
+                        object-fit:contain;
+                        margin:3px auto;
+                        display:block;
+                    "
+                >
+
+                <div style="
+                    color:#8b5cf6;
+                    font-size:12px;
+                    letter-spacing:2px;
+                    margin:3px 0;
+                ">
+                    NOW PLAYING
+                </div>
+
+                <p style="
+                    color:#00d9ff;
+                    font-size:16px;
+                    margin:4px 0;
+                    font-weight:bold;
+                ">
+                    ${channel.name}
+                </p>
+
+                <p style="
+                    font-size:11px;
+                    margin:4px 0 0;
+                ">
+                    CLICK THE SCREEN TO VISIT
+                </p>
+
             </div>
-
-            <p class="blink" style="
-                margin:8px 0;
-                font-size:18px;
-            ">
-                ${channel.name}
-            </p>
-
-            <p style="
-                margin:8px 0 0;
-                font-size:12px;
-            ">
-                CLICK THE SCREEN TO VISIT
-            </p>
         `;
 
         screen.onclick = function() {
