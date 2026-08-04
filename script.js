@@ -1,37 +1,38 @@
 const channels = [
     {
         number: "03",
-        name: "YouTube",
+        name: "YOUTUBE",
         logo: "https://cdn.simpleicons.org/youtube/FF0000",
         url: "https://youtube.com/@retro.reminder?si=RgH9yUZVI90Dgy-k"
     },
     {
         number: "07",
-        name: "TikTok",
+        name: "TIKTOK",
         logo: "https://cdn.simpleicons.org/tiktok/FFFFFF",
         url: "https://www.tiktok.com/@retro.reminder"
     },
     {
         number: "11",
-        name: "Instagram",
+        name: "INSTAGRAM",
         logo: "https://cdn.simpleicons.org/instagram/FFFFFF",
         url: "https://www.instagram.com/retro.reminder"
     },
     {
         number: "22",
-        name: "Facebook",
+        name: "FACEBOOK",
         logo: "https://cdn.simpleicons.org/facebook/1877F2",
         url: "https://www.facebook.com/share/1JAfe51abo/"
     },
     {
         number: "99",
-        name: "eBay",
+        name: "EBAY",
         logo: "https://cdn.simpleicons.org/ebay/FFFFFF",
         url: "https://www.ebay.com/usr/retro.reminder"
     }
 ];
 
 let currentChannel = 0;
+
 
 function changeChannel() {
 
@@ -45,7 +46,8 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    /* KEEP THE TV SCREEN SIZE */
+
+    /* KEEP SCREEN SIZE */
 
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
@@ -74,72 +76,118 @@ function changeChannel() {
     `;
 
 
-    /* NEW CHANNEL */
+    /* NEW BROADCAST */
 
     setTimeout(function() {
 
         screen.style.background = "#050505";
 
         screen.innerHTML = `
+
             <div style="
                 width:100%;
+                height:100%;
                 display:flex;
                 flex-direction:column;
                 align-items:center;
                 justify-content:center;
-                transform:scale(.85);
+                transform:scale(.82);
+                font-family:monospace;
+                position:relative;
             ">
 
-                <h2 style="
-                    margin:2px 0;
-                    font-size:22px;
+
+                <!-- CHANNEL NUMBER -->
+
+                <div style="
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    color:#00d9ff;
+                    font-size:13px;
+                    font-weight:bold;
+                    letter-spacing:2px;
                 ">
                     CH ${channel.number}
-                </h2>
+                </div>
+
+
+                <!-- LOGO -->
 
                 <img
                     src="${channel.logo}"
                     alt="${channel.name} logo"
                     style="
-                        width:45px;
-                        height:45px;
+                        width:50px;
+                        height:50px;
                         object-fit:contain;
-                        margin:3px auto;
-                        display:block;
+                        margin-bottom:5px;
                     "
                 >
+
+
+                <!-- CHANNEL NAME -->
+
+                <div style="
+                    color:#00d9ff;
+                    font-size:21px;
+                    font-weight:bold;
+                    letter-spacing:3px;
+                    text-shadow:
+                        0 0 6px #00d9ff;
+                ">
+                    ${channel.name}
+                </div>
+
+
+                <!-- NOW PLAYING -->
 
                 <div style="
                     color:#8b5cf6;
                     font-size:12px;
-                    letter-spacing:2px;
-                    margin:3px 0;
+                    letter-spacing:3px;
+                    margin-top:8px;
                 ">
                     NOW PLAYING
                 </div>
 
-                <p style="
-                    color:#00d9ff;
-                    font-size:16px;
-                    margin:4px 0;
-                    font-weight:bold;
-                ">
-                    ${channel.name}
-                </p>
 
-                <p style="
-                    font-size:11px;
-                    margin:4px 0 0;
+                <!-- RETRO REMINDER -->
+
+                <div style="
+                    color:#ffffff;
+                    font-size:12px;
+                    margin-top:5px;
                 ">
-                    CLICK THE SCREEN TO VISIT
-                </p>
+                    RETRO REMINDER
+                </div>
+
+
+                <!-- WATCH -->
+
+                <div style="
+                    color:#00d9ff;
+                    font-size:11px;
+                    margin-top:10px;
+                    letter-spacing:2px;
+                ">
+                    ▶ WATCH NOW
+                </div>
 
             </div>
+
         `;
 
+
         screen.onclick = function() {
-            window.open(channel.url, "_blank");
+
+            window.open(
+                channel.url,
+                "_blank"
+            );
+
         };
 
     }, 250);
+
 }
