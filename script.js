@@ -41,11 +41,14 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    /* REMEMBER THE SCREEN SIZE */
+    const screenContents = screen.querySelectorAll("*");
 
-    const screenHeight = screen.offsetHeight;
 
-    screen.style.minHeight = screenHeight + "px";
+    /* HIDE CURRENT SCREEN CONTENT */
+
+    screenContents.forEach(function(element) {
+        element.style.opacity = "0";
+    });
 
 
     /* OLD TV STATIC */
@@ -61,14 +64,13 @@ function changeChannel() {
         )
     `;
 
-    screen.innerHTML = "";
-
 
     /* CHANGE CHANNEL */
 
     setTimeout(function() {
 
         screen.style.background = "#050505";
+
 
         screen.innerHTML = `
             <h2>CH ${channel.number}</h2>
@@ -86,11 +88,12 @@ function changeChannel() {
             </p>
         `;
 
+
         screen.onclick = function() {
             window.open(channel.url, "_blank");
         };
 
-        screen.style.minHeight = "";
 
     }, 250);
+
 }
