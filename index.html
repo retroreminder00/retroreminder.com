@@ -22,7 +22,6 @@ body {
     color:white;
     font-family:Arial, sans-serif;
     text-align:center;
-
     min-height:100vh;
 }
 
@@ -30,22 +29,18 @@ header {
     padding:25px 20px 10px;
 }
 
-
-/* HIDE THE OLD TOP LOGO */
-
 .logo {
     display:none;
 }
 
 h1 {
-    font-size:42px;
-    color:#8b5cf6;
-    margin-bottom:10px;
+    display:none;
 }
 
 .tagline {
     font-size:22px;
     color:#00d9ff;
+    letter-spacing:1px;
 }
 
 
@@ -73,32 +68,6 @@ h1 {
     box-shadow:
         0 25px 50px rgba(0,0,0,.8),
         inset 0 0 20px rgba(255,255,255,.08);
-}
-
-
-/* ETCHED RETRO REMINDER LOGO */
-
-.tv-logo {
-
-    position:absolute;
-
-    right:12px;
-    top:22px;
-
-    width:72px;
-
-    opacity:.38;
-
-    filter:
-        grayscale(1)
-        contrast(1.5)
-        brightness(.55);
-
-    mix-blend-mode:multiply;
-
-    transform:rotate(-1deg);
-
-    pointer-events:none;
 }
 
 
@@ -283,6 +252,37 @@ h1 {
 }
 
 
+/* RETRO REMINDER TV BADGE */
+
+.tv-logo-badge {
+
+    position:absolute;
+
+    left:34px;
+
+    bottom:16px;
+
+    width:92px;
+
+    height:auto;
+
+    opacity:.45;
+
+    filter:
+        grayscale(1)
+        contrast(1.8)
+        brightness(.7);
+
+    mix-blend-mode:multiply;
+
+    box-shadow:
+        1px 1px 0 rgba(255,255,255,.18),
+        -1px -1px 0 rgba(0,0,0,.35);
+
+    pointer-events:none;
+}
+
+
 /* POWER OFF */
 
 .tv-screen.off {
@@ -322,23 +322,18 @@ h1 {
 
 
 .mission h2 {
-
     color:#00d9ff;
 }
 
 
 .mission p {
-
     line-height:1.6;
-
     color:#ddd;
 }
 
 
 footer {
-
     margin-top:60px;
-
     color:#777;
 }
 
@@ -346,10 +341,6 @@ footer {
 /* MOBILE */
 
 @media(max-width:600px){
-
-    h1 {
-        font-size:32px;
-    }
 
     .tagline {
         font-size:18px;
@@ -385,12 +376,13 @@ footer {
         font-size:16px;
     }
 
-    .tv-logo {
+    .tv-logo-badge {
 
-        width:58px;
+        width:68px;
 
-        right:8px;
-        top:18px;
+        left:24px;
+
+        bottom:12px;
 
     }
 
@@ -406,10 +398,6 @@ footer {
 
 <header>
 
-<h1>
-RETRO REMINDER
-</h1>
-
 <div class="tagline">
 Classic Games. Memories. Collecting.
 </div>
@@ -421,20 +409,11 @@ Classic Games. Memories. Collecting.
 <div class="crt">
 
 
-<img
-    class="tv-logo"
-    src="BF14DC22-B067-4DFE-AC93-59B43FFCD891.PNG"
-    alt="Retro Reminder"
->
-
-
 <div class="tv-screen">
-
 
 <h2>
 PRESS START
 </h2>
-
 
 <div class="boot-text">
 
@@ -444,13 +423,11 @@ CLASSIC GAME COLLECTION
 
 </div>
 
-
 <p class="blink">
 
 ▶ INSERT CARTRIDGE
 
 </p>
-
 
 </div>
 
@@ -471,7 +448,6 @@ POWER
 </div>
 
 
-
 <button
     onclick="changeChannel()"
     class="control-button"
@@ -482,7 +458,6 @@ POWER
 <div class="control-label">
 CHANNEL
 </div>
-
 
 
 <button
@@ -496,32 +471,33 @@ VOLUME
 </div>
 
 
-
 </div>
 
 
-</div>
+<img
+    class="tv-logo-badge"
+    src="BF14DC22-B067-4DFE-AC93-59B43FFCD891.PNG"
+    alt="Retro Reminder"
+>
 
+
+</div>
 
 
 
 <div class="mission">
 
-
 <h2>
 The Retro Reminder Mission
 </h2>
-
 
 <p>
 Preserving the memories behind classic video games — one cartridge, one console, and one story at a time.
 </p>
 
-
 <p>
 From childhood favorites to forgotten gems, Retro Reminder celebrates the games that brought friends and families together.
 </p>
-
 
 </div>
 
@@ -552,5 +528,4 @@ function toggleTV(){
 
 
 </body>
-
 </html>
