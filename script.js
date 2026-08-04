@@ -27,3 +27,37 @@ const channels = [
 ];
 
 let currentChannel = 0;
+
+
+function changeChannel() {
+
+    currentChannel++;
+
+    if (currentChannel >= channels.length) {
+        currentChannel = 0;
+    }
+
+    const channel = channels[currentChannel];
+
+    const screen = document.querySelector(".tv-screen");
+
+    screen.innerHTML = `
+        <h2>CH ${channel.number}</h2>
+
+        <div class="boot-text">
+            NOW PLAYING
+        </div>
+
+        <p class="blink">
+            ${channel.name}
+        </p>
+
+        <p>
+            CLICK THE SCREEN TO VISIT
+        </p>
+    `;
+
+    screen.onclick = function() {
+        window.open(channel.url, "_blank");
+    };
+}
