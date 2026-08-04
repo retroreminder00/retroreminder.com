@@ -2,26 +2,31 @@ const channels = [
     {
         number: "03",
         name: "YouTube",
+        logo: "https://cdn.simpleicons.org/youtube/FF0000",
         url: "https://youtube.com/@retro.reminder?si=RgH9yUZVI90Dgy-k"
     },
     {
         number: "07",
         name: "TikTok",
+        logo: "https://cdn.simpleicons.org/tiktok/FFFFFF",
         url: "https://www.tiktok.com/@retro.reminder"
     },
     {
         number: "11",
         name: "Instagram",
+        logo: "https://cdn.simpleicons.org/instagram/FFFFFF",
         url: "https://www.instagram.com/retro.reminder"
     },
     {
         number: "22",
         name: "Facebook",
+        logo: "https://cdn.simpleicons.org/facebook/1877F2",
         url: "https://www.facebook.com/share/1JAfe51abo/"
     },
     {
         number: "99",
         name: "eBay",
+        logo: "https://cdn.simpleicons.org/ebay/FFFFFF",
         url: "https://www.ebay.com/usr/retro.reminder"
     }
 ];
@@ -71,9 +76,20 @@ function changeChannel() {
 
         screen.style.background = "#050505";
 
-
         screen.innerHTML = `
             <h2>CH ${channel.number}</h2>
+
+            <img
+                src="${channel.logo}"
+                alt="${channel.name} logo"
+                style="
+                    width:70px;
+                    height:70px;
+                    object-fit:contain;
+                    margin:15px auto;
+                    display:block;
+                "
+            >
 
             <div class="boot-text">
                 NOW PLAYING
@@ -88,12 +104,9 @@ function changeChannel() {
             </p>
         `;
 
-
         screen.onclick = function() {
             window.open(channel.url, "_blank");
         };
 
-
     }, 250);
-
 }
