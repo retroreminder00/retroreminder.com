@@ -33,7 +33,6 @@ const channels = [
 
 let currentChannel = 0;
 
-
 function changeChannel() {
 
     currentChannel++;
@@ -46,10 +45,15 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    const screenContents = screen.querySelectorAll("*");
+    /* LOCK THE ORIGINAL SCREEN SIZE */
+
+    screen.style.boxSizing = "border-box";
+    screen.style.height = screen.offsetHeight + "px";
 
 
     /* HIDE CURRENT SCREEN CONTENT */
+
+    const screenContents = screen.querySelectorAll("*");
 
     screenContents.forEach(function(element) {
         element.style.opacity = "0";
