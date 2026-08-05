@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -436,13 +437,23 @@ h1 {
 }
 
 
+/* ACTUAL COUNTER */
+
 #visitor-count {
 
-    display:inline-block;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:58px;
 
     min-width:180px;
 
     padding:8px 14px;
+
+    box-sizing:border-box;
 
     background:#050505;
 
@@ -459,6 +470,34 @@ h1 {
     text-shadow:
         0 0 5px #39ff14,
         0 0 12px rgba(57,255,20,.5);
+
+}
+
+
+/* CounterAPI generated elements */
+
+#visitor-count * {
+
+    color:#39ff14 !important;
+
+    background:transparent !important;
+
+    border:0 !important;
+
+    box-shadow:none !important;
+
+    font-family:"Courier New", monospace !important;
+
+    font-size:28px !important;
+
+    font-weight:bold !important;
+
+    letter-spacing:5px !important;
+
+    text-shadow:
+        0 0 5px #39ff14,
+        0 0 12px rgba(57,255,20,.5) !important;
+
 }
 
 
@@ -573,7 +612,13 @@ footer {
 
         min-width:150px;
 
-        letter-spacing:4px;
+    }
+
+    #visitor-count * {
+
+        font-size:22px !important;
+
+        letter-spacing:4px !important;
 
     }
 
@@ -682,7 +727,17 @@ VOLUME
         YOU ARE VISITOR NUMBER
     </div>
 
-    <div id="visitor-count">
+    <div
+        id="visitor-count"
+        class="counterapi"
+        ns="retroreminder.com"
+        action="view"
+        key="homepage"
+        noIcon="true"
+        noCss="true"
+        noLink="true"
+        noFormatting="true"
+    >
         000000
     </div>
 
@@ -705,28 +760,14 @@ VOLUME
 <script src="script.js"></script>
 
 
-<!-- VISITOR COUNTER -->
-
-<script>
-
-function updateVisitorCount(response) {
-
-    let count = response.value;
-
-    let formattedCount = String(count).padStart(6, "0");
-
-    document.getElementById("visitor-count").textContent =
-        formattedCount;
-}
-
-</script>
-
+<!-- COUNTERAPI -->
 
 <script
+    src="https://counterapi.com/c.js?ns=retroreminder.com"
     async
-    src="https://counterapi.com/api/retroreminder.com/view/homepage?callback=updateVisitorCount"
 ></script>
 
 
 </body>
 </html>
+
