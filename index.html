@@ -11,7 +11,6 @@
 
 body {
     margin:0;
-
     background:
         radial-gradient(
             circle at center,
@@ -19,7 +18,6 @@ body {
             #15191d 55%,
             #090b0d 100%
         );
-
     color:white;
     font-family:Arial, sans-serif;
     text-align:center;
@@ -71,7 +69,6 @@ h1 {
 /* CRT SCREEN */
 
 .tv-screen {
-
     position:relative;
 
     background:
@@ -117,17 +114,12 @@ h1 {
 /* CRT REFLECTION */
 
 .tv-screen::before {
-
     content:"";
-
     position:absolute;
-
     top:8px;
     left:12px;
     right:12px;
-
     height:35%;
-
     border-radius:25px;
 
     background:
@@ -138,7 +130,6 @@ h1 {
         );
 
     pointer-events:none;
-
     z-index:5;
 }
 
@@ -146,20 +137,15 @@ h1 {
 /* SCREEN EDGE */
 
 .tv-screen::after {
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     border-radius:28px;
 
     box-shadow:
         inset 0 0 18px rgba(0,0,0,.8);
 
     pointer-events:none;
-
     z-index:6;
 }
 
@@ -172,9 +158,7 @@ h1 {
 
 
 .blink {
-
     margin-top:20px;
-
     color:#00d9ff;
 
     text-shadow:
@@ -200,21 +184,15 @@ h1 {
 /* CONTROLS */
 
 .tv-controls {
-
     position:absolute;
-
     right:10px;
-
     top:50%;
-
     transform:translateY(-50%);
-
     z-index:10;
 }
 
 
 .control-button {
-
     background:
         radial-gradient(
             circle at 35% 30%,
@@ -250,11 +228,8 @@ h1 {
 
 
 .control-label {
-
     font-size:9px;
-
     color:#d6b27c;
-
     margin-bottom:12px;
 }
 
@@ -262,12 +237,12 @@ h1 {
 /* SELL US YOUR GAMES BUTTON */
 
 .sell-games-button {
-
     position:absolute;
 
     right:10px;
 
-    bottom:24px;
+    /* MOVED UP TOWARD VOLUME KNOB */
+    bottom:42px;
 
     width:44px;
 
@@ -314,7 +289,6 @@ h1 {
 
 
 .sell-games-button:active {
-
     transform:translateY(2px);
 
     box-shadow:
@@ -326,7 +300,6 @@ h1 {
 /* SPEAKER */
 
 .speaker-grille {
-
     position:absolute;
 
     right:80px;
@@ -364,7 +337,6 @@ h1 {
 /* LOGO */
 
 .tv-logo-badge {
-
     position:absolute;
 
     right:80px;
@@ -389,7 +361,6 @@ h1 {
 /* POWER OFF */
 
 .tv-screen.off {
-
     background:
         radial-gradient(
             ellipse at center,
@@ -414,9 +385,7 @@ h1 {
 /* SELL COLLECTION MESSAGE */
 
 .sell-message {
-
     width:85%;
-
     max-width:650px;
 
     margin:40px auto;
@@ -436,7 +405,6 @@ h1 {
 
 
 .sell-message h2 {
-
     margin:0 0 10px;
 
     color:#00d9ff;
@@ -448,18 +416,14 @@ h1 {
 
 
 .sell-message p {
-
     margin:0;
-
 }
 
 
 /* VISITOR COUNTER */
 
 .visitor-counter {
-
     width:85%;
-
     max-width:650px;
 
     margin:40px auto;
@@ -488,39 +452,28 @@ h1 {
 
 
 .visitor-title {
-
     font-size:14px;
-
     letter-spacing:4px;
-
     color:#d6b27c;
-
     margin-bottom:10px;
 }
 
 
 .visitor-subtitle {
-
     font-size:11px;
-
     letter-spacing:3px;
-
     color:#777;
-
     margin-bottom:8px;
 }
 
 
 .visitor-display {
-
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     min-width:180px;
-
     min-height:58px;
 
     padding:8px 14px;
@@ -545,16 +498,12 @@ h1 {
 }
 
 
-/* COUNTERAPI VALUE */
-
 #counterapi-source {
-
     position:absolute;
 
     left:-9999px;
 
     width:1px;
-
     height:1px;
 
     overflow:hidden;
@@ -562,7 +511,6 @@ h1 {
 
 
 .visitor-footer {
-
     margin-top:10px;
 
     font-size:9px;
@@ -592,13 +540,9 @@ footer {
     }
 
     .tv-screen {
-
         width:65%;
-
         height:230px;
-
         padding:25px 10px;
-
         border-radius:24px;
     }
 
@@ -612,78 +556,56 @@ footer {
     }
 
     .tv-logo-badge {
-
         width:48px;
-
         right:67px;
-
         bottom:14px;
     }
 
     .speaker-grille {
-
         width:38px;
-
         height:108px;
-
         right:67px;
-
         bottom:64px;
     }
 
     .sell-games-button {
-
         width:40px;
-
         min-height:44px;
 
         right:8px;
 
-        bottom:18px;
+        /* MOVED UP TOWARD VOLUME KNOB */
+        bottom:34px;
 
         font-size:6px;
-
         letter-spacing:.2px;
     }
 
     .sell-message {
-
         width:85%;
-
         padding:15px;
-
         font-size:14px;
-
         margin-top:35px;
     }
 
     .sell-message h2 {
-
         font-size:18px;
-
         letter-spacing:1.5px;
     }
 
     .visitor-counter {
-
         width:85%;
-
         padding:16px;
     }
 
     .visitor-title {
-
         font-size:11px;
-
         letter-spacing:3px;
     }
 
     .visitor-display {
-
         font-size:22px;
-
         min-width:150px;
-
         letter-spacing:4px;
     }
 
@@ -794,8 +716,6 @@ VOLUME
 
 
 
-<!-- SELL COLLECTION MESSAGE -->
-
 <div class="sell-message">
 
     <h2>
@@ -811,8 +731,6 @@ VOLUME
 </div>
 
 
-
-<!-- VISITOR COUNTER -->
 
 <div class="visitor-counter">
 
@@ -858,20 +776,14 @@ VOLUME
 
 
 
-<!-- YOUR WORKING SCRIPT -->
-
 <script src="script.js"></script>
 
-
-<!-- COUNTERAPI -->
 
 <script
     src="https://counterapi.com/c.js?ns=retroreminder.com"
     async
 ></script>
 
-
-<!-- SAFE COUNTER DISPLAY -->
 
 <script>
 
