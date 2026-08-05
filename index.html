@@ -10,6 +10,7 @@
 
 body {
     margin:0;
+
     background:
         radial-gradient(
             circle at center,
@@ -17,6 +18,7 @@ body {
             #15191d 55%,
             #090b0d 100%
         );
+
     color:white;
     font-family:Arial, sans-serif;
     text-align:center;
@@ -36,11 +38,15 @@ h1 {
 /* TV CABINET */
 
 .crt {
-    margin:40px auto;
+    margin:140px auto 40px;
+
     width:90%;
     max-width:650px;
+
     box-sizing:border-box;
+
     padding:30px;
+
     position:relative;
 
     background:linear-gradient(
@@ -51,6 +57,7 @@ h1 {
     );
 
     border:12px solid #222;
+
     border-radius:15px;
 
     box-shadow:
@@ -65,9 +72,11 @@ h1 {
     position:absolute;
 
     top:-105px;
+
     left:50%;
 
     width:130px;
+
     height:112px;
 
     transform:translateX(-50%);
@@ -84,9 +93,11 @@ h1 {
     position:absolute;
 
     bottom:0;
+
     left:50%;
 
     width:32px;
+
     height:20px;
 
     transform:translateX(-50%);
@@ -119,6 +130,7 @@ h1 {
     bottom:12px;
 
     width:6px;
+
     height:95px;
 
     border-radius:5px;
@@ -141,6 +153,7 @@ h1 {
 /* LEFT ROD */
 
 .antenna-left {
+
     left:50%;
 
     transform:
@@ -154,6 +167,7 @@ h1 {
 /* RIGHT ROD */
 
 .antenna-right {
+
     right:50%;
 
     transform:
@@ -178,6 +192,7 @@ h1 {
     left:50%;
 
     width:9px;
+
     height:9px;
 
     transform:translateX(-50%);
@@ -200,6 +215,7 @@ h1 {
 /* CRT SCREEN */
 
 .tv-screen {
+
     position:relative;
 
     background:
@@ -214,6 +230,7 @@ h1 {
     border-radius:28px;
 
     width:75%;
+
     height:260px;
 
     box-sizing:border-box;
@@ -236,8 +253,11 @@ h1 {
     cursor:pointer;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 }
 
@@ -245,12 +265,19 @@ h1 {
 /* CRT REFLECTION */
 
 .tv-screen::before {
+
     content:"";
+
     position:absolute;
+
     top:8px;
+
     left:12px;
+
     right:12px;
+
     height:35%;
+
     border-radius:25px;
 
     background:
@@ -261,6 +288,7 @@ h1 {
         );
 
     pointer-events:none;
+
     z-index:5;
 }
 
@@ -268,28 +296,38 @@ h1 {
 /* SCREEN EDGE */
 
 .tv-screen::after {
+
     content:"";
+
     position:absolute;
+
     inset:0;
+
     border-radius:28px;
 
     box-shadow:
         inset 0 0 18px rgba(0,0,0,.8);
 
     pointer-events:none;
+
     z-index:6;
 }
 
 
 .tv-screen h2 {
+
     color:#00d9ff;
+
     letter-spacing:5px;
+
     margin:5px 0;
 }
 
 
 .blink {
+
     margin-top:20px;
+
     color:#00d9ff;
 
     text-shadow:
@@ -315,15 +353,21 @@ h1 {
 /* CONTROLS */
 
 .tv-controls {
+
     position:absolute;
+
     right:10px;
+
     top:50%;
+
     transform:translateY(-50%);
+
     z-index:10;
 }
 
 
 .control-button {
+
     background:
         radial-gradient(
             circle at 35% 30%,
@@ -339,6 +383,7 @@ h1 {
     border-radius:50%;
 
     width:38px;
+
     height:38px;
 
     cursor:pointer;
@@ -359,8 +404,11 @@ h1 {
 
 
 .control-label {
+
     font-size:9px;
+
     color:#d6b27c;
+
     margin-bottom:12px;
 }
 
@@ -368,6 +416,7 @@ h1 {
 /* SELL US YOUR GAMES BUTTON */
 
 .sell-games-button {
+
     position:absolute;
 
     right:10px;
@@ -419,6 +468,7 @@ h1 {
 
 
 .sell-games-button:active {
+
     transform:translateY(2px);
 
     box-shadow:
@@ -430,6 +480,7 @@ h1 {
 /* SPEAKER */
 
 .speaker-grille {
+
     position:absolute;
 
     right:80px;
@@ -467,6 +518,7 @@ h1 {
 /* LOGO */
 
 .tv-logo-badge {
+
     position:absolute;
 
     right:80px;
@@ -491,6 +543,7 @@ h1 {
 /* POWER OFF */
 
 .tv-screen.off {
+
     background:
         radial-gradient(
             ellipse at center,
@@ -515,7 +568,9 @@ h1 {
 /* VISITOR COUNTER */
 
 .visitor-counter {
+
     width:85%;
+
     max-width:650px;
 
     margin:40px auto;
@@ -544,28 +599,39 @@ h1 {
 
 
 .visitor-title {
+
     font-size:14px;
+
     letter-spacing:4px;
+
     color:#d6b27c;
+
     margin-bottom:10px;
 }
 
 
 .visitor-subtitle {
+
     font-size:11px;
+
     letter-spacing:3px;
+
     color:#777;
+
     margin-bottom:8px;
 }
 
 
 .visitor-display {
+
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     min-width:180px;
+
     min-height:58px;
 
     padding:8px 14px;
@@ -591,11 +657,13 @@ h1 {
 
 
 #counterapi-source {
+
     position:absolute;
 
     left:-9999px;
 
     width:1px;
+
     height:1px;
 
     overflow:hidden;
@@ -603,6 +671,7 @@ h1 {
 
 
 .visitor-footer {
+
     margin-top:10px;
 
     font-size:9px;
@@ -614,7 +683,9 @@ h1 {
 
 
 footer {
+
     margin-top:40px;
+
     color:#777;
 }
 
@@ -853,19 +924,27 @@ footer {
 @media(max-width:600px){
 
     .crt {
+
         width:85%;
-        margin-top:60px;
+
+        margin-top:115px;
     }
 
     .tv-screen {
+
         width:65%;
+
         height:230px;
+
         padding:25px 10px;
+
         border-radius:24px;
     }
 
     .tv-screen h2 {
+
         font-size:20px;
+
         letter-spacing:2px;
     }
 
@@ -874,50 +953,74 @@ footer {
     }
 
     .tv-logo-badge {
+
         width:48px;
+
         right:67px;
+
         bottom:14px;
     }
 
     .speaker-grille {
+
         width:38px;
+
         height:108px;
+
         right:67px;
+
         bottom:64px;
     }
 
     .sell-games-button {
+
         width:40px;
+
         min-height:44px;
+
         right:8px;
+
         bottom:18px;
+
         font-size:6px;
+
         letter-spacing:.2px;
     }
 
     .visitor-counter {
+
         width:85%;
+
         padding:16px;
     }
 
     .visitor-title {
+
         font-size:11px;
+
         letter-spacing:3px;
     }
 
     .visitor-display {
+
         font-size:22px;
+
         min-width:150px;
+
         letter-spacing:4px;
     }
 
     .sell-form {
+
         padding:18px;
+
         border-width:6px;
     }
 
     .sell-form h2 {
+
         font-size:20px;
+
         letter-spacing:2px;
     }
 
@@ -925,19 +1028,26 @@ footer {
     /* LONGER MOBILE ANTENNAS */
 
     .antennas {
+
         top:-92px;
+
         width:105px;
+
         height:98px;
     }
 
     .antenna-left,
     .antenna-right {
+
         height:82px;
+
         width:5px;
     }
 
     .antenna-base {
+
         width:28px;
+
         height:17px;
     }
 
@@ -1071,7 +1181,11 @@ VOLUME
     </div>
 
     <div class="visitor-display">
-        <span id="visitor-number">00000</span>
+
+        <span id="visitor-number">
+            00000
+        </span>
+
     </div>
 
     <div
@@ -1407,61 +1521,86 @@ function closeSellForm() {
 
 document
     .getElementById("sell-form-overlay")
-    .addEventListener("click", function(event) {
+    .addEventListener(
+        "click",
+        function(event) {
 
-        if (event.target === this) {
+            if (event.target === this) {
 
-            closeSellForm();
+                closeSellForm();
+
+            }
 
         }
-
-    });
+    );
 
 
 document
     .getElementById("collection-form")
-    .addEventListener("submit", async function(event) {
+    .addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const form = this;
+            const form = this;
 
-        const submitButton =
-            form.querySelector(".sell-submit");
+            const submitButton =
+                form.querySelector(".sell-submit");
 
-        submitButton.disabled = true;
+            submitButton.disabled = true;
 
-        submitButton.textContent = "SENDING...";
+            submitButton.textContent =
+                "SENDING...";
 
 
-        try {
+            try {
 
-            const response =
-                await fetch(
-                    form.action,
-                    {
-                        method:"POST",
-                        body:new FormData(form),
-                        headers:{
-                            "Accept":"application/json"
+                const response =
+                    await fetch(
+                        form.action,
+                        {
+                            method:"POST",
+
+                            body:new FormData(form),
+
+                            headers:{
+                                "Accept":"application/json"
+                            }
                         }
-                    }
-                );
+                    );
 
 
-            if (response.ok) {
+                if (response.ok) {
 
-                document
-                    .getElementById("sell-form-content")
-                    .style.display = "none";
+                    document
+                        .getElementById(
+                            "sell-form-content"
+                        )
+                        .style.display = "none";
 
-                document
-                    .getElementById("sell-thank-you")
-                    .style.display = "block";
+                    document
+                        .getElementById(
+                            "sell-thank-you"
+                        )
+                        .style.display = "block";
 
-                form.reset();
+                    form.reset();
 
-            } else {
+                } else {
+
+                    submitButton.disabled = false;
+
+                    submitButton.textContent =
+                        "SEND INQUIRY";
+
+                    alert(
+                        "Something went wrong sending your inquiry. Please try again."
+                    );
+
+                }
+
+            } catch(error) {
 
                 submitButton.disabled = false;
 
@@ -1469,25 +1608,13 @@ document
                     "SEND INQUIRY";
 
                 alert(
-                    "Something went wrong sending your inquiry. Please try again."
+                    "We couldn't send the form. Please try again."
                 );
 
             }
 
-        } catch(error) {
-
-            submitButton.disabled = false;
-
-            submitButton.textContent =
-                "SEND INQUIRY";
-
-            alert(
-                "We couldn't send the form. Please try again."
-            );
-
         }
-
-    });
+    );
 
 
 </script>
