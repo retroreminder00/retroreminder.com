@@ -377,9 +377,9 @@ h1 {
 }
 
 
-/* MISSION */
+/* 90s VISITOR COUNTER */
 
-.mission {
+.visitor-counter {
 
     width:85%;
 
@@ -387,31 +387,99 @@ h1 {
 
     margin:40px auto;
 
-    padding:25px;
+    padding:20px;
 
     box-sizing:border-box;
 
-    background:rgba(0,0,0,.55);
+    background:
+        linear-gradient(
+            180deg,
+            #242424 0%,
+            #111 100%
+        );
 
-    border:2px solid #444;
+    border:4px ridge #777;
 
-    border-radius:15px;
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,.9),
+        0 4px 10px rgba(0,0,0,.6);
+
+    font-family:"Courier New", monospace;
+
+    color:#39ff14;
 }
 
 
-.mission h2 {
-    color:#00d9ff;
+.visitor-title {
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    color:#d6b27c;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 5px rgba(214,178,124,.5);
 }
 
 
-.mission p {
-    line-height:1.6;
-    color:#ddd;
+.visitor-subtitle {
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    color:#777;
+
+    margin-bottom:8px;
 }
 
+
+#visitor-count {
+
+    display:inline-block;
+
+    min-width:180px;
+
+    padding:8px 14px;
+
+    background:#050505;
+
+    border:3px inset #555;
+
+    color:#39ff14;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    text-shadow:
+        0 0 5px #39ff14,
+        0 0 12px rgba(57,255,20,.5);
+
+}
+
+
+.visitor-footer {
+
+    margin-top:10px;
+
+    font-size:9px;
+
+    color:#555;
+
+    letter-spacing:2px;
+}
+
+
+/* FOOTER */
 
 footer {
-    margin-top:60px;
+    margin-top:40px;
     color:#777;
 }
 
@@ -479,6 +547,35 @@ footer {
         right:67px;
 
         bottom:64px;
+
+    }
+
+
+    /* MOBILE COUNTER */
+
+    .visitor-counter {
+
+        width:85%;
+
+        padding:16px;
+
+    }
+
+    .visitor-title {
+
+        font-size:11px;
+
+        letter-spacing:3px;
+
+    }
+
+    #visitor-count {
+
+        font-size:22px;
+
+        min-width:150px;
+
+        letter-spacing:4px;
 
     }
 
@@ -579,19 +676,25 @@ VOLUME
 
 
 
-<div class="mission">
+<!-- 90s VISITOR COUNTER -->
 
-<h2>
-The Retro Reminder Mission
-</h2>
+<div class="visitor-counter">
 
-<p>
-Preserving the memories behind classic video games — one cartridge, one console, and one story at a time.
-</p>
+    <div class="visitor-title">
+        RETRO REMINDER
+    </div>
 
-<p>
-From childhood favorites to forgotten gems, Retro Reminder celebrates the games that brought friends and families together.
-</p>
+    <div class="visitor-subtitle">
+        YOU ARE VISITOR NUMBER
+    </div>
+
+    <div id="visitor-count">
+        000000
+    </div>
+
+    <div class="visitor-footer">
+        THANKS FOR STOPPING BY
+    </div>
 
 </div>
 
@@ -606,6 +709,29 @@ From childhood favorites to forgotten gems, Retro Reminder celebrates the games 
 
 
 <script src="script.js"></script>
+
+
+<!-- VISITOR COUNTER -->
+
+<script>
+
+function updateVisitorCount(response) {
+
+    let count = response.value;
+
+    let formattedCount = String(count).padStart(6, "0");
+
+    document.getElementById("visitor-count").textContent =
+        formattedCount;
+}
+
+</script>
+
+
+<script
+    async
+    src="https://counterapi.com/api/retroreminder.com/view/homepage?callback=updateVisitorCount"
+></script>
 
 
 </body>
