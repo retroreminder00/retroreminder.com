@@ -32,8 +32,105 @@ const channels = [
 ];
 
 let currentChannel = 0;
+let tvOn = false;
+let volumeLevel = 2;
+
+
+/* POWER */
+
+function toggleTV() {
+
+    const screen = document.querySelector(".tv-screen");
+
+    if (!tvOn) {
+
+        tvOn = true;
+
+        screen.classList.remove("off");
+
+        screen.onclick = null;
+
+        /* CRT STATIC STARTUP */
+
+        screen.innerHTML = `
+            <div style="
+                width:100%;
+                height:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                color:#00d9ff;
+                font-family:monospace;
+                font-size:18px;
+                letter-spacing:4px;
+                text-shadow:0 0 6px #00d9ff;
+            ">
+                POWERING UP
+            </div>
+        `;
+
+        screen.style.background = `
+            repeating-radial-gradient(
+                circle at 50% 50%,
+                #ffffff 0px,
+                #777777 1px,
+                #111111 2px,
+                #eeeeee 3px,
+                #333333 4px
+            )
+        `;
+
+        setTimeout(function() {
+
+            screen.style.background = `
+                radial-gradient(
+                    ellipse at center,
+                    #777 0%,
+                    #555 45%,
+                    #333 78%,
+                    #1b1b1b 100%
+                )
+            `;
+
+            screen.innerHTML = `
+                <h2>RETRO REMINDER</h2>
+
+                <div class="boot-text">
+                    CLASSIC GAME COLLECTION
+                </div>
+
+                <p class="blink">
+                    ▶ SELECT CHANNEL
+                </p>
+            `;
+
+        }, 700);
+
+    } else {
+
+        tvOn = false;
+
+        screen.classList.add("off");
+
+        screen.innerHTML = "";
+
+        screen.onclick = null;
+
+        screen.style.background = "#111";
+
+    }
+}
+
+
+/* CHANNEL */
 
 function changeChannel() {
+
+    /* DO NOTHING IF TV IS OFF */
+
+    if (!tvOn) {
+        return;
+    }
 
     currentChannel++;
 
@@ -46,10 +143,12 @@ function changeChannel() {
     const screen = document.querySelector(".tv-screen");
 
     /* KEEP SCREEN SIZE */
+
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
     /* HIDE CURRENT CONTENT */
+
     const screenContents = screen.querySelectorAll("*");
 
     screenContents.forEach(function(element) {
@@ -57,6 +156,7 @@ function changeChannel() {
     });
 
     /* TV STATIC */
+
     screen.style.background = `
         repeating-radial-gradient(
             circle at 50% 50%,
@@ -69,6 +169,7 @@ function changeChannel() {
     `;
 
     /* SHOW NEW CHANNEL */
+
     setTimeout(function() {
 
         screen.style.background = `
@@ -128,10 +229,17 @@ function changeChannel() {
                 </div>
 
                 <div style="
-                    color:#8b5cf6;
+                    color:#fff4d6;
                     font-size:12px;
+                    font-weight:bold;
                     letter-spacing:3px;
                     margin-top:8px;
+                    text-shadow:
+                        -1px -1px 0 #111,
+                         1px -1px 0 #111,
+                        -1px  1px 0 #111,
+                         1px  1px 0 #111,
+                         0 0 5px rgba(0,0,0,.9);
                 ">
                     NOW PLAYING
                 </div>
@@ -161,4 +269,49 @@ function changeChannel() {
         };
 
     }, 250);
+}
+
+
+/* VOLUME */
+
+function changeVolume() {
+
+    if (!tvOn) {
+        return;
+    }
+
+    volumeLevel++;
+
+    if (volumeLevel > 4) {
+        volumeLevel = 1;
+    }
+
+    const screen = document.querySelector(".tv-screen");
+
+    const volumeMessage = document.createElement("div");
+
+    volumeMessage.innerHTML = `
+        VOLUME ${volumeLevel}
+    `;
+
+    volumeMessage.style.position = "absolute";
+    volumeMessage.style.bottom = "12px";
+    volumeMessage.style.right = "12px";
+    volumeMessage.style.padding = "5px 8px";
+    volumeMessage.style.background = "rgba(0,0,0,.75)";
+    volumeMessage.style.color = "#fff4d6";
+    volumeMessage.style.fontFamily = "monospace";
+    volumeMessage.style.fontSize = "12px";
+    volumeMessage.style.fontWeight = "bold";
+    volumeMessage.style.letterSpacing = "2px";
+    volumeMessage.style.textShadow = "0 1px 2px #000";
+    volumeMessage.style.zIndex = "20";
+
+    screen.appendChild(volumeMessage);
+
+    setTimeout(function() {
+
+        volumeMessage.remove();
+
+    }, 900);
 }
