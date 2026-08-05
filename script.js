@@ -31,12 +31,21 @@ const channels = [
     }
 ];
 
+const volumeVideos = [
+    "tYHdM_qW7q4",
+    "n37MYCyQSJA",
+    "tYf6tDuVeu4",
+    "-u_64Sjf4_M",
+    "T_exc1RBc8s"
+];
+
 let currentChannel = 0;
+let currentVideo = 0;
 let tvIsOn = false;
 
 
 /* =========================================
-   POWER BUTTON
+   POWER
 ========================================= */
 
 window.toggleTV = function () {
@@ -47,9 +56,7 @@ window.toggleTV = function () {
         return;
     }
 
-    /* TV IS CURRENTLY OFF */
-
-    if (screen.classList.contains("off")) {
+    if (!tvIsOn) {
 
         tvIsOn = true;
 
@@ -77,46 +84,41 @@ window.toggleTV = function () {
 
         screen.onclick = null;
 
-        return;
+    } else {
+
+        tvIsOn = false;
+
+        screen.classList.add("off");
+
+        screen.style.background = `
+            radial-gradient(
+                ellipse at center,
+                #191919 0%,
+                #101010 60%,
+                #080808 100%
+            )
+        `;
+
+        screen.innerHTML = `
+            <h2>
+                RETRO REMINDER
+            </h2>
+
+            <p class="blink">
+                ▶ PRESS POWER
+            </p>
+        `;
+
+        screen.onclick = null;
     }
-
-
-    /* TV IS CURRENTLY ON */
-
-    tvIsOn = false;
-
-    screen.classList.add("off");
-
-    screen.style.background = `
-        radial-gradient(
-            ellipse at center,
-            #191919 0%,
-            #101010 60%,
-            #080808 100%
-        )
-    `;
-
-    screen.innerHTML = `
-        <h2>
-            RETRO REMINDER
-        </h2>
-
-        <p class="blink">
-            ▶ PRESS POWER
-        </p>
-    `;
-
-    screen.onclick = null;
 };
 
 
 /* =========================================
-   CHANNEL BUTTON
+   CHANNEL
 ========================================= */
 
 window.changeChannel = function () {
-
-    /* DO NOTHING IF TV IS OFF */
 
     if (!tvIsOn) {
         return;
@@ -136,14 +138,8 @@ window.changeChannel = function () {
         return;
     }
 
-
-    /* KEEP SCREEN SIZE */
-
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
-
-
-    /* TV STATIC */
 
     screen.style.background = `
         repeating-radial-gradient(
@@ -155,9 +151,6 @@ window.changeChannel = function () {
             #333333 4px
         )
     `;
-
-
-    /* STATIC TRANSITION */
 
     setTimeout(function () {
 
@@ -175,9 +168,7 @@ window.changeChannel = function () {
             )
         `;
 
-
         screen.innerHTML = `
-
             <div style="
                 width:100%;
                 height:100%;
@@ -202,7 +193,6 @@ window.changeChannel = function () {
                     CH ${channel.number}
                 </div>
 
-
                 <img
                     src="${channel.logo}"
                     alt="${channel.name} logo"
@@ -214,7 +204,6 @@ window.changeChannel = function () {
                     "
                 >
 
-
                 <div style="
                     color:#00d9ff;
                     font-size:21px;
@@ -225,7 +214,6 @@ window.changeChannel = function () {
                     ${channel.name}
                 </div>
 
-
                 <div style="
                     color:#ffffff;
                     font-size:12px;
@@ -233,7 +221,6 @@ window.changeChannel = function () {
                 ">
                     RETRO REMINDER
                 </div>
-
 
                 <div style="
                     color:#00d9ff;
@@ -247,14 +234,8 @@ window.changeChannel = function () {
             </div>
         `;
 
-
         screen.onclick = function () {
-
-            window.open(
-                channel.url,
-                "_blank"
-            );
-
+            window.open(channel.url, "_blank");
         };
 
     }, 250);
@@ -262,45 +243,10 @@ window.changeChannel = function () {
 
 
 /* =========================================
-   VOLUME BUTTON
-   PLACEHOLDER FOR VIDEO FEATURE
+   VOLUME / VIDEOS
 ========================================= */
 
 window.changeVolume = function () {
-
-    if (!tvIsOn) {
-        return;
-    }
-
-    /*
-
-    VIDEO FEATURE WILL GO HERE.
-
-    For now the button intentionally does
-    nothing so we don't disturb the TV.
-
-    */
-
-};
-```javascript
-/* =========================================
-   RETRO REMINDER VOLUME VIDEOS
-========================================= */
-
-const volumeVideos = [
-    "tYHdM_qW7q4",
-    "n37MYCyQSJA",
-    "tYf6tDuVeu4",
-    "-u_64Sjf4_M",
-    "T_exc1RBc8s"
-];
-
-let currentVideo = 0;
-
-
-window.changeVolume = function () {
-
-    /* TV MUST BE ON */
 
     if (!tvIsOn) {
         return;
@@ -320,9 +266,6 @@ window.changeVolume = function () {
         currentVideo = 0;
     }
 
-
-    /* STATIC TRANSITION */
-
     screen.style.background = `
         repeating-radial-gradient(
             circle at 50% 50%,
@@ -334,7 +277,6 @@ window.changeVolume = function () {
         )
     `;
 
-
     setTimeout(function () {
 
         if (!tvIsOn) {
@@ -343,36 +285,20 @@ window.changeVolume = function () {
 
         screen.style.background = "#111";
 
-
         screen.innerHTML = `
-
             <iframe
-
                 src="https://www.youtube.com/embed/${videoID}?autoplay=1&playsinline=1&rel=0"
-
                 style="
                     width:100%;
                     height:100%;
                     border:0;
                     display:block;
                 "
-
                 title="Retro Reminder Video"
-
-                allow="
-                    autoplay;
-                    encrypted-media;
-                    picture-in-picture;
-                    web-share
-                "
-
+                allow="autoplay; encrypted-media; picture-in-picture"
                 allowfullscreen>
-
             </iframe>
-
         `;
 
     }, 250);
 };
-```
-
