@@ -282,3 +282,97 @@ window.changeVolume = function () {
     */
 
 };
+```javascript
+/* =========================================
+   RETRO REMINDER VOLUME VIDEOS
+========================================= */
+
+const volumeVideos = [
+    "tYHdM_qW7q4",
+    "n37MYCyQSJA",
+    "tYf6tDuVeu4",
+    "-u_64Sjf4_M",
+    "T_exc1RBc8s"
+];
+
+let currentVideo = 0;
+
+
+window.changeVolume = function () {
+
+    /* TV MUST BE ON */
+
+    if (!tvIsOn) {
+        return;
+    }
+
+    const screen = document.querySelector(".tv-screen");
+
+    if (!screen) {
+        return;
+    }
+
+    const videoID = volumeVideos[currentVideo];
+
+    currentVideo++;
+
+    if (currentVideo >= volumeVideos.length) {
+        currentVideo = 0;
+    }
+
+
+    /* STATIC TRANSITION */
+
+    screen.style.background = `
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            #ffffff 0px,
+            #777777 1px,
+            #111111 2px,
+            #eeeeee 3px,
+            #333333 4px
+        )
+    `;
+
+
+    setTimeout(function () {
+
+        if (!tvIsOn) {
+            return;
+        }
+
+        screen.style.background = "#111";
+
+
+        screen.innerHTML = `
+
+            <iframe
+
+                src="https://www.youtube.com/embed/${videoID}?autoplay=1&playsinline=1&rel=0"
+
+                style="
+                    width:100%;
+                    height:100%;
+                    border:0;
+                    display:block;
+                "
+
+                title="Retro Reminder Video"
+
+                allow="
+                    autoplay;
+                    encrypted-media;
+                    picture-in-picture;
+                    web-share
+                "
+
+                allowfullscreen>
+
+            </iframe>
+
+        `;
+
+    }, 250);
+};
+```
+
