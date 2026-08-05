@@ -1,4 +1,3 @@
-```javascript
 const channels = [
     {
         number: "03",
@@ -33,8 +32,73 @@ const channels = [
 ];
 
 let currentChannel = 0;
+let tvIsOn = false;
+
+
+/* POWER BUTTON */
+
+function toggleTV() {
+
+    const screen = document.querySelector(".tv-screen");
+
+    if (!tvIsOn) {
+
+        tvIsOn = true;
+
+        screen.classList.remove("off");
+
+        screen.style.background = `
+            radial-gradient(
+                ellipse at center,
+                #777 0%,
+                #555 45%,
+                #333 78%,
+                #1b1b1b 100%
+            )
+        `;
+
+        screen.innerHTML = `
+            <h2>
+                PRESS START
+            </h2>
+
+            <p class="blink">
+                ▶ INSERT CARTRIDGE
+            </p>
+        `;
+
+        screen.onclick = null;
+
+    } else {
+
+        tvIsOn = false;
+
+        screen.classList.add("off");
+
+        screen.innerHTML = `
+            <h2>
+                RETRO REMINDER
+            </h2>
+
+            <p class="blink">
+                ▶ PRESS POWER
+            </p>
+        `;
+
+        screen.onclick = null;
+    }
+}
+
+
+/* CHANNEL BUTTON */
 
 function changeChannel() {
+
+    /* TV MUST BE ON */
+
+    if (!tvIsOn) {
+        return;
+    }
 
     currentChannel++;
 
@@ -47,10 +111,12 @@ function changeChannel() {
     const screen = document.querySelector(".tv-screen");
 
     /* KEEP SCREEN SIZE */
+
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
     /* HIDE CURRENT CONTENT */
+
     const screenContents = screen.querySelectorAll("*");
 
     screenContents.forEach(function(element) {
@@ -58,6 +124,7 @@ function changeChannel() {
     });
 
     /* TV STATIC */
+
     screen.style.background = `
         repeating-radial-gradient(
             circle at 50% 50%,
@@ -70,7 +137,12 @@ function changeChannel() {
     `;
 
     /* SHOW NEW CHANNEL */
+
     setTimeout(function() {
+
+        if (!tvIsOn) {
+            return;
+        }
 
         screen.style.background = `
             radial-gradient(
@@ -154,4 +226,19 @@ function changeChannel() {
 
     }, 250);
 }
-```
+
+
+/* VOLUME BUTTON */
+/*
+   We'll build the video system here next.
+   For now, clicking volume does nothing.
+*/
+
+function changeVolume() {
+
+    if (!tvIsOn) {
+        return;
+    }
+
+}
+
