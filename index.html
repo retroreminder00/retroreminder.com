@@ -771,6 +771,51 @@ setTimeout(formatVisitorCount, 2000);
 
 </script>
 
+<script>
 
-</body>
+document.getElementById("power-button").addEventListener("click", function() {
+
+    const screen = document.querySelector(".tv-screen");
+
+    if (!screen) return;
+
+    if (screen.classList.contains("off")) {
+
+        screen.classList.remove("off");
+
+        screen.style.background = `
+            radial-gradient(
+                ellipse at center,
+                #777 0%,
+                #555 45%,
+                #333 78%,
+                #1b1b1b 100%
+            )
+        `;
+
+        screen.innerHTML = `
+            <h2>PRESS START</h2>
+
+            <p class="blink">
+                ▶ INSERT CARTRIDGE
+            </p>
+        `;
+
+    } else {
+
+        screen.classList.add("off");
+
+        screen.innerHTML = `
+            <h2>RETRO REMINDER</h2>
+
+            <p class="blink">
+                ▶ PRESS POWER
+            </p>
+        `;
+
+    }
+
+});
+
+</script></body>
 </html>
