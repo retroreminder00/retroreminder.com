@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 
 body {
     margin:0;
+
     background:
         radial-gradient(
             circle at center,
@@ -17,6 +19,7 @@ body {
             #15191d 55%,
             #090b0d 100%
         );
+
     color:white;
     font-family:Arial, sans-serif;
     text-align:center;
@@ -65,7 +68,7 @@ h1 {
 }
 
 
-/* CURVED CRT GLASS */
+/* CRT SCREEN */
 
 .tv-screen {
 
@@ -86,6 +89,7 @@ h1 {
     height:260px;
 
     box-sizing:border-box;
+
     padding:30px 15px;
 
     border:8px solid #181818;
@@ -98,7 +102,9 @@ h1 {
     margin-right:70px;
 
     overflow:hidden;
+
     transition:.3s;
+
     cursor:pointer;
 
     display:flex;
@@ -132,6 +138,7 @@ h1 {
         );
 
     pointer-events:none;
+
     z-index:5;
 }
 
@@ -152,6 +159,7 @@ h1 {
         inset 0 0 18px rgba(0,0,0,.8);
 
     pointer-events:none;
+
     z-index:6;
 }
 
@@ -196,6 +204,7 @@ h1 {
     position:absolute;
 
     right:10px;
+
     top:50%;
 
     transform:translateY(-50%);
@@ -226,6 +235,7 @@ h1 {
     cursor:pointer;
 
     display:block;
+
     margin:auto;
 
     box-shadow:
@@ -242,21 +252,25 @@ h1 {
 .control-label {
 
     font-size:9px;
+
     color:#d6b27c;
+
     margin-bottom:12px;
 }
 
 
-/* SPEAKER GRILLE */
+/* SPEAKER */
 
 .speaker-grille {
 
     position:absolute;
 
     right:80px;
+
     bottom:92px;
 
     width:48px;
+
     height:153px;
 
     border-radius:6px;
@@ -290,9 +304,11 @@ h1 {
     position:absolute;
 
     right:80px;
+
     bottom:22px;
 
     width:65px;
+
     height:auto;
 
     display:block;
@@ -301,6 +317,7 @@ h1 {
         drop-shadow(1px 2px 2px rgba(0,0,0,.75));
 
     pointer-events:none;
+
     z-index:3;
 }
 
@@ -335,9 +352,11 @@ h1 {
 .visitor-counter {
 
     width:85%;
+
     max-width:650px;
 
     margin:40px auto;
+
     padding:20px;
 
     box-sizing:border-box;
@@ -364,20 +383,19 @@ h1 {
 .visitor-title {
 
     font-size:14px;
+
     letter-spacing:4px;
 
     color:#d6b27c;
 
     margin-bottom:10px;
-
-    text-shadow:
-        0 0 5px rgba(214,178,124,.5);
 }
 
 
 .visitor-subtitle {
 
     font-size:11px;
+
     letter-spacing:3px;
 
     color:#777;
@@ -386,14 +404,16 @@ h1 {
 }
 
 
-#visitor-count {
+.visitor-display {
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     min-width:180px;
+
     min-height:58px;
 
     padding:8px 14px;
@@ -407,6 +427,7 @@ h1 {
     color:#39ff14;
 
     font-size:28px;
+
     font-weight:bold;
 
     letter-spacing:5px;
@@ -417,18 +438,33 @@ h1 {
 }
 
 
+/* COUNTERAPI VALUE */
+
+#counterapi-source {
+
+    position:absolute;
+
+    left:-9999px;
+
+    width:1px;
+
+    height:1px;
+
+    overflow:hidden;
+}
+
+
 .visitor-footer {
 
     margin-top:10px;
 
     font-size:9px;
+
     color:#555;
 
     letter-spacing:2px;
 }
 
-
-/* FOOTER */
 
 footer {
     margin-top:40px;
@@ -451,6 +487,7 @@ footer {
     .tv-screen {
 
         width:65%;
+
         height:230px;
 
         padding:25px 10px;
@@ -472,34 +509,41 @@ footer {
         width:48px;
 
         right:67px;
+
         bottom:14px;
     }
 
     .speaker-grille {
 
         width:38px;
+
         height:108px;
 
         right:67px;
+
         bottom:64px;
     }
 
     .visitor-counter {
 
         width:85%;
+
         padding:16px;
     }
 
     .visitor-title {
 
         font-size:11px;
+
         letter-spacing:3px;
     }
 
-    #visitor-count {
+    .visitor-display {
 
         font-size:22px;
+
         min-width:150px;
+
         letter-spacing:4px;
     }
 
@@ -545,7 +589,7 @@ RETRO REMINDER
 
 <button
     type="button"
-    id="power-button"
+    onclick="toggleTV()"
     class="control-button"
 >
 ●
@@ -611,8 +655,14 @@ VOLUME
         YOU ARE VISITOR NUMBER
     </div>
 
+    <div class="visitor-display">
+        <span id="visitor-number">00000</span>
+    </div>
+
+    <!-- CounterAPI runs invisibly and keeps the actual count -->
+
     <div
-        id="visitor-count"
+        id="counterapi-source"
         class="counterapi"
         ns="retroreminder.com"
         action="view"
@@ -622,7 +672,7 @@ VOLUME
         noLink="true"
         noFormatting="true"
     >
-        00000
+        0
     </div>
 
     <div class="visitor-footer">
@@ -641,6 +691,8 @@ VOLUME
 
 
 
+<!-- YOUR WORKING SCRIPT -->
+
 <script src="script.js"></script>
 
 
@@ -653,169 +705,48 @@ VOLUME
 
 
 <!--
-POWER BUTTON SAFETY NET
+SAFE COUNTER DISPLAY
 
-This is deliberately here so the power button
-continues to work independently of CounterAPI.
+This checks the CounterAPI value periodically.
+It does NOT observe or modify the same element
+that it is watching, so it cannot create a loop.
 -->
 
 <script>
 
-window.toggleTV = function() {
+function updateVisitorNumber() {
 
-    const screen = document.querySelector(".tv-screen");
+    const source = document.getElementById("counterapi-source");
+    const display = document.getElementById("visitor-number");
 
-    if (!screen) {
+    if (!source || !display) {
         return;
     }
 
-    if (screen.classList.contains("off")) {
+    const number = source.textContent.replace(/\D/g, "");
 
-        screen.classList.remove("off");
+    if (number) {
 
-        screen.style.background = `
-            radial-gradient(
-                ellipse at center,
-                #777 0%,
-                #555 45%,
-                #333 78%,
-                #1b1b1b 100%
-            )
-        `;
+        display.textContent =
+            number.padStart(5, "0");
 
-        screen.innerHTML = `
-            <h2>
-                PRESS START
-            </h2>
-
-            <p class="blink">
-                ▶ INSERT CARTRIDGE
-            </p>
-        `;
-
-        screen.onclick = null;
-
-    } else {
-
-        screen.classList.add("off");
-
-        screen.innerHTML = `
-            <h2>
-                RETRO REMINDER
-            </h2>
-
-            <p class="blink">
-                ▶ PRESS POWER
-            </p>
-        `;
-
-        screen.onclick = null;
     }
-};
-
-
-/*
-MAKE COUNTER LOOK LIKE AN OLD-SCHOOL
-5-DIGIT COUNTER
-
-CounterAPI still handles the actual count.
-*/
-
-function formatVisitorCount() {
-
-    const counter = document.getElementById("visitor-count");
-
-    if (!counter) {
-        return;
-    }
-
-    let digits = counter.textContent.replace(/\D/g, "");
-
-    if (!digits) {
-        return;
-    }
-
-    digits = digits.padStart(5, "0");
-
-    counter.textContent = digits;
 }
 
 
 /*
-Watch CounterAPI while it loads/updates.
+Check occasionally for the value returned by CounterAPI.
 */
 
-const counterObserver = new MutationObserver(function() {
+setInterval(updateVisitorNumber, 1000);
 
-    formatVisitorCount();
-
-});
-
-counterObserver.observe(
-    document.getElementById("visitor-count"),
-    {
-        childList:true,
-        subtree:true,
-        characterData:true
-    }
-);
-
-
-/*
-Give CounterAPI a moment to load.
-*/
-
-setTimeout(formatVisitorCount, 500);
-setTimeout(formatVisitorCount, 1000);
-setTimeout(formatVisitorCount, 2000);
+setTimeout(updateVisitorNumber, 500);
+setTimeout(updateVisitorNumber, 2000);
+setTimeout(updateVisitorNumber, 4000);
 
 </script>
 
-<script>
 
-document.getElementById("power-button").addEventListener("click", function() {
-
-    const screen = document.querySelector(".tv-screen");
-
-    if (!screen) return;
-
-    if (screen.classList.contains("off")) {
-
-        screen.classList.remove("off");
-
-        screen.style.background = `
-            radial-gradient(
-                ellipse at center,
-                #777 0%,
-                #555 45%,
-                #333 78%,
-                #1b1b1b 100%
-            )
-        `;
-
-        screen.innerHTML = `
-            <h2>PRESS START</h2>
-
-            <p class="blink">
-                ▶ INSERT CARTRIDGE
-            </p>
-        `;
-
-    } else {
-
-        screen.classList.add("off");
-
-        screen.innerHTML = `
-            <h2>RETRO REMINDER</h2>
-
-            <p class="blink">
-                ▶ PRESS POWER
-            </p>
-        `;
-
-    }
-
-});
-
-</script></body>
+</body>
 </html>
+```
