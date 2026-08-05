@@ -1,4 +1,3 @@
-```javascript
 const channels = [
     {
         number: "03",
@@ -37,10 +36,10 @@ let tvIsOn = false;
 
 
 /* =========================================
-   POWER
+   POWER BUTTON
 ========================================= */
 
-window.toggleTV = function() {
+window.toggleTV = function () {
 
     const screen = document.querySelector(".tv-screen");
 
@@ -48,9 +47,9 @@ window.toggleTV = function() {
         return;
     }
 
-    if (screen.classList.contains("off")) {
+    /* TV IS CURRENTLY OFF */
 
-        /* TURN TV ON */
+    if (screen.classList.contains("off")) {
 
         tvIsOn = true;
 
@@ -78,34 +77,46 @@ window.toggleTV = function() {
 
         screen.onclick = null;
 
-    } else {
-
-        /* TURN TV OFF */
-
-        tvIsOn = false;
-
-        screen.classList.add("off");
-
-        screen.innerHTML = `
-            <h2>
-                RETRO REMINDER
-            </h2>
-
-            <p class="blink">
-                ▶ PRESS POWER
-            </p>
-        `;
-
-        screen.onclick = null;
+        return;
     }
+
+
+    /* TV IS CURRENTLY ON */
+
+    tvIsOn = false;
+
+    screen.classList.add("off");
+
+    screen.style.background = `
+        radial-gradient(
+            ellipse at center,
+            #191919 0%,
+            #101010 60%,
+            #080808 100%
+        )
+    `;
+
+    screen.innerHTML = `
+        <h2>
+            RETRO REMINDER
+        </h2>
+
+        <p class="blink">
+            ▶ PRESS POWER
+        </p>
+    `;
+
+    screen.onclick = null;
 };
 
 
 /* =========================================
-   CHANNEL
+   CHANNEL BUTTON
 ========================================= */
 
-window.changeChannel = function() {
+window.changeChannel = function () {
+
+    /* DO NOTHING IF TV IS OFF */
 
     if (!tvIsOn) {
         return;
@@ -125,10 +136,12 @@ window.changeChannel = function() {
         return;
     }
 
+
     /* KEEP SCREEN SIZE */
 
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
+
 
     /* TV STATIC */
 
@@ -143,17 +156,10 @@ window.changeChannel = function() {
         )
     `;
 
-    /* HIDE CONTENT */
 
-    const screenContents = screen.querySelectorAll("*");
+    /* STATIC TRANSITION */
 
-    screenContents.forEach(function(element) {
-        element.style.opacity = "0";
-    });
-
-    /* SHOW CHANNEL */
-
-    setTimeout(function() {
+    setTimeout(function () {
 
         if (!tvIsOn) {
             return;
@@ -169,7 +175,9 @@ window.changeChannel = function() {
             )
         `;
 
+
         screen.innerHTML = `
+
             <div style="
                 width:100%;
                 height:100%;
@@ -194,6 +202,7 @@ window.changeChannel = function() {
                     CH ${channel.number}
                 </div>
 
+
                 <img
                     src="${channel.logo}"
                     alt="${channel.name} logo"
@@ -205,6 +214,7 @@ window.changeChannel = function() {
                     "
                 >
 
+
                 <div style="
                     color:#00d9ff;
                     font-size:21px;
@@ -215,6 +225,7 @@ window.changeChannel = function() {
                     ${channel.name}
                 </div>
 
+
                 <div style="
                     color:#ffffff;
                     font-size:12px;
@@ -222,6 +233,7 @@ window.changeChannel = function() {
                 ">
                     RETRO REMINDER
                 </div>
+
 
                 <div style="
                     color:#00d9ff;
@@ -235,8 +247,14 @@ window.changeChannel = function() {
             </div>
         `;
 
-        screen.onclick = function() {
-            window.open(channel.url, "_blank");
+
+        screen.onclick = function () {
+
+            window.open(
+                channel.url,
+                "_blank"
+            );
+
         };
 
     }, 250);
@@ -244,15 +262,23 @@ window.changeChannel = function() {
 
 
 /* =========================================
-   VOLUME
-   Placeholder until we add your videos
+   VOLUME BUTTON
+   PLACEHOLDER FOR VIDEO FEATURE
 ========================================= */
 
-window.changeVolume = function() {
+window.changeVolume = function () {
 
     if (!tvIsOn) {
         return;
     }
 
+    /*
+
+    VIDEO FEATURE WILL GO HERE.
+
+    For now the button intentionally does
+    nothing so we don't disturb the TV.
+
+    */
+
 };
-```
