@@ -1,3 +1,4 @@
+```javascript
 const channels = [
     {
         number: "03",
@@ -31,119 +32,9 @@ const channels = [
     }
 ];
 
-
-/* RETRO REMINDER VIDEOS */
-
-const videos = [
-    "video1.mp4",
-    "video2.mp4",
-    "video3.mp4"
-];
-
-
 let currentChannel = 0;
-let currentVideo = 0;
-let tvOn = false;
-
-
-/* POWER */
-
-function toggleTV() {
-
-    const screen = document.querySelector(".tv-screen");
-
-    if (!tvOn) {
-
-        tvOn = true;
-
-        screen.classList.remove("off");
-
-        screen.onclick = null;
-
-        screen.style.background = `
-            repeating-radial-gradient(
-                circle at 50% 50%,
-                #ffffff 0px,
-                #777777 1px,
-                #111111 2px,
-                #eeeeee 3px,
-                #333333 4px
-            )
-        `;
-
-        screen.innerHTML = `
-            <div style="
-                width:100%;
-                height:100%;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#00d9ff;
-                font-family:monospace;
-                font-size:18px;
-                letter-spacing:4px;
-                text-shadow:0 0 6px #00d9ff;
-            ">
-                POWERING UP
-            </div>
-        `;
-
-        setTimeout(function() {
-
-            screen.style.background = `
-                radial-gradient(
-                    ellipse at center,
-                    #777 0%,
-                    #555 45%,
-                    #333 78%,
-                    #1b1b1b 100%
-                )
-            `;
-
-            screen.innerHTML = `
-                <h2>RETRO REMINDER</h2>
-
-                <div class="boot-text">
-                    CLASSIC GAME COLLECTION
-                </div>
-
-                <p class="blink">
-                    ▶ SELECT CHANNEL
-                </p>
-            `;
-
-        }, 700);
-
-    } else {
-
-        tvOn = false;
-
-        const video = screen.querySelector("video");
-
-        if (video) {
-            video.pause();
-            video.removeAttribute("src");
-            video.load();
-        }
-
-        screen.classList.add("off");
-
-        screen.innerHTML = "";
-
-        screen.onclick = null;
-
-        screen.style.background = "#111";
-    }
-}
-
-
-/* CHANNEL */
 
 function changeChannel() {
-
-    if (!tvOn) {
-        return;
-    }
 
     currentChannel++;
 
@@ -155,15 +46,18 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
+    /* KEEP SCREEN SIZE */
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
-    const currentVideoElement = screen.querySelector("video");
+    /* HIDE CURRENT CONTENT */
+    const screenContents = screen.querySelectorAll("*");
 
-    if (currentVideoElement) {
-        currentVideoElement.pause();
-    }
+    screenContents.forEach(function(element) {
+        element.style.opacity = "0";
+    });
 
+    /* TV STATIC */
     screen.style.background = `
         repeating-radial-gradient(
             circle at 50% 50%,
@@ -175,8 +69,7 @@ function changeChannel() {
         )
     `;
 
-    screen.innerHTML = "";
-
+    /* SHOW NEW CHANNEL */
     setTimeout(function() {
 
         screen.style.background = `
@@ -236,25 +129,9 @@ function changeChannel() {
                 </div>
 
                 <div style="
-                    color:#fff4d6;
-                    font-size:12px;
-                    font-weight:bold;
-                    letter-spacing:3px;
-                    margin-top:8px;
-                    text-shadow:
-                        -1px -1px 0 #111,
-                         1px -1px 0 #111,
-                        -1px  1px 0 #111,
-                         1px  1px 0 #111,
-                         0 0 5px rgba(0,0,0,.9);
-                ">
-                    NOW PLAYING
-                </div>
-
-                <div style="
                     color:#ffffff;
                     font-size:12px;
-                    margin-top:5px;
+                    margin-top:8px;
                 ">
                     RETRO REMINDER
                 </div>
@@ -277,56 +154,4 @@ function changeChannel() {
 
     }, 250);
 }
-
-
-/* VOLUME = VIDEO BUTTON */
-
-function changeVolume() {
-
-    if (!tvOn) {
-        return;
-    }
-
-    const screen = document.querySelector(".tv-screen");
-
-    const oldVideo = screen.querySelector("video");
-
-    if (oldVideo) {
-        oldVideo.pause();
-    }
-
-    const videoFile = videos[currentVideo];
-
-    currentVideo++;
-
-    if (currentVideo >= videos.length) {
-        currentVideo = 0;
-    }
-
-    screen.onclick = null;
-
-    screen.style.background = "#000";
-
-    screen.innerHTML = `
-        <video
-            autoplay
-            playsinline
-            style="
-                width:100%;
-                height:100%;
-                object-fit:cover;
-                display:block;
-            "
-        >
-            <source src="${videoFile}" type="video/mp4">
-        </video>
-    `;
-
-    const video = screen.querySelector("video");
-
-    video.volume = 1;
-
-    video.play().catch(function() {
-        video.controls = true;
-    });
-}
+```
