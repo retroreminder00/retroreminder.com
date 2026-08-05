@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -240,7 +241,6 @@ h1 {
 
     right:10px;
 
-    /* RESTORED TO PREVIOUS POSITION */
     bottom:24px;
 
     width:44px;
@@ -488,6 +488,258 @@ footer {
 }
 
 
+/* ============================= */
+/* SELL YOUR GAMES FORM          */
+/* ============================= */
+
+.sell-form-overlay {
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    z-index:1000;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    overflow-y:auto;
+
+}
+
+
+.sell-form-overlay.active {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.sell-form {
+
+    width:100%;
+
+    max-width:520px;
+
+    box-sizing:border-box;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #3a3a38 0%,
+            #202020 100%
+        );
+
+    border:8px solid #222;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.9),
+        inset 0 0 15px rgba(255,255,255,.08);
+
+    text-align:left;
+
+    position:relative;
+
+}
+
+
+.sell-form h2 {
+
+    text-align:center;
+
+    color:#00d9ff;
+
+    font-family:"Courier New", monospace;
+
+    letter-spacing:3px;
+
+    margin:0 0 8px;
+
+}
+
+
+.sell-form-intro {
+
+    text-align:center;
+
+    color:#ccc;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    margin:0 0 20px;
+
+}
+
+
+.sell-form label {
+
+    display:block;
+
+    color:#d6b27c;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin:12px 0 5px;
+
+}
+
+
+.sell-form input,
+.sell-form textarea,
+.sell-form select {
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:10px;
+
+    background:#111;
+
+    color:white;
+
+    border:2px solid #555;
+
+    border-radius:4px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+}
+
+
+.sell-form input:focus,
+.sell-form textarea:focus,
+.sell-form select:focus {
+
+    outline:none;
+
+    border-color:#00d9ff;
+
+    box-shadow:0 0 6px rgba(0,217,255,.35);
+
+}
+
+
+.sell-form textarea {
+
+    min-height:100px;
+
+    resize:vertical;
+
+}
+
+
+.sell-form-buttons {
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+
+.sell-submit,
+.sell-cancel {
+
+    flex:1;
+
+    padding:12px 8px;
+
+    border-radius:4px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.sell-submit {
+
+    background:#00d9ff;
+
+    color:#111;
+
+    border:2px solid #00a8c7;
+
+}
+
+
+.sell-cancel {
+
+    background:#444;
+
+    color:#fff;
+
+    border:2px solid #666;
+
+}
+
+
+.sell-submit:hover {
+
+    background:#39e4ff;
+
+}
+
+
+.sell-cancel:hover {
+
+    background:#555;
+
+}
+
+
+.sell-thank-you {
+
+    display:none;
+
+    text-align:center;
+
+    padding:25px 5px;
+
+}
+
+
+.sell-thank-you h2 {
+
+    color:#39ff14;
+
+}
+
+
+.sell-thank-you p {
+
+    color:#ddd;
+
+    line-height:1.6;
+
+}
+
+
 /* MOBILE */
 
 @media(max-width:600px){
@@ -532,12 +784,8 @@ footer {
     .sell-games-button {
         width:40px;
         min-height:44px;
-
         right:8px;
-
-        /* RESTORED TO PREVIOUS POSITION */
         bottom:18px;
-
         font-size:6px;
         letter-spacing:.2px;
     }
@@ -556,6 +804,16 @@ footer {
         font-size:22px;
         min-width:150px;
         letter-spacing:4px;
+    }
+
+    .sell-form {
+        padding:18px;
+        border-width:6px;
+    }
+
+    .sell-form h2 {
+        font-size:20px;
+        letter-spacing:2px;
     }
 
 }
@@ -643,6 +901,7 @@ VOLUME
 <button
     type="button"
     class="sell-games-button"
+    onclick="openSellForm()"
 >
     SELL<br>
     US<br>
@@ -711,8 +970,235 @@ VOLUME
 
 
 
+<!-- ============================= -->
+<!-- SELL YOUR GAMES FORM          -->
+<!-- ============================= -->
+
+<div
+    id="sell-form-overlay"
+    class="sell-form-overlay"
+>
+
+
+<div class="sell-form">
+
+
+<div id="sell-form-content">
+
+<h2>
+SELL US YOUR GAMES
+</h2>
+
+
+<p class="sell-form-intro">
+
+We buy video game collections large and small from all over the world.
+
+Whether you have a few games or an entire collection,
+we'd love to hear from you.
+
+Don't hesitate to ask us questions!
+
+</p>
+
+
+<form
+    action="https://formspree.io/f/xljreplq"
+    method="POST"
+    id="collection-form"
+>
+
+
+<input
+    type="hidden"
+    name="_subject"
+    value="New Retro Reminder Collection Inquiry"
+/>
+
+
+<label for="name">
+NAME
+</label>
+
+<input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Your name"
+    required
+>
+
+
+<label for="email">
+EMAIL
+</label>
+
+<input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="you@example.com"
+    required
+>
+
+
+<label for="phone">
+PHONE
+</label>
+
+<input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="Optional"
+>
+
+
+<label for="location">
+WHERE ARE YOU LOCATED?
+</label>
+
+<input
+    type="text"
+    id="location"
+    name="location"
+    placeholder="City / State / Country"
+>
+
+
+<label for="collection-size">
+HOW BIG IS YOUR COLLECTION?
+</label>
+
+<select
+    id="collection-size"
+    name="collection_size"
+>
+
+<option value="">
+Select one
+</option>
+
+<option value="A few games">
+A few games
+</option>
+
+<option value="10-50 games">
+10–50 games
+</option>
+
+<option value="50-100 games">
+50–100 games
+</option>
+
+<option value="100-500 games">
+100–500 games
+</option>
+
+<option value="500+ games">
+500+ games
+</option>
+
+<option value="Entire collection">
+My entire collection
+</option>
+
+<option value="Not sure">
+I'm not sure
+</option>
+
+</select>
+
+
+<label for="collection">
+TELL US ABOUT YOUR GAMES
+</label>
+
+<textarea
+    id="collection"
+    name="collection"
+    placeholder="Systems, games, condition, accessories, boxes, etc."
+></textarea>
+
+
+<label for="message">
+ANYTHING ELSE YOU'D LIKE US TO KNOW?
+</label>
+
+<textarea
+    id="message"
+    name="message"
+    placeholder="Questions, special items, anything else..."
+></textarea>
+
+
+<div class="sell-form-buttons">
+
+
+<button
+    type="button"
+    class="sell-cancel"
+    onclick="closeSellForm()"
+>
+    CANCEL
+</button>
+
+
+<button
+    type="submit"
+    class="sell-submit"
+>
+    SEND INQUIRY
+</button>
+
+
+</div>
+
+
+</form>
+
+</div>
+
+
+<div
+    id="sell-thank-you"
+    class="sell-thank-you"
+>
+
+<h2>
+THANK YOU!
+</h2>
+
+<p>
+Your collection inquiry has been sent to Retro Reminder.
+
+We'll take a look and get back to you.
+
+</p>
+
+<button
+    type="button"
+    class="sell-cancel"
+    onclick="closeSellForm()"
+>
+CLOSE
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- YOUR WORKING SCRIPT -->
+
 <script src="script.js"></script>
 
+
+<!-- COUNTERAPI -->
 
 <script
     src="https://counterapi.com/c.js?ns=retroreminder.com"
@@ -720,18 +1206,27 @@ VOLUME
 ></script>
 
 
+
 <script>
+
+/* ============================= */
+/* VISITOR COUNTER                */
+/* ============================= */
 
 function updateVisitorNumber() {
 
-    const source = document.getElementById("counterapi-source");
-    const display = document.getElementById("visitor-number");
+    const source =
+        document.getElementById("counterapi-source");
+
+    const display =
+        document.getElementById("visitor-number");
 
     if (!source || !display) {
         return;
     }
 
-    const number = source.textContent.replace(/\D/g, "");
+    const number =
+        source.textContent.replace(/\D/g, "");
 
     if (number) {
 
@@ -739,18 +1234,140 @@ function updateVisitorNumber() {
             number.padStart(5, "0");
 
     }
+
 }
 
 
 setInterval(updateVisitorNumber, 1000);
 
 setTimeout(updateVisitorNumber, 500);
+
 setTimeout(updateVisitorNumber, 2000);
+
 setTimeout(updateVisitorNumber, 4000);
+
+
+
+/* ============================= */
+/* SELL YOUR GAMES FORM           */
+/* ============================= */
+
+function openSellForm() {
+
+    const overlay =
+        document.getElementById("sell-form-overlay");
+
+    overlay.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeSellForm() {
+
+    const overlay =
+        document.getElementById("sell-form-overlay");
+
+    overlay.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* Close if visitor clicks outside the form */
+
+document
+    .getElementById("sell-form-overlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closeSellForm();
+
+        }
+
+    });
+
+
+/* Submit form without leaving the Retro Reminder site */
+
+document
+    .getElementById("collection-form")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const form = this;
+
+        const submitButton =
+            form.querySelector(".sell-submit");
+
+        submitButton.disabled = true;
+
+        submitButton.textContent = "SENDING...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    form.action,
+                    {
+                        method:"POST",
+                        body:new FormData(form),
+                        headers:{
+                            "Accept":"application/json"
+                        }
+                    }
+                );
+
+
+            if (response.ok) {
+
+                document
+                    .getElementById("sell-form-content")
+                    .style.display = "none";
+
+                document
+                    .getElementById("sell-thank-you")
+                    .style.display = "block";
+
+                form.reset();
+
+            } else {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "SEND INQUIRY";
+
+                alert(
+                    "Something went wrong sending your inquiry. Please try again."
+                );
+
+            }
+
+        } catch(error) {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "SEND INQUIRY";
+
+            alert(
+                "We couldn't send the form. Please try again."
+            );
+
+        }
+
+    });
+
 
 </script>
 
 
 </body>
 </html>
-
+```
