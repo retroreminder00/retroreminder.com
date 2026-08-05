@@ -73,14 +73,14 @@ window.toggleTV = function () {
         `;
 
         screen.innerHTML = `
-            <h2>
-                PRESS START
-            </h2>
+    <h2>
+        CHANGE CHANNEL
+    </h2>
 
-            <p class="blink">
-                ▶ INSERT CARTRIDGE
-            </p>
-        `;
+    <p class="blink">
+        ▶ TURN CHANNEL KNOB
+    </p>
+`;
 
         screen.onclick = null;
 
