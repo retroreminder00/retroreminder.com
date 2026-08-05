@@ -31,9 +31,19 @@ const channels = [
     }
 ];
 
+
+/* RETRO REMINDER VIDEOS */
+
+const videos = [
+    "video1.mp4",
+    "video2.mp4",
+    "video3.mp4"
+];
+
+
 let currentChannel = 0;
+let currentVideo = 0;
 let tvOn = false;
-let volumeLevel = 2;
 
 
 /* POWER */
@@ -50,7 +60,16 @@ function toggleTV() {
 
         screen.onclick = null;
 
-        /* CRT STATIC STARTUP */
+        screen.style.background = `
+            repeating-radial-gradient(
+                circle at 50% 50%,
+                #ffffff 0px,
+                #777777 1px,
+                #111111 2px,
+                #eeeeee 3px,
+                #333333 4px
+            )
+        `;
 
         screen.innerHTML = `
             <div style="
@@ -67,17 +86,6 @@ function toggleTV() {
             ">
                 POWERING UP
             </div>
-        `;
-
-        screen.style.background = `
-            repeating-radial-gradient(
-                circle at 50% 50%,
-                #ffffff 0px,
-                #777777 1px,
-                #111111 2px,
-                #eeeeee 3px,
-                #333333 4px
-            )
         `;
 
         setTimeout(function() {
@@ -110,6 +118,14 @@ function toggleTV() {
 
         tvOn = false;
 
+        const video = screen.querySelector("video");
+
+        if (video) {
+            video.pause();
+            video.removeAttribute("src");
+            video.load();
+        }
+
         screen.classList.add("off");
 
         screen.innerHTML = "";
@@ -117,7 +133,6 @@ function toggleTV() {
         screen.onclick = null;
 
         screen.style.background = "#111";
-
     }
 }
 
@@ -125,8 +140,6 @@ function toggleTV() {
 /* CHANNEL */
 
 function changeChannel() {
-
-    /* DO NOTHING IF TV IS OFF */
 
     if (!tvOn) {
         return;
@@ -142,20 +155,14 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
-    /* KEEP SCREEN SIZE */
-
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
 
-    /* HIDE CURRENT CONTENT */
+    const currentVideoElement = screen.querySelector("video");
 
-    const screenContents = screen.querySelectorAll("*");
-
-    screenContents.forEach(function(element) {
-        element.style.opacity = "0";
-    });
-
-    /* TV STATIC */
+    if (currentVideoElement) {
+        currentVideoElement.pause();
+    }
 
     screen.style.background = `
         repeating-radial-gradient(
@@ -168,7 +175,7 @@ function changeChannel() {
         )
     `;
 
-    /* SHOW NEW CHANNEL */
+    screen.innerHTML = "";
 
     setTimeout(function() {
 
@@ -272,7 +279,7 @@ function changeChannel() {
 }
 
 
-/* VOLUME */
+/* VOLUME = VIDEO BUTTON */
 
 function changeVolume() {
 
@@ -280,38 +287,46 @@ function changeVolume() {
         return;
     }
 
-    volumeLevel++;
-
-    if (volumeLevel > 4) {
-        volumeLevel = 1;
-    }
-
     const screen = document.querySelector(".tv-screen");
 
-    const volumeMessage = document.createElement("div");
+    const oldVideo = screen.querySelector("video");
 
-    volumeMessage.innerHTML = `
-        VOLUME ${volumeLevel}
+    if (oldVideo) {
+        oldVideo.pause();
+    }
+
+    const videoFile = videos[currentVideo];
+
+    currentVideo++;
+
+    if (currentVideo >= videos.length) {
+        currentVideo = 0;
+    }
+
+    screen.onclick = null;
+
+    screen.style.background = "#000";
+
+    screen.innerHTML = `
+        <video
+            autoplay
+            playsinline
+            style="
+                width:100%;
+                height:100%;
+                object-fit:cover;
+                display:block;
+            "
+        >
+            <source src="${videoFile}" type="video/mp4">
+        </video>
     `;
 
-    volumeMessage.style.position = "absolute";
-    volumeMessage.style.bottom = "12px";
-    volumeMessage.style.right = "12px";
-    volumeMessage.style.padding = "5px 8px";
-    volumeMessage.style.background = "rgba(0,0,0,.75)";
-    volumeMessage.style.color = "#fff4d6";
-    volumeMessage.style.fontFamily = "monospace";
-    volumeMessage.style.fontSize = "12px";
-    volumeMessage.style.fontWeight = "bold";
-    volumeMessage.style.letterSpacing = "2px";
-    volumeMessage.style.textShadow = "0 1px 2px #000";
-    volumeMessage.style.zIndex = "20";
+    const video = screen.querySelector("video");
 
-    screen.appendChild(volumeMessage);
+    video.volume = 1;
 
-    setTimeout(function() {
-
-        volumeMessage.remove();
-
-    }, 900);
+    video.play().catch(function() {
+        video.controls = true;
+    });
 }
