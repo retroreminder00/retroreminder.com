@@ -1,3 +1,4 @@
+```javascript
 const channels = [
     {
         number: "03",
@@ -35,13 +36,21 @@ let currentChannel = 0;
 let tvIsOn = false;
 
 
-/* POWER BUTTON */
+/* =========================================
+   POWER
+========================================= */
 
-function toggleTV() {
+window.toggleTV = function() {
 
     const screen = document.querySelector(".tv-screen");
 
-    if (!tvIsOn) {
+    if (!screen) {
+        return;
+    }
+
+    if (screen.classList.contains("off")) {
+
+        /* TURN TV ON */
 
         tvIsOn = true;
 
@@ -71,6 +80,8 @@ function toggleTV() {
 
     } else {
 
+        /* TURN TV OFF */
+
         tvIsOn = false;
 
         screen.classList.add("off");
@@ -87,14 +98,14 @@ function toggleTV() {
 
         screen.onclick = null;
     }
-}
+};
 
 
-/* CHANNEL BUTTON */
+/* =========================================
+   CHANNEL
+========================================= */
 
-function changeChannel() {
-
-    /* TV MUST BE ON */
+window.changeChannel = function() {
 
     if (!tvIsOn) {
         return;
@@ -110,18 +121,14 @@ function changeChannel() {
 
     const screen = document.querySelector(".tv-screen");
 
+    if (!screen) {
+        return;
+    }
+
     /* KEEP SCREEN SIZE */
 
     screen.style.boxSizing = "border-box";
     screen.style.height = screen.offsetHeight + "px";
-
-    /* HIDE CURRENT CONTENT */
-
-    const screenContents = screen.querySelectorAll("*");
-
-    screenContents.forEach(function(element) {
-        element.style.opacity = "0";
-    });
 
     /* TV STATIC */
 
@@ -136,7 +143,15 @@ function changeChannel() {
         )
     `;
 
-    /* SHOW NEW CHANNEL */
+    /* HIDE CONTENT */
+
+    const screenContents = screen.querySelectorAll("*");
+
+    screenContents.forEach(function(element) {
+        element.style.opacity = "0";
+    });
+
+    /* SHOW CHANNEL */
 
     setTimeout(function() {
 
@@ -225,20 +240,19 @@ function changeChannel() {
         };
 
     }, 250);
-}
+};
 
 
-/* VOLUME BUTTON */
-/*
-   We'll build the video system here next.
-   For now, clicking volume does nothing.
-*/
+/* =========================================
+   VOLUME
+   Placeholder until we add your videos
+========================================= */
 
-function changeVolume() {
+window.changeVolume = function() {
 
     if (!tvIsOn) {
         return;
     }
 
-}
-
+};
+```
