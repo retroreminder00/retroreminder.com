@@ -73,14 +73,14 @@ window.toggleTV = function () {
         `;
 
         screen.innerHTML = `
-    <h2>
-        CHANGE CHANNEL
-    </h2>
+            <h2>
+                CHANGE CHANNEL
+            </h2>
 
-    <p class="blink">
-        ▶ TURN CHANNEL KNOB
-    </p>
-`;
+            <p class="blink">
+                ▶ TURN CHANNEL KNOB
+            </p>
+        `;
 
         screen.onclick = null;
 
@@ -234,8 +234,14 @@ window.changeChannel = function () {
             </div>
         `;
 
+        /*
+         * Open the selected channel in the same browser tab.
+         * This creates a normal browser history entry so
+         * the Back button returns visitors to Retro Reminder.
+         */
+
         screen.onclick = function () {
-            window.open(channel.url, "_blank");
+            window.location.href = channel.url;
         };
 
     }, 250);
