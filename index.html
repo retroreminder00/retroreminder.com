@@ -29,14 +29,6 @@ body {
 
     min-height:100vh;
 
-    background:
-        radial-gradient(
-            ellipse at center top,
-            #302b27 0%,
-            #1c1a18 45%,
-            #0b0b0b 100%
-        );
-
     color:white;
 
     font-family:Arial,sans-serif;
@@ -44,6 +36,105 @@ body {
     text-align:center;
 
     overflow-x:hidden;
+
+    /*
+     * 1980s WOOD-PANELED ROOM
+     */
+
+    background:
+
+        /*
+         * Subtle overall room shading
+         */
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.22),
+            transparent 18%,
+            transparent 82%,
+            rgba(0,0,0,.28)
+        ),
+
+        /*
+         * Vertical wood-panel seams
+         */
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 92px,
+            rgba(35,17,8,.72) 93px,
+            rgba(20,9,4,.9) 96px,
+            rgba(90,47,25,.45) 99px,
+            transparent 102px,
+            transparent 185px
+        ),
+
+        /*
+         * Faux wood grain
+         */
+
+        repeating-linear-gradient(
+            7deg,
+            rgba(75,37,19,.28) 0px,
+            rgba(75,37,19,.28) 3px,
+            transparent 3px,
+            transparent 17px,
+            rgba(35,15,7,.18) 18px,
+            transparent 21px,
+            transparent 34px
+        ),
+
+        /*
+         * Broad vertical panel variation
+         */
+
+        linear-gradient(
+            90deg,
+            #4b2918 0%,
+            #6a3c22 10%,
+            #583019 21%,
+            #704326 32%,
+            #4d2815 43%,
+            #683b21 54%,
+            #522a17 65%,
+            #704126 76%,
+            #4c2815 88%,
+            #5f341d 100%
+        );
+}
+
+
+/* =========================================
+   TOP WALL LIGHTING
+========================================= */
+
+body::before {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255,220,170,.13),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.04),
+            transparent 35%,
+            rgba(0,0,0,.2) 100%
+        );
 }
 
 
@@ -128,6 +219,40 @@ body {
 
 
 /* =========================================
+   WALL / CARPET TRIM
+========================================= */
+
+.carpet::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:0;
+
+    height:10px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #2a160b 0%,
+            #5c341d 35%,
+            #31180b 70%,
+            #160a05 100%
+        );
+
+    box-shadow:
+        0 -2px 4px rgba(0,0,0,.45),
+        0 3px 5px rgba(0,0,0,.45);
+}
+
+
+/* =========================================
    TV CABINET
 ========================================= */
 
@@ -141,13 +266,9 @@ body {
 
     max-width:650px;
 
-    /*
-       The cabinet itself ends at the top
-       of the lower base.
-    */
-    min-height:433px;
+    min-height:505px;
 
-    padding:28px 28px 18px;
+    padding:28px 28px 88px;
 
     background:
 
@@ -164,7 +285,7 @@ body {
 
     border:10px solid #1b110b;
 
-    border-radius:18px 18px 0 0;
+    border-radius:18px 18px 13px 13px;
 
     box-shadow:
 
@@ -217,11 +338,11 @@ body {
 
     position:absolute;
 
-    left:0;
+    left:8%;
 
-    right:0;
+    right:8%;
 
-    bottom:-72px;
+    bottom:0;
 
     height:72px;
 
@@ -244,9 +365,7 @@ body {
 
         inset 0 3px 4px rgba(255,255,255,.08),
 
-        inset 0 -8px 12px rgba(0,0,0,.45),
-
-        0 8px 12px rgba(0,0,0,.6);
+        inset 0 -8px 12px rgba(0,0,0,.45);
 }
 
 
@@ -941,7 +1060,7 @@ body {
 
 
 /* =========================================
-   TV LOGO
+   TV LOGO / BEZEL BADGE
 ========================================= */
 
 .tv-badge {
@@ -975,20 +1094,21 @@ body {
 
 /* =========================================
    SELL BUTTON
-   NOW INTEGRATED INTO CONTROL PANEL
 ========================================= */
 
 .sell-games-button {
 
-    position:relative;
+    position:absolute;
 
-    width:82px;
+    right:18px;
 
-    min-height:42px;
+    bottom:88px;
 
-    margin-top:10px;
+    width:68px;
 
-    padding:5px 4px;
+    min-height:46px;
+
+    padding:5px 3px;
 
     background:
 
@@ -1026,19 +1146,13 @@ body {
 
     cursor:pointer;
 
-    flex-shrink:0;
+    z-index:10;
 }
 
 
 .sell-games-button:active {
 
     transform:translateY(2px);
-
-    box-shadow:
-
-        0 1px 2px rgba(0,0,0,.7),
-
-        inset 0 1px 2px rgba(0,0,0,.5);
 }
 
 
@@ -1474,9 +1588,9 @@ footer {
 
         width:85%;
 
-        min-height:385px;
+        min-height:445px;
 
-        padding:22px 18px 18px;
+        padding:22px 18px 75px;
     }
 
 
@@ -1584,11 +1698,13 @@ footer {
 
     .sell-games-button {
 
+        right:8px;
+
+        bottom:74px;
+
         width:58px;
 
-        min-height:40px;
-
-        margin-top:8px;
+        min-height:42px;
 
         font-size:5.5px;
     }
@@ -1598,7 +1714,9 @@ footer {
 
         height:60px;
 
-        bottom:-60px;
+        left:9%;
+
+        right:9%;
     }
 
 
@@ -1738,6 +1856,17 @@ footer {
 </div>
 
 
+<!-- LOWER BASE -->
+
+<div class="tv-base">
+
+    <div class="tv-foot left"></div>
+
+    <div class="tv-foot right"></div>
+
+</div>
+
+
 <!-- TV FRONT -->
 
 <div class="tv-front">
@@ -1831,7 +1960,13 @@ footer {
 </div>
 
 
-<!-- SELL GAMES NOW PART OF CONTROL PANEL -->
+</div>
+
+
+</div>
+
+
+<!-- SELL GAMES -->
 
 <button
     type="button"
@@ -1843,23 +1978,6 @@ footer {
     YOUR<br>
     GAMES
 </button>
-
-
-</div>
-
-
-</div>
-
-
-<!-- LOWER TV BASE -->
-
-<div class="tv-base">
-
-    <div class="tv-foot left"></div>
-
-    <div class="tv-foot right"></div>
-
-</div>
 
 
 </div>
