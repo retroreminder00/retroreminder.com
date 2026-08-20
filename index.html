@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,76 +11,217 @@
 
 <style>
 
+/* =========================================
+   PAGE
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+
     margin:0;
+
+    min-height:100vh;
 
     background:
         radial-gradient(
-            circle at center,
-            #252b30 0%,
-            #15191d 55%,
-            #090b0d 100%
+            ellipse at center top,
+            #3a332b 0%,
+            #211e1a 38%,
+            #11100f 75%,
+            #080808 100%
         );
 
-    color:white;
+    color:#fff;
+
     font-family:Arial, sans-serif;
+
     text-align:center;
-    min-height:100vh;
+
+    overflow-x:hidden;
 }
+
+
+/* =========================================
+   HEADER
+========================================= */
 
 header {
-    padding:5px 20px 0;
+
+    height:1px;
+
+    padding:0;
+
 }
 
-.logo,
-h1 {
-    display:none;
-}
 
+/* =========================================
+   TV STAGE
+========================================= */
 
-/* TV CABINET */
-
-.crt {
-    margin:140px auto 40px;
-
-    width:90%;
-    max-width:650px;
-
-    box-sizing:border-box;
-
-    padding:30px;
+.tv-stage {
 
     position:relative;
 
-    background:linear-gradient(
-        90deg,
-        #5a5a58,
-        #858581,
-        #4a4a48
-    );
+    width:100%;
 
-    border:12px solid #222;
+    min-height:720px;
 
-    border-radius:15px;
+    padding-top:125px;
 
-    box-shadow:
-        0 25px 50px rgba(0,0,0,.8),
-        inset 0 0 20px rgba(255,255,255,.08);
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    overflow:hidden;
+
 }
 
 
-/* RABBIT EAR ANTENNAS */
+/* =========================================
+   CARPET
+========================================= */
 
-.antennas {
+.carpet {
+
     position:absolute;
 
-    top:-105px;
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:170px;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(110,91,70,.45) 0%,
+            rgba(65,53,42,.3) 45%,
+            rgba(25,22,19,.1) 75%
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 0px,
+            rgba(255,255,255,.018) 1px,
+            rgba(0,0,0,.025) 1px,
+            rgba(0,0,0,.025) 3px
+        ),
+
+        #29241f;
+
+    box-shadow:
+        inset 0 20px 35px rgba(0,0,0,.35);
+
+    z-index:0;
+}
+
+
+/* =========================================
+   TV
+========================================= */
+
+.crt {
+
+    position:relative;
+
+    z-index:5;
+
+    width:92%;
+
+    max-width:780px;
+
+    min-height:560px;
+
+    padding:42px;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            #2c170d 0%,
+            #60351d 9%,
+            #8b512d 25%,
+            #61351d 43%,
+            #9a5b32 61%,
+            #5c311b 79%,
+            #30190e 100%
+        );
+
+    border:10px solid #1b110b;
+
+    border-radius:20px 20px 16px 16px;
+
+    box-shadow:
+
+        0 35px 55px rgba(0,0,0,.85),
+
+        0 12px 20px rgba(0,0,0,.7),
+
+        inset 0 2px 3px rgba(255,255,255,.18),
+
+        inset 0 -8px 15px rgba(0,0,0,.45);
+
+}
+
+
+/* WOOD GRAIN */
+
+.crt::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:10px;
+
+    pointer-events:none;
+
+    background:
+
+        repeating-linear-gradient(
+            7deg,
+            transparent 0px,
+            transparent 12px,
+            rgba(30,12,5,.12) 13px,
+            transparent 15px,
+            transparent 27px
+        );
+
+    opacity:.7;
+
+    z-index:0;
+}
+
+
+/* =========================================
+   TV TOP / ANTENNAS
+========================================= */
+
+.antennas {
+
+    position:absolute;
+
+    top:-112px;
 
     left:50%;
 
-    width:130px;
+    width:150px;
 
-    height:112px;
+    height:120px;
 
     transform:translateX(-50%);
 
@@ -87,40 +231,40 @@ h1 {
 }
 
 
-/* DARK PLASTIC ANTENNA BASE */
-
 .antenna-base {
+
     position:absolute;
 
     bottom:0;
 
     left:50%;
 
-    width:32px;
+    width:42px;
 
-    height:20px;
+    height:24px;
 
     transform:translateX(-50%);
 
     background:
+
         linear-gradient(
             180deg,
-            #444 0%,
-            #222 45%,
-            #111 100%
+            #5b5b58 0%,
+            #2b2b29 45%,
+            #101010 100%
         );
 
     border:2px solid #111;
 
-    border-radius:5px 5px 3px 3px;
+    border-radius:6px 6px 3px 3px;
 
     box-shadow:
-        0 3px 5px rgba(0,0,0,.8),
+
+        0 4px 7px rgba(0,0,0,.8),
+
         inset 1px 1px 2px rgba(255,255,255,.2);
 }
 
-
-/* CHROME TELESCOPING RODS */
 
 .antenna-left,
 .antenna-right {
@@ -129,28 +273,27 @@ h1 {
 
     bottom:12px;
 
-    width:6px;
+    width:7px;
 
-    height:95px;
+    height:102px;
 
-    border-radius:5px;
+    border-radius:6px;
 
     background:
+
         linear-gradient(
             90deg,
-            #555 0%,
-            #f2f2f2 28%,
-            #ffffff 48%,
+            #444 0%,
+            #d7d7d7 25%,
+            #fff 48%,
             #999 72%,
-            #444 100%
+            #3b3b3b 100%
         );
 
     box-shadow:
-        1px 1px 3px rgba(0,0,0,.8);
+        2px 2px 4px rgba(0,0,0,.8);
 }
 
-
-/* LEFT ROD */
 
 .antenna-left {
 
@@ -164,8 +307,6 @@ h1 {
 }
 
 
-/* RIGHT ROD */
-
 .antenna-right {
 
     right:50%;
@@ -178,8 +319,6 @@ h1 {
 }
 
 
-/* ANTENNA TIPS */
-
 .antenna-left::after,
 .antenna-right::after {
 
@@ -187,82 +326,134 @@ h1 {
 
     position:absolute;
 
-    top:-3px;
+    top:-4px;
 
     left:50%;
 
-    width:9px;
+    width:11px;
 
-    height:9px;
+    height:11px;
 
     transform:translateX(-50%);
 
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle at 35% 30%,
-            #ffffff,
+            #fff,
             #bdbdbd 45%,
             #555 100%
         );
 
     box-shadow:
-        0 1px 2px rgba(0,0,0,.7);
+        0 2px 3px rgba(0,0,0,.7);
 }
 
 
-/* CRT SCREEN */
+/* =========================================
+   TV FRONT PANEL
+========================================= */
 
-.tv-screen {
+.tv-front {
 
     position:relative;
 
-    background:
-        radial-gradient(
-            ellipse at center,
-            #777 0%,
-            #555 45%,
-            #333 78%,
-            #1b1b1b 100%
-        );
+    z-index:2;
 
-    border-radius:28px;
+    width:100%;
 
-    width:75%;
+    min-height:470px;
 
-    height:260px;
+    display:grid;
 
-    box-sizing:border-box;
+    grid-template-columns:minmax(0, 1fr) 145px;
 
-    padding:30px 15px;
-
-    border:8px solid #181818;
-
-    box-shadow:
-        inset 0 0 35px rgba(0,0,0,.9),
-        inset 0 0 8px rgba(255,255,255,.15),
-        0 0 8px rgba(0,0,0,.8);
-
-    margin-right:70px;
-
-    overflow:hidden;
-
-    transition:.3s;
-
-    cursor:pointer;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
+    gap:28px;
 
     align-items:center;
 }
 
 
-/* CRT REFLECTION */
+/* =========================================
+   SCREEN BEZEL
+========================================= */
+
+.screen-bezel {
+
+    position:relative;
+
+    width:100%;
+
+    padding:18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #eeeeee 0%,
+            #a8a8a8 20%,
+            #f1f1f1 45%,
+            #898989 72%,
+            #c9c9c9 100%
+        );
+
+    border:4px solid #555;
+
+    border-radius:42px;
+
+    box-shadow:
+
+        0 5px 8px rgba(0,0,0,.65),
+
+        inset 0 2px 3px rgba(255,255,255,.9),
+
+        inset 0 -3px 5px rgba(0,0,0,.35);
+}
+
+
+/* =========================================
+   CRT SCREEN
+========================================= */
+
+.tv-screen {
+
+    position:relative;
+
+    width:100%;
+
+    height:315px;
+
+    overflow:hidden;
+
+    cursor:default;
+
+    border-radius:34px;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #777 0%,
+            #555 43%,
+            #303030 76%,
+            #151515 100%
+        );
+
+    border:8px solid #171717;
+
+    box-shadow:
+
+        inset 0 0 40px rgba(0,0,0,.95),
+
+        inset 0 0 10px rgba(255,255,255,.16),
+
+        0 0 7px rgba(0,0,0,.8);
+}
+
+
+/* CRT GLASS */
 
 .tv-screen::before {
 
@@ -270,30 +461,26 @@ h1 {
 
     position:absolute;
 
-    top:8px;
+    inset:0;
 
-    left:12px;
-
-    right:12px;
-
-    height:35%;
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.13),
-            rgba(255,255,255,0) 55%
-        );
+    z-index:50;
 
     pointer-events:none;
 
-    z-index:5;
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.14) 0%,
+            rgba(255,255,255,.04) 18%,
+            rgba(255,255,255,0) 45%
+        );
 }
 
 
-/* SCREEN EDGE */
+/* CRT EDGE */
 
 .tv-screen::after {
 
@@ -303,28 +490,44 @@ h1 {
 
     inset:0;
 
-    border-radius:28px;
-
-    box-shadow:
-        inset 0 0 18px rgba(0,0,0,.8);
+    z-index:51;
 
     pointer-events:none;
 
-    z-index:6;
+    border-radius:28px;
+
+    box-shadow:
+
+        inset 0 0 22px rgba(0,0,0,.85),
+
+        inset 0 0 5px rgba(255,255,255,.12);
 }
 
 
+/* SCREEN TEXT */
+
 .tv-screen h2 {
+
+    position:relative;
+
+    z-index:10;
 
     color:#00d9ff;
 
     letter-spacing:5px;
 
     margin:5px 0;
+
+    text-shadow:
+        0 0 5px #00d9ff;
 }
 
 
 .blink {
+
+    position:relative;
+
+    z-index:10;
 
     margin-top:20px;
 
@@ -350,94 +553,382 @@ h1 {
 }
 
 
-/* CONTROLS */
+/* =========================================
+   POWER OFF
+========================================= */
+
+.tv-screen.off {
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #181818 0%,
+            #101010 58%,
+            #070707 100%
+        );
+
+    box-shadow:
+
+        inset 0 0 40px rgba(0,0,0,.98),
+
+        0 0 3px rgba(0,0,0,.8);
+
+    cursor:default;
+}
+
+
+.tv-screen.off * {
+
+    opacity:0;
+}
+
+
+/* =========================================
+   TV CONTROL PANEL
+========================================= */
 
 .tv-controls {
 
-    position:absolute;
+    position:relative;
 
-    right:10px;
+    height:100%;
 
-    top:50%;
+    min-height:410px;
 
-    transform:translateY(-50%);
+    padding:18px 14px;
 
-    z-index:10;
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(45,20,10,.65),
+            rgba(20,9,4,.45)
+        );
+
+    border-left:2px solid rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    box-shadow:
+        inset 4px 0 10px rgba(0,0,0,.2);
 }
 
 
-.control-button {
+/* =========================================
+   POWER BUTTON
+========================================= */
+
+.power-button {
+
+    position:relative;
+
+    width:58px;
+
+    height:42px;
+
+    margin-bottom:5px;
+
+    border-radius:7px;
+
+    border:3px solid #242424;
 
     background:
-        radial-gradient(
-            circle at 35% 30%,
-            #777,
-            #333 45%,
+
+        linear-gradient(
+            180deg,
+            #555 0%,
+            #292929 48%,
             #111 100%
         );
 
-    color:#d6b27c;
+    box-shadow:
 
-    border:2px solid #d6b27c;
+        0 4px 5px rgba(0,0,0,.8),
+
+        inset 0 2px 2px rgba(255,255,255,.18);
+
+    color:#ddd;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+}
+
+
+.power-button:active {
+
+    transform:translateY(2px);
+
+    box-shadow:
+
+        0 1px 2px rgba(0,0,0,.8),
+
+        inset 0 2px 3px rgba(0,0,0,.6);
+}
+
+
+.power-indicator {
+
+    width:7px;
+
+    height:7px;
+
+    margin:4px auto 18px;
 
     border-radius:50%;
 
-    width:38px;
+    background:#270000;
 
-    height:38px;
+    border:1px solid #111;
+
+    box-shadow:
+        inset 0 0 2px #000;
+}
+
+
+.tv-controls.powered .power-indicator {
+
+    background:#e21a12;
+
+    box-shadow:
+        0 0 6px rgba(255,40,20,.75);
+}
+
+
+/* =========================================
+   KNOBS
+========================================= */
+
+.knob-group {
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin:5px 0 13px;
+}
+
+
+.knob {
+
+    position:relative;
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:50%;
+
+    border:3px solid #242424;
+
+    background:
+
+        radial-gradient(
+            circle at 32% 28%,
+            #d5d5d5 0%,
+            #858585 20%,
+            #4b4b4b 48%,
+            #222 76%,
+            #111 100%
+        );
+
+    box-shadow:
+
+        0 5px 7px rgba(0,0,0,.85),
+
+        inset 2px 2px 3px rgba(255,255,255,.25),
+
+        inset -3px -4px 5px rgba(0,0,0,.65);
 
     cursor:pointer;
 
-    display:block;
+    transition:transform .12s ease;
+}
 
-    margin:auto;
+
+.knob::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:7px;
+
+    width:4px;
+
+    height:19px;
+
+    transform:translateX(-50%);
+
+    border-radius:2px;
+
+    background:#ddd;
 
     box-shadow:
-        0 2px 4px rgba(0,0,0,.8),
-        inset 1px 1px 2px rgba(255,255,255,.25);
+        0 1px 2px rgba(0,0,0,.8);
 }
 
 
-.control-button:active {
-    transform:scale(.94);
+.knob:active {
+
+    transform:scale(.96);
 }
 
 
-.control-label {
+.knob.channel-knob {
 
-    font-size:9px;
+    transform:rotate(0deg);
+}
+
+
+.knob-label {
+
+    margin-top:7px;
 
     color:#d6b27c;
 
-    margin-bottom:12px;
+    font-family:"Courier New", monospace;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
 }
 
 
-/* SELL US YOUR GAMES BUTTON */
+/* =========================================
+   SPEAKER
+========================================= */
+
+.speaker-panel {
+
+    width:100%;
+
+    margin-top:5px;
+
+    padding:8px;
+
+    border-radius:7px;
+
+    background:#25140b;
+
+    border:2px solid rgba(0,0,0,.65);
+
+    box-shadow:
+
+        inset 0 2px 5px rgba(0,0,0,.7),
+
+        0 2px 3px rgba(0,0,0,.4);
+}
+
+
+.speaker-grille {
+
+    width:100%;
+
+    height:105px;
+
+    border-radius:4px;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            #090909 0px,
+            #090909 3px,
+            #4b3c31 3px,
+            #4b3c31 5px,
+            #121212 5px,
+            #121212 8px
+        );
+
+    border:2px solid #171717;
+
+    box-shadow:
+
+        inset 2px 2px 6px rgba(0,0,0,.95),
+
+        inset -1px -1px 2px rgba(255,255,255,.08);
+}
+
+
+/* =========================================
+   TV BADGE
+========================================= */
+
+.tv-badge {
+
+    margin-top:14px;
+
+    color:#d5d5d5;
+
+    font-family:"Courier New", monospace;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 1px 1px rgba(0,0,0,.9);
+}
+
+
+.tv-badge span {
+
+    color:#888;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================
+   SELL GAMES BUTTON
+========================================= */
 
 .sell-games-button {
 
     position:absolute;
 
-    right:10px;
+    right:18px;
 
-    bottom:24px;
+    bottom:17px;
 
-    width:44px;
+    width:75px;
 
     min-height:48px;
 
-    padding:5px 3px;
-
-    box-sizing:border-box;
+    padding:5px;
 
     background:
+
         linear-gradient(
             180deg,
-            #e5e5e5 0%,
-            #bcbcbc 35%,
-            #858585 70%,
-            #5f5f5f 100%
+            #e8e8e8 0%,
+            #bdbdbd 40%,
+            #777 75%,
+            #555 100%
         );
 
     color:#222;
@@ -447,8 +938,11 @@ h1 {
     border-radius:5px;
 
     box-shadow:
+
         0 3px 5px rgba(0,0,0,.7),
+
         inset 0 1px 1px rgba(255,255,255,.9),
+
         inset 0 -1px 2px rgba(0,0,0,.4);
 
     font-family:Arial,sans-serif;
@@ -457,7 +951,7 @@ h1 {
 
     font-weight:bold;
 
-    letter-spacing:.3px;
+    letter-spacing:.4px;
 
     line-height:1.15;
 
@@ -470,102 +964,66 @@ h1 {
 .sell-games-button:active {
 
     transform:translateY(2px);
-
-    box-shadow:
-        0 1px 2px rgba(0,0,0,.7),
-        inset 0 1px 2px rgba(0,0,0,.5);
 }
 
 
-/* SPEAKER */
+/* =========================================
+   MANUAL
+========================================= */
 
-.speaker-grille {
+.manual-section {
 
-    position:absolute;
+    width:100%;
 
-    right:80px;
-
-    bottom:92px;
-
-    width:48px;
-
-    height:153px;
-
-    border-radius:6px;
+    padding:20px 0 20px;
 
     background:
-        repeating-linear-gradient(
-            90deg,
-            #111 0px,
-            #111 3px,
-            #444 3px,
-            #444 5px,
-            #171717 5px,
-            #171717 8px
+        linear-gradient(
+            180deg,
+            rgba(8,8,8,.3),
+            rgba(8,8,8,.8)
         );
-
-    border:2px solid #292929;
-
-    box-shadow:
-        inset 2px 2px 6px rgba(0,0,0,.9),
-        inset -1px -1px 2px rgba(255,255,255,.08),
-        0 2px 4px rgba(0,0,0,.7);
-
-    z-index:2;
 }
 
 
-/* LOGO */
+.manual-title {
 
-.tv-logo-badge {
+    margin:10px auto 18px;
 
-    position:absolute;
+    color:#d6b27c;
 
-    right:80px;
+    font-family:"Courier New", monospace;
 
-    bottom:22px;
+    font-size:14px;
 
-    width:65px;
+    font-weight:bold;
 
-    height:auto;
+    letter-spacing:4px;
+}
+
+
+.rr82-manual {
 
     display:block;
 
-    filter:
-        drop-shadow(1px 2px 2px rgba(0,0,0,.75));
+    width:92%;
 
-    pointer-events:none;
+    max-width:1200px;
 
-    z-index:3;
-}
+    height:auto;
 
+    margin:0 auto 60px;
 
-/* POWER OFF */
-
-.tv-screen.off {
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            #191919 0%,
-            #101010 60%,
-            #080808 100%
-        );
+    border:1px solid rgba(255,255,255,.08);
 
     box-shadow:
-        inset 0 0 35px rgba(0,0,0,.95),
-        0 0 3px rgba(0,0,0,.8);
-
-    cursor:default;
+        0 15px 35px rgba(0,0,0,.55);
 }
 
 
-.tv-screen.off * {
-    opacity:0;
-}
-
-
-/* VISITOR COUNTER */
+/* =========================================
+   VISITOR COUNTER
+========================================= */
 
 .visitor-counter {
 
@@ -573,13 +1031,14 @@ h1 {
 
     max-width:650px;
 
-    margin:40px auto;
+    margin:0 auto 60px;
 
     padding:20px;
 
     box-sizing:border-box;
 
     background:
+
         linear-gradient(
             180deg,
             #242424 0%,
@@ -589,28 +1048,14 @@ h1 {
     border:4px ridge #777;
 
     box-shadow:
+
         inset 0 0 15px rgba(0,0,0,.9),
+
         0 4px 10px rgba(0,0,0,.6);
 
     font-family:"Courier New", monospace;
 
     color:#39ff14;
-}
-
-
-/* RR-82 MANUAL */
-
-.rr82-manual {
-
-    width:92%;
-
-    max-width:1200px;
-
-    margin:30px auto 60px;
-
-    display:block;
-
-    height:auto;
 }
 
 
@@ -652,8 +1097,6 @@ h1 {
 
     padding:8px 14px;
 
-    box-sizing:border-box;
-
     background:#050505;
 
     border:3px inset #555;
@@ -667,7 +1110,9 @@ h1 {
     letter-spacing:5px;
 
     text-shadow:
+
         0 0 5px #39ff14,
+
         0 0 12px rgba(57,255,20,.5);
 }
 
@@ -698,15 +1143,25 @@ h1 {
 }
 
 
+/* =========================================
+   FOOTER
+========================================= */
+
 footer {
 
-    margin-top:40px;
+    margin:0;
+
+    padding:0 20px 35px;
 
     color:#777;
+
+    font-size:12px;
 }
 
 
-/* SELL YOUR GAMES FORM */
+/* =========================================
+   SELL FORM
+========================================= */
 
 .sell-form-overlay {
 
@@ -721,8 +1176,6 @@ footer {
     z-index:1000;
 
     padding:20px;
-
-    box-sizing:border-box;
 
     overflow-y:auto;
 }
@@ -744,11 +1197,10 @@ footer {
 
     max-width:520px;
 
-    box-sizing:border-box;
-
     padding:25px;
 
     background:
+
         linear-gradient(
             180deg,
             #3a3a38 0%,
@@ -760,7 +1212,9 @@ footer {
     border-radius:12px;
 
     box-shadow:
+
         0 20px 60px rgba(0,0,0,.9),
+
         inset 0 0 15px rgba(255,255,255,.08);
 
     text-align:left;
@@ -819,8 +1273,6 @@ footer {
 
     width:100%;
 
-    box-sizing:border-box;
-
     padding:10px;
 
     background:#111;
@@ -845,7 +1297,8 @@ footer {
 
     border-color:#00d9ff;
 
-    box-shadow:0 0 6px rgba(0,217,255,.35);
+    box-shadow:
+        0 0 6px rgba(0,217,255,.35);
 }
 
 
@@ -903,11 +1356,13 @@ footer {
 
 
 .sell-submit:hover {
+
     background:#39e4ff;
 }
 
 
 .sell-cancel:hover {
+
     background:#555;
 }
 
@@ -923,6 +1378,7 @@ footer {
 
 
 .sell-thank-you h2 {
+
     color:#39ff14;
 }
 
@@ -935,80 +1391,210 @@ footer {
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
+
+    .tv-stage {
+
+        min-height:610px;
+
+        padding-top:105px;
+    }
+
 
     .crt {
 
-        width:85%;
+        width:94%;
 
-        margin-top:115px;
+        min-height:470px;
+
+        padding:22px;
+
+        border-width:8px;
     }
+
+
+    .tv-front {
+
+        grid-template-columns:minmax(0,1fr) 82px;
+
+        gap:12px;
+
+        min-height:410px;
+    }
+
+
+    .screen-bezel {
+
+        padding:11px;
+
+        border-width:3px;
+
+        border-radius:29px;
+    }
+
 
     .tv-screen {
 
-        width:65%;
+        height:245px;
 
-        height:230px;
+        border-width:6px;
 
-        padding:25px 10px;
-
-        border-radius:24px;
+        border-radius:23px;
     }
+
 
     .tv-screen h2 {
 
-        font-size:20px;
+        font-size:18px;
 
         letter-spacing:2px;
     }
 
+
     .blink {
-        font-size:16px;
+
+        font-size:13px;
     }
 
-    .tv-logo-badge {
+
+    .tv-controls {
+
+        min-height:360px;
+
+        padding:10px 5px;
+    }
+
+
+    .power-button {
 
         width:48px;
 
-        right:67px;
+        height:36px;
 
-        bottom:14px;
+        font-size:8px;
     }
+
+
+    .knob {
+
+        width:48px;
+
+        height:48px;
+    }
+
+
+    .knob::before {
+
+        top:5px;
+
+        height:15px;
+
+        width:3px;
+    }
+
+
+    .knob-label {
+
+        font-size:8px;
+
+        letter-spacing:1px;
+    }
+
+
+    .speaker-panel {
+
+        padding:5px;
+    }
+
 
     .speaker-grille {
 
-        width:38px;
-
-        height:108px;
-
-        right:67px;
-
-        bottom:64px;
+        height:72px;
     }
+
+
+    .tv-badge {
+
+        font-size:7px;
+
+        letter-spacing:1px;
+    }
+
 
     .sell-games-button {
 
-        width:40px;
+        right:10px;
 
-        min-height:44px;
+        bottom:12px;
 
-        right:8px;
+        width:62px;
 
-        bottom:18px;
+        min-height:42px;
 
         font-size:6px;
-
-        letter-spacing:.2px;
     }
+
+
+    .antennas {
+
+        top:-91px;
+
+        width:110px;
+
+        height:100px;
+    }
+
+
+    .antenna-left,
+    .antenna-right {
+
+        height:84px;
+
+        width:5px;
+    }
+
+
+    .antenna-base {
+
+        width:30px;
+
+        height:18px;
+    }
+
+
+    .carpet {
+
+        height:130px;
+    }
+
+
+    .manual-title {
+
+        font-size:11px;
+
+        letter-spacing:3px;
+    }
+
+
+    .rr82-manual {
+
+        width:94%;
+
+        margin-bottom:40px;
+    }
+
 
     .visitor-counter {
 
-        width:85%;
+        width:88%;
 
         padding:16px;
     }
+
 
     .visitor-title {
 
@@ -1016,6 +1602,7 @@ footer {
 
         letter-spacing:3px;
     }
+
 
     .visitor-display {
 
@@ -1026,14 +1613,6 @@ footer {
         letter-spacing:4px;
     }
 
-    .rr82-manual {
-
-        width:96%;
-
-        margin-top:25px;
-
-        margin-bottom:45px;
-    }
 
     .sell-form {
 
@@ -1042,38 +1621,12 @@ footer {
         border-width:6px;
     }
 
+
     .sell-form h2 {
 
         font-size:20px;
 
         letter-spacing:2px;
-    }
-
-
-    /* LONGER MOBILE ANTENNAS */
-
-    .antennas {
-
-        top:-92px;
-
-        width:105px;
-
-        height:98px;
-    }
-
-    .antenna-left,
-    .antenna-right {
-
-        height:82px;
-
-        width:5px;
-    }
-
-    .antenna-base {
-
-        width:28px;
-
-        height:17px;
     }
 
 }
@@ -1086,15 +1639,23 @@ footer {
 <body>
 
 
-<header>
-</header>
+<header></header>
 
+
+<!-- =========================================
+     TV
+========================================= -->
+
+<section class="tv-stage">
+
+
+<div class="carpet"></div>
 
 
 <div class="crt">
 
 
-<!-- AUTHENTIC CHROME RABBIT-EAR ANTENNAS -->
+<!-- ANTENNAS -->
 
 <div class="antennas">
 
@@ -1107,65 +1668,107 @@ footer {
 </div>
 
 
+<!-- TV FRONT -->
 
-<div class="tv-screen off">
+<div class="tv-front">
 
-<h2>
-RETRO REMINDER
-</h2>
 
-<p class="blink">
-▶ PRESS POWER
-</p>
+<!-- SCREEN -->
+
+<div class="screen-bezel">
+
+    <div class="tv-screen off">
+
+        <h2>
+            RETRO REMINDER
+        </h2>
+
+        <p class="blink">
+            ▶ PRESS POWER
+        </p>
+
+    </div>
 
 </div>
 
 
+<!-- CONTROLS -->
 
 <div class="tv-controls">
 
 
 <button
     type="button"
+    class="power-button"
     onclick="toggleTV()"
-    class="control-button"
+    aria-label="Power"
 >
-●
+    POWER
 </button>
 
-<div class="control-label">
-POWER
-</div>
+
+<div class="power-indicator"></div>
 
 
-<button
-    type="button"
-    onclick="changeChannel()"
-    class="control-button"
->
-◉
-</button>
+<div class="knob-group">
 
-<div class="control-label">
-CHANNEL
-</div>
+    <button
+        type="button"
+        class="knob channel-knob"
+        onclick="changeChannel()"
+        aria-label="Change channel"
+    ></button>
 
-
-<button
-    type="button"
-    onclick="changeVolume()"
-    class="control-button"
->
-◉
-</button>
-
-<div class="control-label">
-VOLUME
-</div>
-
+    <div class="knob-label">
+        CHANNEL
+    </div>
 
 </div>
 
+
+<div class="knob-group">
+
+    <button
+        type="button"
+        class="knob volume-knob"
+        onclick="changeVolume()"
+        aria-label="Change volume"
+    ></button>
+
+    <div class="knob-label">
+        VOLUME
+    </div>
+
+</div>
+
+
+<div class="speaker-panel">
+
+    <div class="speaker-grille"></div>
+
+</div>
+
+
+<div class="tv-badge">
+
+    RETRO REMINDER
+
+    <br>
+
+    <span>
+        RR-82
+    </span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- SELL GAMES -->
 
 <button
     type="button"
@@ -1179,68 +1782,80 @@ VOLUME
 </button>
 
 
-<div class="speaker-grille"></div>
+</div>
+
+</section>
 
 
-<img
-    class="tv-logo-badge"
-    src="retroreminderlogotransparent.png"
-    alt="Retro Reminder"
->
+<!-- =========================================
+     MANUAL
+========================================= -->
+
+<section class="manual-section">
 
 
+<div class="manual-title">
+    RR-82 INSTRUCTION MANUAL
 </div>
 
 
+<img
+    src="RR-82-manual.png"
+    alt="Retro Reminder RR-82 Instruction Manual"
+    class="rr82-manual"
+>
 
-<!-- VISITOR COUNTER -->
+
+</section>
+
+
+<!-- =========================================
+     VISITOR COUNTER
+========================================= -->
 
 <div class="visitor-counter">
 
-    <div class="visitor-title">
-        RETRO REMINDER
-    </div>
 
-    <div class="visitor-subtitle">
-        YOU ARE VISITOR NUMBER
-    </div>
+<div class="visitor-title">
+    RETRO REMINDER
+</div>
 
-    <div class="visitor-display">
 
-        <span id="visitor-number">
-            00000
-        </span>
+<div class="visitor-subtitle">
+    YOU ARE VISITOR NUMBER
+</div>
 
-    </div>
 
-    <div
-        id="counterapi-source"
-        class="counterapi"
-        ns="retroreminder.com"
-        action="view"
-        key="homepage"
-        noIcon="true"
-        noCss="true"
-        noLink="true"
-        noFormatting="true"
-    >
-        0
-    </div>
+<div class="visitor-display">
 
-    <div class="visitor-footer">
-        THANKS FOR STOPPING BY
-    </div>
+    <span id="visitor-number">
+        00000
+    </span>
 
 </div>
 
 
-<!-- RR-82 MANUAL -->
-
-<img
-    class="rr82-manual"
-   src="./RR-82-manual.png"
-    alt="Retro Reminder RR-82 Instruction Manual"
+<div
+    id="counterapi-source"
+    class="counterapi"
+    ns="retroreminder.com"
+    action="view"
+    key="homepage"
+    noIcon="true"
+    noCss="true"
+    noLink="true"
+    noFormatting="true"
 >
+    0
+</div>
+
+
+<div class="visitor-footer">
+    THANKS FOR STOPPING BY
+</div>
+
+
+</div>
 
 
 <footer>
@@ -1250,8 +1865,9 @@ VOLUME
 </footer>
 
 
-
-<!-- SELL YOUR GAMES FORM -->
+<!-- =========================================
+     SELL YOUR GAMES FORM
+========================================= -->
 
 <div
     id="sell-form-overlay"
@@ -1263,6 +1879,7 @@ VOLUME
 
 
 <div id="sell-form-content">
+
 
 <h2>
 SELL US YOUR GAMES
@@ -1292,7 +1909,7 @@ Don't hesitate to ask us questions!
     type="hidden"
     name="_subject"
     value="New Retro Reminder Collection Inquiry"
-/>
+>
 
 
 <label for="name">
@@ -1444,16 +2061,20 @@ ANYTHING ELSE YOU'D LIKE US TO KNOW?
     class="sell-thank-you"
 >
 
+
 <h2>
 THANK YOU!
 </h2>
 
+
 <p>
+
 Your collection inquiry has been sent to Retro Reminder.
 
 We'll take a look and get back to you.
 
 </p>
+
 
 <button
     type="button"
@@ -1463,21 +2084,25 @@ We'll take a look and get back to you.
 CLOSE
 </button>
 
-</div>
-
-
-</div>
 
 </div>
 
 
+</div>
 
-<!-- YOUR WORKING SCRIPT -->
+</div>
+
+
+<!-- =========================================
+     EXISTING SITE SCRIPT
+========================================= -->
 
 <script src="script.js"></script>
 
 
-<!-- COUNTERAPI -->
+<!-- =========================================
+     COUNTER API
+========================================= -->
 
 <script
     src="https://counterapi.com/c.js?ns=retroreminder.com"
@@ -1485,6 +2110,9 @@ CLOSE
 ></script>
 
 
+<!-- =========================================
+     VISITOR COUNTER + FORM
+========================================= -->
 
 <script>
 
@@ -1525,8 +2153,9 @@ setTimeout(updateVisitorNumber, 2000);
 setTimeout(updateVisitorNumber, 4000);
 
 
-
-/* SELL YOUR GAMES FORM */
+/* =========================================
+   SELL YOUR GAMES FORM
+========================================= */
 
 function openSellForm() {
 
@@ -1612,11 +2241,13 @@ document
                         )
                         .style.display = "none";
 
+
                     document
                         .getElementById(
                             "sell-thank-you"
                         )
                         .style.display = "block";
+
 
                     form.reset();
 
@@ -1654,4 +2285,5 @@ document
 
 
 </body>
+
 </html>
