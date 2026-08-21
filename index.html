@@ -24,11 +24,8 @@ html {
 }
 
 body {
-
     margin:0;
-
     min-height:100vh;
-
     background:
         radial-gradient(
             ellipse at center top,
@@ -36,13 +33,9 @@ body {
             #1c1a18 45%,
             #0b0b0b 100%
         );
-
     color:white;
-
     font-family:Arial,sans-serif;
-
     text-align:center;
-
     overflow-x:hidden;
 }
 
@@ -52,21 +45,13 @@ body {
 ========================================= */
 
 .tv-stage {
-
     position:relative;
-
     width:100%;
-
     min-height:650px;
-
     padding-top:120px;
-
     display:flex;
-
     justify-content:center;
-
     align-items:flex-start;
-
     overflow:hidden;
 }
 
@@ -76,75 +61,53 @@ body {
    VERTICAL GRAIN
 ========================================= */
 
-.wood-wall {
-
+.tv-stage::before {
+    content:"";
     position:absolute;
-
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-
+    inset:0 0 120px 0;
     z-index:0;
 
     background:
-
+        /* subtle panel seams */
         repeating-linear-gradient(
             90deg,
+            transparent 0px,
+            transparent 118px,
+            rgba(32,18,10,.55) 119px,
+            rgba(20,10,6,.75) 122px,
+            rgba(91,54,30,.35) 124px,
+            transparent 126px
+        ),
 
-            #432515 0px,
-            #432515 8px,
+        /* vertical natural wood grain */
+        repeating-linear-gradient(
+            88deg,
+            rgba(35,15,7,.35) 0px,
+            rgba(35,15,7,.35) 2px,
+            transparent 2px,
+            transparent 15px,
+            rgba(102,61,34,.18) 17px,
+            transparent 21px,
+            rgba(27,12,6,.28) 24px,
+            transparent 31px
+        ),
 
-            #63381f 9px,
-            #744326 25px,
-
-            #4c2a18 27px,
-            #4c2a18 48px,
-
-            #704126 50px,
-            #86512f 67px,
-
-            #532e19 69px,
-            #532e19 92px,
-
-            #714126 94px,
-            #5b321d 118px
+        /* warm wood base */
+        linear-gradient(
+            90deg,
+            #3a2114 0%,
+            #5b3823 12%,
+            #70472d 25%,
+            #4a2b1b 39%,
+            #71492e 52%,
+            #54321f 67%,
+            #6a4128 82%,
+            #382014 100%
         );
 
     box-shadow:
-
-        inset 0 -25px 35px rgba(0,0,0,.55),
-
-        inset 0 10px 20px rgba(255,255,255,.04);
-}
-
-
-/* subtle vertical panel seams */
-
-.wood-wall::after {
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-
-            transparent 0px,
-            transparent 118px,
-
-            rgba(20,10,5,.7) 119px,
-            rgba(20,10,5,.7) 122px,
-
-            rgba(120,75,43,.25) 123px,
-            rgba(120,75,43,.25) 125px
-        );
-
-    pointer-events:none;
+        inset 0 -30px 40px rgba(0,0,0,.55),
+        inset 0 20px 35px rgba(0,0,0,.25);
 }
 
 
@@ -153,17 +116,11 @@ body {
 ========================================= */
 
 .carpet {
-
     position:absolute;
-
     left:0;
-
     right:0;
-
     bottom:0;
-
     height:155px;
-
     z-index:1;
 
     background-color:#254b29;
@@ -199,9 +156,7 @@ body {
         );
 
     box-shadow:
-
         inset 0 18px 30px rgba(0,0,0,.45),
-
         inset 0 -10px 20px rgba(0,0,0,.35);
 }
 
@@ -212,41 +167,39 @@ body {
 ========================================= */
 
 .crt {
-
     position:relative;
-
     z-index:5;
 
     width:90%;
-
     max-width:650px;
-
     min-height:505px;
 
-    padding:28px 28px 88px;
+    padding:28px 28px 76px;
 
     background:
 
+        /* natural horizontal grain */
         repeating-linear-gradient(
-            0deg,
+            3deg,
+            rgba(35,15,7,.28) 0px,
+            rgba(35,15,7,.28) 2px,
+            transparent 3px,
+            transparent 10px,
+            rgba(120,72,39,.20) 12px,
+            transparent 15px,
+            rgba(31,13,6,.20) 18px,
+            transparent 25px
+        ),
 
-            #35190c 0px,
-            #35190c 7px,
-
-            #4d2814 8px,
-            #60351c 13px,
-
-            #3c1d0f 16px,
-            #3c1d0f 22px,
-
-            #6a3b20 24px,
-            #754523 29px,
-
-            #45230f 32px,
-            #45230f 39px,
-
-            #5d3119 42px,
-            #35190c 48px
+        linear-gradient(
+            180deg,
+            #3b2112 0%,
+            #704329 14%,
+            #8a5432 29%,
+            #63381f 45%,
+            #895333 62%,
+            #5e341d 78%,
+            #351b0e 100%
         );
 
     border:10px solid #1b110b;
@@ -254,97 +207,75 @@ body {
     border-radius:18px 18px 13px 13px;
 
     box-shadow:
-
         0 30px 45px rgba(0,0,0,.85),
-
         0 10px 15px rgba(0,0,0,.7),
-
         inset 0 2px 3px rgba(255,255,255,.16),
-
         inset 0 -10px 18px rgba(0,0,0,.45);
 }
 
 
-/* HORIZONTAL WOOD GRAIN DETAIL */
-
+/* subtle cabinet grain */
 .crt::before {
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     border-radius:9px;
-
     pointer-events:none;
 
     background:
-
         repeating-linear-gradient(
-            0deg,
-
+            2deg,
             transparent 0px,
-            transparent 19px,
-
-            rgba(25,8,3,.20) 20px,
-            rgba(25,8,3,.20) 22px,
-
-            transparent 24px,
-            transparent 39px
+            transparent 18px,
+            rgba(20,8,3,.18) 19px,
+            transparent 23px,
+            transparent 34px
         );
 
-    opacity:.8;
-
+    opacity:.75;
     z-index:0;
 }
 
 
 /* =========================================
    LOWER TV BASE
+   CABINET SITS ON TOP
 ========================================= */
 
 .tv-base {
-
     position:absolute;
 
     left:8%;
-
     right:8%;
-
     bottom:0;
 
     height:72px;
 
-    z-index:1;
+    z-index:4;
 
     background:
 
         repeating-linear-gradient(
-            0deg,
+            2deg,
+            rgba(20,8,3,.22) 0px,
+            rgba(20,8,3,.22) 2px,
+            transparent 3px,
+            transparent 13px
+        ),
 
-            #281209 0px,
-            #281209 8px,
-
-            #492513 9px,
-            #60351b 15px,
-
-            #34180b 17px,
-            #34180b 25px,
-
-            #693b20 27px,
-            #4d2814 34px,
-
-            #30150a 36px,
-            #30150a 44px
+        linear-gradient(
+            180deg,
+            #2d160b 0%,
+            #4f2a16 20%,
+            #693b21 48%,
+            #4a2614 75%,
+            #281309 100%
         );
 
     border-top:4px solid #24150d;
 
     box-shadow:
-
         inset 0 3px 4px rgba(255,255,255,.08),
-
         inset 0 -8px 12px rgba(0,0,0,.45);
 }
 
@@ -352,21 +283,16 @@ body {
 /* BASE TRANSITION LINE */
 
 .tv-base::before {
-
     content:"";
-
     position:absolute;
 
     left:0;
-
     right:0;
-
     top:0;
 
     height:4px;
 
     background:
-
         linear-gradient(
             90deg,
             #21120a,
@@ -376,7 +302,7 @@ body {
             #21120a
         );
 
-    opacity:.65;
+    opacity:.7;
 }
 
 
@@ -385,17 +311,14 @@ body {
 ========================================= */
 
 .tv-foot {
-
     position:absolute;
 
     bottom:-18px;
 
     width:54px;
-
     height:30px;
 
     background:
-
         linear-gradient(
             90deg,
             #20110a,
@@ -409,11 +332,9 @@ body {
         0 5px 7px rgba(0,0,0,.75);
 }
 
-
 .tv-foot.left {
     left:8%;
 }
-
 
 .tv-foot.right {
     right:8%;
@@ -425,35 +346,27 @@ body {
 ========================================= */
 
 .antennas {
-
     position:absolute;
 
     top:-105px;
-
     left:50%;
 
     width:130px;
-
     height:112px;
 
     transform:translateX(-50%);
 
     z-index:20;
-
     pointer-events:none;
 }
 
-
 .antenna-base {
-
     position:absolute;
 
     bottom:0;
-
     left:50%;
 
     width:32px;
-
     height:20px;
 
     transform:translateX(-50%);
@@ -467,7 +380,6 @@ body {
         );
 
     border:2px solid #111;
-
     border-radius:5px 5px 3px 3px;
 
     box-shadow:
@@ -475,16 +387,13 @@ body {
         inset 1px 1px 2px rgba(255,255,255,.2);
 }
 
-
 .antenna-left,
 .antenna-right {
-
     position:absolute;
 
     bottom:12px;
 
     width:6px;
-
     height:95px;
 
     border-radius:5px;
@@ -503,9 +412,7 @@ body {
         1px 1px 3px rgba(0,0,0,.8);
 }
 
-
 .antenna-left {
-
     left:50%;
 
     transform:
@@ -515,9 +422,7 @@ body {
     transform-origin:bottom center;
 }
 
-
 .antenna-right {
-
     right:50%;
 
     transform:
@@ -527,20 +432,16 @@ body {
     transform-origin:bottom center;
 }
 
-
 .antenna-left::after,
 .antenna-right::after {
-
     content:"";
 
     position:absolute;
 
     top:-3px;
-
     left:50%;
 
     width:9px;
-
     height:9px;
 
     transform:translateX(-50%);
@@ -565,7 +466,6 @@ body {
 ========================================= */
 
 .tv-front {
-
     position:relative;
 
     z-index:3;
@@ -589,15 +489,12 @@ body {
 ========================================= */
 
 .screen-bezel {
-
     position:relative;
 
     width:100%;
-
     padding:15px;
 
     background:
-
         linear-gradient(
             145deg,
             #ededed 0%,
@@ -608,15 +505,11 @@ body {
         );
 
     border:3px solid #555;
-
     border-radius:36px;
 
     box-shadow:
-
         0 5px 8px rgba(0,0,0,.65),
-
         inset 0 2px 3px rgba(255,255,255,.9),
-
         inset 0 -3px 5px rgba(0,0,0,.35);
 }
 
@@ -626,11 +519,9 @@ body {
 ========================================= */
 
 .tv-screen {
-
     position:relative;
 
     width:100%;
-
     height:265px;
 
     overflow:hidden;
@@ -640,7 +531,6 @@ body {
     border-radius:29px;
 
     background:
-
         radial-gradient(
             ellipse at center,
             #777 0%,
@@ -652,11 +542,8 @@ body {
     border:7px solid #171717;
 
     box-shadow:
-
         inset 0 0 35px rgba(0,0,0,.95),
-
         inset 0 0 9px rgba(255,255,255,.16),
-
         0 0 7px rgba(0,0,0,.8);
 }
 
@@ -664,21 +551,17 @@ body {
 /* SCREEN REFLECTION */
 
 .tv-screen::before {
-
     content:"";
 
     position:absolute;
-
     inset:0;
 
     z-index:50;
-
     pointer-events:none;
 
     border-radius:23px;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,255,255,.14) 0%,
@@ -691,31 +574,24 @@ body {
 /* SCREEN EDGE */
 
 .tv-screen::after {
-
     content:"";
 
     position:absolute;
-
     inset:0;
 
     z-index:51;
-
     pointer-events:none;
 
     border-radius:23px;
 
     box-shadow:
-
         inset 0 0 20px rgba(0,0,0,.85),
-
         inset 0 0 5px rgba(255,255,255,.12);
 }
 
 
 .tv-screen h2 {
-
     position:relative;
-
     z-index:10;
 
     color:#00d9ff;
@@ -728,11 +604,8 @@ body {
         0 0 5px #00d9ff;
 }
 
-
 .blink {
-
     position:relative;
-
     z-index:10;
 
     margin-top:20px;
@@ -745,9 +618,7 @@ body {
     animation:blink 1.2s infinite;
 }
 
-
 @keyframes blink {
-
     0%,49% {
         opacity:1;
     }
@@ -755,7 +626,6 @@ body {
     50%,100% {
         opacity:0;
     }
-
 }
 
 
@@ -764,9 +634,7 @@ body {
 ========================================= */
 
 .tv-screen.off {
-
     background:
-
         radial-gradient(
             ellipse at center,
             #181818 0%,
@@ -775,12 +643,9 @@ body {
         );
 
     box-shadow:
-
         inset 0 0 35px rgba(0,0,0,.98),
-
         0 0 3px rgba(0,0,0,.8);
 }
-
 
 .tv-screen.off * {
     opacity:0;
@@ -792,25 +657,19 @@ body {
 ========================================= */
 
 .tv-controls {
-
     position:relative;
 
     height:100%;
-
     min-height:350px;
 
     padding:12px 8px;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(45,20,10,.65),
@@ -823,22 +682,20 @@ body {
 }
 
 
-/* POWER */
+/* =========================================
+   POWER
+========================================= */
 
 .power-button {
-
     width:52px;
-
     height:38px;
 
     margin-bottom:4px;
 
     border-radius:6px;
-
     border:3px solid #242424;
 
     background:
-
         linear-gradient(
             180deg,
             #555 0%,
@@ -847,33 +704,25 @@ body {
         );
 
     box-shadow:
-
         0 4px 5px rgba(0,0,0,.8),
-
         inset 0 2px 2px rgba(255,255,255,.18);
 
     color:#ddd;
 
     font-size:9px;
-
     font-weight:bold;
-
     letter-spacing:1px;
 
     cursor:pointer;
 }
 
-
 .power-button:active {
-
     transform:translateY(2px);
 }
 
 
 .power-indicator {
-
     width:7px;
-
     height:7px;
 
     margin:3px auto 12px;
@@ -885,9 +734,7 @@ body {
     border:1px solid #111;
 }
 
-
 .tv-controls.powered .power-indicator {
-
     background:#e21a12;
 
     box-shadow:
@@ -900,31 +747,23 @@ body {
 ========================================= */
 
 .knob-group {
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
     margin:4px 0 9px;
 }
 
-
 .knob {
-
     position:relative;
 
     width:52px;
-
     height:52px;
 
     border-radius:50%;
-
     border:3px solid #242424;
 
     background:
-
         radial-gradient(
             circle at 32% 28%,
             #d5d5d5 0%,
@@ -935,29 +774,22 @@ body {
         );
 
     box-shadow:
-
         0 5px 7px rgba(0,0,0,.85),
-
         inset 2px 2px 3px rgba(255,255,255,.25),
-
         inset -3px -4px 5px rgba(0,0,0,.65);
 
     cursor:pointer;
 }
 
-
 .knob::before {
-
     content:"";
 
     position:absolute;
 
     left:50%;
-
     top:6px;
 
     width:4px;
-
     height:16px;
 
     transform:translateX(-50%);
@@ -967,15 +799,11 @@ body {
     background:#ddd;
 }
 
-
 .knob:active {
-
     transform:scale(.96);
 }
 
-
 .knob-label {
-
     margin-top:5px;
 
     color:#d6b27c;
@@ -983,7 +811,6 @@ body {
     font-family:"Courier New",monospace;
 
     font-size:8px;
-
     font-weight:bold;
 
     letter-spacing:1px;
@@ -995,11 +822,9 @@ body {
 ========================================= */
 
 .speaker-panel {
-
     width:100%;
 
     margin-top:3px;
-
     padding:6px;
 
     border-radius:6px;
@@ -1012,17 +837,13 @@ body {
         inset 0 2px 5px rgba(0,0,0,.7);
 }
 
-
 .speaker-grille {
-
     width:100%;
-
     height:82px;
 
     border-radius:4px;
 
     background:
-
         repeating-linear-gradient(
             90deg,
             #090909 0px,
@@ -1036,19 +857,16 @@ body {
     border:2px solid #171717;
 
     box-shadow:
-
         inset 2px 2px 6px rgba(0,0,0,.95),
-
         inset -1px -1px 2px rgba(255,255,255,.08);
 }
 
 
 /* =========================================
-   TV BADGE
+   TV LOGO
 ========================================= */
 
 .tv-badge {
-
     margin-top:9px;
 
     color:#e0e0e0;
@@ -1056,7 +874,6 @@ body {
     font-family:"Courier New",monospace;
 
     font-size:8px;
-
     font-weight:bold;
 
     letter-spacing:2px;
@@ -1065,9 +882,7 @@ body {
         0 1px 1px rgba(0,0,0,.9);
 }
 
-
 .tv-badge span {
-
     color:#888;
 
     font-size:7px;
@@ -1077,25 +892,20 @@ body {
 
 
 /* =========================================
-   SELL BUTTON
+   SELL GAMES
+   NOW PART OF CONTROL PANEL
 ========================================= */
 
 .sell-games-button {
+    width:72px;
 
-    position:absolute;
+    min-height:44px;
 
-    right:18px;
-
-    bottom:88px;
-
-    width:68px;
-
-    min-height:46px;
+    margin-top:9px;
 
     padding:5px 3px;
 
     background:
-
         linear-gradient(
             180deg,
             #e8e8e8 0%,
@@ -1111,31 +921,24 @@ body {
     border-radius:5px;
 
     box-shadow:
-
         0 3px 5px rgba(0,0,0,.7),
-
         inset 0 1px 1px rgba(255,255,255,.9),
-
         inset 0 -1px 2px rgba(0,0,0,.4);
 
     font-family:Arial,sans-serif;
 
     font-size:6px;
-
     font-weight:bold;
 
     letter-spacing:.4px;
-
     line-height:1.15;
 
     cursor:pointer;
 
-    z-index:10;
+    flex-shrink:0;
 }
 
-
 .sell-games-button:active {
-
     transform:translateY(2px);
 }
 
@@ -1145,7 +948,6 @@ body {
 ========================================= */
 
 .manual-section {
-
     width:100%;
 
     padding:20px 0 20px;
@@ -1158,9 +960,7 @@ body {
         );
 }
 
-
 .manual-title {
-
     margin:10px auto 18px;
 
     color:#d6b27c;
@@ -1168,19 +968,15 @@ body {
     font-family:"Courier New",monospace;
 
     font-size:14px;
-
     font-weight:bold;
 
     letter-spacing:4px;
 }
 
-
 .rr82-manual {
-
     display:block;
 
     width:92%;
-
     max-width:1200px;
 
     height:auto;
@@ -1199,9 +995,7 @@ body {
 ========================================= */
 
 .visitor-counter {
-
     width:85%;
-
     max-width:650px;
 
     margin:0 auto 60px;
@@ -1209,7 +1003,6 @@ body {
     padding:20px;
 
     background:
-
         linear-gradient(
             180deg,
             #242424 0%,
@@ -1219,9 +1012,7 @@ body {
     border:4px ridge #777;
 
     box-shadow:
-
         inset 0 0 15px rgba(0,0,0,.9),
-
         0 4px 10px rgba(0,0,0,.6);
 
     font-family:"Courier New",monospace;
@@ -1229,9 +1020,7 @@ body {
     color:#39ff14;
 }
 
-
 .visitor-title {
-
     font-size:14px;
 
     letter-spacing:4px;
@@ -1241,9 +1030,7 @@ body {
     margin-bottom:10px;
 }
 
-
 .visitor-subtitle {
-
     font-size:11px;
 
     letter-spacing:3px;
@@ -1253,17 +1040,13 @@ body {
     margin-bottom:8px;
 }
 
-
 .visitor-display {
-
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     min-width:180px;
-
     min-height:58px;
 
     padding:8px 14px;
@@ -1275,35 +1058,27 @@ body {
     color:#39ff14;
 
     font-size:28px;
-
     font-weight:bold;
 
     letter-spacing:5px;
 
     text-shadow:
-
         0 0 5px #39ff14,
-
         0 0 12px rgba(57,255,20,.5);
 }
 
-
 #counterapi-source {
-
     position:absolute;
 
     left:-9999px;
 
     width:1px;
-
     height:1px;
 
     overflow:hidden;
 }
 
-
 .visitor-footer {
-
     margin-top:10px;
 
     font-size:9px;
@@ -1319,7 +1094,6 @@ body {
 ========================================= */
 
 footer {
-
     padding:0 20px 35px;
 
     color:#777;
@@ -1333,7 +1107,6 @@ footer {
 ========================================= */
 
 .sell-form-overlay {
-
     display:none;
 
     position:fixed;
@@ -1349,27 +1122,20 @@ footer {
     overflow-y:auto;
 }
 
-
 .sell-form-overlay.active {
-
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 }
 
-
 .sell-form {
-
     width:100%;
-
     max-width:520px;
 
     padding:25px;
 
     background:
-
         linear-gradient(
             180deg,
             #3a3a38 0%,
@@ -1381,17 +1147,13 @@ footer {
     border-radius:12px;
 
     box-shadow:
-
         0 20px 60px rgba(0,0,0,.9),
-
         inset 0 0 15px rgba(255,255,255,.08);
 
     text-align:left;
 }
 
-
 .sell-form h2 {
-
     text-align:center;
 
     color:#00d9ff;
@@ -1403,9 +1165,7 @@ footer {
     margin:0 0 8px;
 }
 
-
 .sell-form-intro {
-
     text-align:center;
 
     color:#ccc;
@@ -1417,9 +1177,7 @@ footer {
     margin:0 0 20px;
 }
 
-
 .sell-form label {
-
     display:block;
 
     color:#d6b27c;
@@ -1433,11 +1191,9 @@ footer {
     margin:12px 0 5px;
 }
 
-
 .sell-form input,
 .sell-form textarea,
 .sell-form select {
-
     width:100%;
 
     padding:10px;
@@ -1455,11 +1211,9 @@ footer {
     font-size:14px;
 }
 
-
 .sell-form input:focus,
 .sell-form textarea:focus,
 .sell-form select:focus {
-
     outline:none;
 
     border-color:#00d9ff;
@@ -1468,17 +1222,13 @@ footer {
         0 0 6px rgba(0,217,255,.35);
 }
 
-
 .sell-form textarea {
-
     min-height:100px;
 
     resize:vertical;
 }
 
-
 .sell-form-buttons {
-
     display:flex;
 
     gap:10px;
@@ -1486,10 +1236,8 @@ footer {
     margin-top:20px;
 }
 
-
 .sell-submit,
 .sell-cancel {
-
     flex:1;
 
     padding:12px 8px;
@@ -1501,9 +1249,7 @@ footer {
     cursor:pointer;
 }
 
-
 .sell-submit {
-
     background:#00d9ff;
 
     color:#111;
@@ -1511,9 +1257,7 @@ footer {
     border:2px solid #00a8c7;
 }
 
-
 .sell-cancel {
-
     background:#444;
 
     color:#fff;
@@ -1521,19 +1265,15 @@ footer {
     border:2px solid #666;
 }
 
-
 .sell-submit:hover {
     background:#39e4ff;
 }
-
 
 .sell-cancel:hover {
     background:#555;
 }
 
-
 .sell-thank-you {
-
     display:none;
 
     text-align:center;
@@ -1541,14 +1281,11 @@ footer {
     padding:25px 5px;
 }
 
-
 .sell-thank-you h2 {
     color:#39ff14;
 }
 
-
 .sell-thank-you p {
-
     color:#ddd;
 
     line-height:1.6;
@@ -1562,42 +1299,69 @@ footer {
 @media(max-width:600px){
 
     .tv-stage {
-
         min-height:570px;
 
         padding-top:105px;
     }
 
 
-    .crt {
+    .tv-stage::before {
+        inset:0 0 120px 0;
 
+        background:
+            repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 78px,
+                rgba(25,12,7,.65) 79px,
+                rgba(15,7,4,.75) 82px,
+                rgba(92,54,30,.28) 84px,
+                transparent 86px
+            ),
+
+            repeating-linear-gradient(
+                88deg,
+                rgba(35,15,7,.3) 0px,
+                rgba(35,15,7,.3) 2px,
+                transparent 2px,
+                transparent 13px,
+                rgba(105,62,34,.16) 16px,
+                transparent 21px,
+                rgba(27,12,6,.25) 25px,
+                transparent 31px
+            ),
+
+            linear-gradient(
+                90deg,
+                #3a2114,
+                #684127 20%,
+                #4b2c1b 40%,
+                #70472d 60%,
+                #4b2b1a 80%,
+                #382014
+            );
+    }
+
+
+    .crt {
         width:85%;
 
         min-height:445px;
 
-        padding:22px 18px 75px;
-
-        /* keeps cabinet above the base */
-        padding-bottom:78px;
+        padding:22px 18px 64px;
     }
 
 
     .tv-front {
-
         grid-template-columns:minmax(0,1fr) 72px;
 
         gap:10px;
 
         min-height:350px;
-
-        position:relative;
-
-        z-index:4;
     }
 
 
     .screen-bezel {
-
         padding:10px;
 
         border-width:3px;
@@ -1607,7 +1371,6 @@ footer {
 
 
     .tv-screen {
-
         height:225px;
 
         border-width:6px;
@@ -1617,7 +1380,6 @@ footer {
 
 
     .tv-screen h2 {
-
         font-size:17px;
 
         letter-spacing:2px;
@@ -1625,13 +1387,11 @@ footer {
 
 
     .blink {
-
         font-size:12px;
     }
 
 
     .tv-controls {
-
         min-height:330px;
 
         padding:8px 3px;
@@ -1639,7 +1399,6 @@ footer {
 
 
     .power-button {
-
         width:43px;
 
         height:33px;
@@ -1649,7 +1408,6 @@ footer {
 
 
     .knob {
-
         width:43px;
 
         height:43px;
@@ -1657,7 +1415,6 @@ footer {
 
 
     .knob::before {
-
         top:5px;
 
         height:14px;
@@ -1667,7 +1424,6 @@ footer {
 
 
     .knob-label {
-
         font-size:7px;
 
         letter-spacing:.7px;
@@ -1675,13 +1431,11 @@ footer {
 
 
     .speaker-grille {
-
         height:64px;
     }
 
 
     .tv-badge {
-
         font-size:6px;
 
         letter-spacing:1px;
@@ -1689,65 +1443,36 @@ footer {
 
 
     .sell-games-button {
-
-        right:8px;
-
-        bottom:74px;
-
         width:58px;
 
         min-height:42px;
+
+        margin-top:7px;
 
         font-size:5.5px;
     }
 
 
-    /*
-       MOBILE BASE
-
-       The cabinet ends above the base.
-       The base remains underneath it.
-    */
-
     .tv-base {
-
         height:60px;
 
         left:9%;
-
         right:9%;
 
-        bottom:0;
-
-        z-index:2;
+        z-index:4;
     }
 
 
     .tv-foot {
-
         width:43px;
 
         height:25px;
 
         bottom:-16px;
-
-        z-index:1;
-    }
-
-
-    /*
-       Keep the front cabinet physically above
-       the base instead of overlapping it.
-    */
-
-    .tv-front {
-
-        margin-bottom:8px;
     }
 
 
     .antennas {
-
         top:-90px;
 
         width:105px;
@@ -1758,7 +1483,6 @@ footer {
 
     .antenna-left,
     .antenna-right {
-
         height:82px;
 
         width:5px;
@@ -1766,7 +1490,6 @@ footer {
 
 
     .antenna-base {
-
         width:28px;
 
         height:17px;
@@ -1774,13 +1497,11 @@ footer {
 
 
     .carpet {
-
         height:120px;
     }
 
 
     .manual-title {
-
         font-size:11px;
 
         letter-spacing:3px;
@@ -1788,7 +1509,6 @@ footer {
 
 
     .rr82-manual {
-
         width:94%;
 
         margin-bottom:40px;
@@ -1796,7 +1516,6 @@ footer {
 
 
     .visitor-counter {
-
         width:88%;
 
         padding:16px;
@@ -1804,7 +1523,6 @@ footer {
 
 
     .visitor-title {
-
         font-size:11px;
 
         letter-spacing:3px;
@@ -1812,7 +1530,6 @@ footer {
 
 
     .visitor-display {
-
         font-size:22px;
 
         min-width:150px;
@@ -1822,7 +1539,6 @@ footer {
 
 
     .sell-form {
-
         padding:18px;
 
         border-width:6px;
@@ -1830,7 +1546,6 @@ footer {
 
 
     .sell-form h2 {
-
         font-size:20px;
 
         letter-spacing:2px;
@@ -1853,17 +1568,8 @@ footer {
 <section class="tv-stage">
 
 
-<!-- WOOD WALL -->
-
-<div class="wood-wall"></div>
-
-
-<!-- CARPET -->
-
 <div class="carpet"></div>
 
-
-<!-- TV -->
 
 <div class="crt">
 
@@ -1985,13 +1691,7 @@ footer {
 </div>
 
 
-</div>
-
-
-</div>
-
-
-<!-- SELL GAMES -->
+<!-- SELL BUTTON NOW IN CONTROL PANEL -->
 
 <button
     type="button"
@@ -2003,6 +1703,12 @@ footer {
     YOUR<br>
     GAMES
 </button>
+
+
+</div>
+
+
+</div>
 
 
 </div>
@@ -2316,12 +2022,16 @@ CLOSE
 </div>
 
 
-<!-- EXISTING SCRIPT -->
+<!-- =========================================
+     EXISTING SCRIPT
+========================================= -->
 
 <script src="script.js"></script>
 
 
-<!-- COUNTER API -->
+<!-- =========================================
+     COUNTER API
+========================================= -->
 
 <script
     src="https://counterapi.com/c.js?ns=retroreminder.com"
@@ -2329,7 +2039,9 @@ CLOSE
 ></script>
 
 
-<!-- VISITOR COUNTER + FORM -->
+<!-- =========================================
+     VISITOR COUNTER + FORM
+========================================= -->
 
 <script>
 
@@ -2367,7 +2079,9 @@ setTimeout(updateVisitorNumber,2000);
 setTimeout(updateVisitorNumber,4000);
 
 
-/* SELL FORM */
+/* =========================================
+   SELL FORM
+========================================= */
 
 function openSellForm() {
 
