@@ -29,6 +29,14 @@ body {
 
     min-height:100vh;
 
+    background:
+        radial-gradient(
+            ellipse at center top,
+            #302b27 0%,
+            #1c1a18 45%,
+            #0b0b0b 100%
+        );
+
     color:white;
 
     font-family:Arial,sans-serif;
@@ -36,105 +44,6 @@ body {
     text-align:center;
 
     overflow-x:hidden;
-
-    /*
-     * 1980s WOOD-PANELED ROOM
-     */
-
-    background:
-
-        /*
-         * Subtle overall room shading
-         */
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.22),
-            transparent 18%,
-            transparent 82%,
-            rgba(0,0,0,.28)
-        ),
-
-        /*
-         * Vertical wood-panel seams
-         */
-
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 92px,
-            rgba(35,17,8,.72) 93px,
-            rgba(20,9,4,.9) 96px,
-            rgba(90,47,25,.45) 99px,
-            transparent 102px,
-            transparent 185px
-        ),
-
-        /*
-         * Faux wood grain
-         */
-
-        repeating-linear-gradient(
-            7deg,
-            rgba(75,37,19,.28) 0px,
-            rgba(75,37,19,.28) 3px,
-            transparent 3px,
-            transparent 17px,
-            rgba(35,15,7,.18) 18px,
-            transparent 21px,
-            transparent 34px
-        ),
-
-        /*
-         * Broad vertical panel variation
-         */
-
-        linear-gradient(
-            90deg,
-            #4b2918 0%,
-            #6a3c22 10%,
-            #583019 21%,
-            #704326 32%,
-            #4d2815 43%,
-            #683b21 54%,
-            #522a17 65%,
-            #704126 76%,
-            #4c2815 88%,
-            #5f341d 100%
-        );
-}
-
-
-/* =========================================
-   TOP WALL LIGHTING
-========================================= */
-
-body::before {
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:-1;
-
-    background:
-
-        radial-gradient(
-            ellipse at 50% 12%,
-            rgba(255,220,170,.13),
-            transparent 45%
-        ),
-
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.04),
-            transparent 35%,
-            rgba(0,0,0,.2) 100%
-        );
 }
 
 
@@ -163,6 +72,83 @@ body::before {
 
 
 /* =========================================
+   80s WOOD PANEL WALL
+   VERTICAL GRAIN
+========================================= */
+
+.wood-wall {
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+
+            #432515 0px,
+            #432515 8px,
+
+            #63381f 9px,
+            #744326 25px,
+
+            #4c2a18 27px,
+            #4c2a18 48px,
+
+            #704126 50px,
+            #86512f 67px,
+
+            #532e19 69px,
+            #532e19 92px,
+
+            #714126 94px,
+            #5b321d 118px
+        );
+
+    box-shadow:
+
+        inset 0 -25px 35px rgba(0,0,0,.55),
+
+        inset 0 10px 20px rgba(255,255,255,.04);
+}
+
+
+/* subtle vertical panel seams */
+
+.wood-wall::after {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+
+            transparent 0px,
+            transparent 118px,
+
+            rgba(20,10,5,.7) 119px,
+            rgba(20,10,5,.7) 122px,
+
+            rgba(120,75,43,.25) 123px,
+            rgba(120,75,43,.25) 125px
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================
    80s GREEN CARPET
 ========================================= */
 
@@ -178,7 +164,7 @@ body::before {
 
     height:155px;
 
-    z-index:0;
+    z-index:1;
 
     background-color:#254b29;
 
@@ -213,47 +199,16 @@ body::before {
         );
 
     box-shadow:
+
         inset 0 18px 30px rgba(0,0,0,.45),
+
         inset 0 -10px 20px rgba(0,0,0,.35);
 }
 
 
 /* =========================================
-   WALL / CARPET TRIM
-========================================= */
-
-.carpet::before {
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    top:0;
-
-    height:10px;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #2a160b 0%,
-            #5c341d 35%,
-            #31180b 70%,
-            #160a05 100%
-        );
-
-    box-shadow:
-        0 -2px 4px rgba(0,0,0,.45),
-        0 3px 5px rgba(0,0,0,.45);
-}
-
-
-/* =========================================
    TV CABINET
+   HORIZONTAL WOOD GRAIN
 ========================================= */
 
 .crt {
@@ -272,15 +227,26 @@ body::before {
 
     background:
 
-        linear-gradient(
-            110deg,
-            #3a1d0f 0%,
-            #684025 12%,
-            #8a5330 27%,
-            #60351d 43%,
-            #8e5631 62%,
-            #5b311b 80%,
-            #32190d 100%
+        repeating-linear-gradient(
+            0deg,
+
+            #35190c 0px,
+            #35190c 7px,
+
+            #4d2814 8px,
+            #60351c 13px,
+
+            #3c1d0f 16px,
+            #3c1d0f 22px,
+
+            #6a3b20 24px,
+            #754523 29px,
+
+            #45230f 32px,
+            #45230f 39px,
+
+            #5d3119 42px,
+            #35190c 48px
         );
 
     border:10px solid #1b110b;
@@ -299,7 +265,7 @@ body::before {
 }
 
 
-/* WOOD GRAIN */
+/* HORIZONTAL WOOD GRAIN DETAIL */
 
 .crt::before {
 
@@ -316,15 +282,19 @@ body::before {
     background:
 
         repeating-linear-gradient(
-            8deg,
+            0deg,
+
             transparent 0px,
-            transparent 11px,
-            rgba(30,12,5,.14) 12px,
-            transparent 15px,
-            transparent 27px
+            transparent 19px,
+
+            rgba(25,8,3,.20) 20px,
+            rgba(25,8,3,.20) 22px,
+
+            transparent 24px,
+            transparent 39px
         );
 
-    opacity:.7;
+    opacity:.8;
 
     z-index:0;
 }
@@ -350,13 +320,23 @@ body::before {
 
     background:
 
-        linear-gradient(
-            110deg,
-            #2d160b 0%,
-            #4f2a16 20%,
-            #693b21 48%,
-            #4a2614 75%,
-            #281309 100%
+        repeating-linear-gradient(
+            0deg,
+
+            #281209 0px,
+            #281209 8px,
+
+            #492513 9px,
+            #60351b 15px,
+
+            #34180b 17px,
+            #34180b 25px,
+
+            #693b20 27px,
+            #4d2814 34px,
+
+            #30150a 36px,
+            #30150a 44px
         );
 
     border-top:4px solid #24150d;
@@ -400,7 +380,9 @@ body::before {
 }
 
 
-/* FEET */
+/* =========================================
+   FEET
+========================================= */
 
 .tv-foot {
 
@@ -913,7 +895,9 @@ body::before {
 }
 
 
-/* KNOBS */
+/* =========================================
+   KNOBS
+========================================= */
 
 .knob-group {
 
@@ -1060,7 +1044,7 @@ body::before {
 
 
 /* =========================================
-   TV LOGO / BEZEL BADGE
+   TV BADGE
 ========================================= */
 
 .tv-badge {
@@ -1397,6 +1381,7 @@ footer {
     border-radius:12px;
 
     box-shadow:
+
         0 20px 60px rgba(0,0,0,.9),
 
         inset 0 0 15px rgba(255,255,255,.08);
@@ -1591,6 +1576,9 @@ footer {
         min-height:445px;
 
         padding:22px 18px 75px;
+
+        /* keeps cabinet above the base */
+        padding-bottom:78px;
     }
 
 
@@ -1601,6 +1589,10 @@ footer {
         gap:10px;
 
         min-height:350px;
+
+        position:relative;
+
+        z-index:4;
     }
 
 
@@ -1710,6 +1702,13 @@ footer {
     }
 
 
+    /*
+       MOBILE BASE
+
+       The cabinet ends above the base.
+       The base remains underneath it.
+    */
+
     .tv-base {
 
         height:60px;
@@ -1717,6 +1716,10 @@ footer {
         left:9%;
 
         right:9%;
+
+        bottom:0;
+
+        z-index:2;
     }
 
 
@@ -1727,6 +1730,19 @@ footer {
         height:25px;
 
         bottom:-16px;
+
+        z-index:1;
+    }
+
+
+    /*
+       Keep the front cabinet physically above
+       the base instead of overlapping it.
+    */
+
+    .tv-front {
+
+        margin-bottom:8px;
     }
 
 
@@ -1837,8 +1853,17 @@ footer {
 <section class="tv-stage">
 
 
+<!-- WOOD WALL -->
+
+<div class="wood-wall"></div>
+
+
+<!-- CARPET -->
+
 <div class="carpet"></div>
 
+
+<!-- TV -->
 
 <div class="crt">
 
