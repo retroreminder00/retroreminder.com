@@ -57,7 +57,7 @@ body {
 
     width:100%;
 
-    min-height:650px;
+    min-height:735px;
 
     padding-top:120px;
 
@@ -189,16 +189,9 @@ body {
 
     min-height:505px;
 
-    /*
-       The cabinet itself now ends above
-       the separate lower base.
-    */
-
     padding:28px 28px 80px;
 
     background:
-
-        /* Natural horizontal wood streaks */
 
         repeating-linear-gradient(
             180deg,
@@ -291,16 +284,11 @@ body {
 
     right:8%;
 
-    bottom:0;
+    bottom:-72px;
 
     height:72px;
 
     z-index:20;
-
-    /*
-       This is deliberately a separate piece
-       sitting IN FRONT of the cabinet.
-    */
 
     background:
 
@@ -1075,20 +1063,13 @@ body {
 
 .sell-games-button {
 
-    position:absolute;
-
-    /*
-       It now sits beside the control panel
-       rather than floating over the cabinet.
-    */
-
-    right:36px;
-
-    bottom:84px;
+    position:relative;
 
     width:68px;
 
     min-height:46px;
+
+    margin-top:8px;
 
     padding:5px 3px;
 
@@ -1560,7 +1541,7 @@ footer {
 
     .tv-stage {
 
-        min-height:570px;
+        min-height:650px;
 
         padding-top:105px;
     }
@@ -1678,11 +1659,6 @@ footer {
     }
 
 
-    /*
-       Mobile base is brought directly underneath
-       the cabinet and remains in front.
-    */
-
     .tv-base {
 
         height:60px;
@@ -1690,6 +1666,8 @@ footer {
         left:9%;
 
         right:9%;
+
+        bottom:-60px;
 
         z-index:20;
     }
@@ -1705,20 +1683,13 @@ footer {
     }
 
 
-    /*
-       Sell button stays attached to the control
-       side of the TV instead of drifting outward.
-    */
-
     .sell-games-button {
-
-        right:18px;
-
-        bottom:70px;
 
         width:58px;
 
         min-height:42px;
+
+        margin-top:6px;
 
         font-size:5.5px;
 
@@ -1943,6 +1914,20 @@ footer {
 </div>
 
 
+<!-- SELL GAMES -->
+
+<button
+    type="button"
+    class="sell-games-button"
+    onclick="openSellForm()"
+>
+    SELL<br>
+    US<br>
+    YOUR<br>
+    GAMES
+</button>
+
+
 <div class="tv-badge">
 
     RETRO REMINDER
@@ -1960,20 +1945,6 @@ footer {
 
 
 </div>
-
-
-<!-- SELL GAMES -->
-
-<button
-    type="button"
-    class="sell-games-button"
-    onclick="openSellForm()"
->
-    SELL<br>
-    US<br>
-    YOUR<br>
-    GAMES
-</button>
 
 
 </div>
