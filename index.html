@@ -69,11 +69,6 @@ body {
 
     overflow:hidden;
 
-    /*
-       80s wood-paneled wall.
-       VERTICAL grain.
-    */
-
     background-color:#5a3823;
 
     background-image:
@@ -118,7 +113,7 @@ body {
 
 
 /* =========================================
-   80s GREEN CARPET
+   1970s AVOCADO SHAG CARPET
 ========================================= */
 
 .carpet {
@@ -131,45 +126,144 @@ body {
 
     bottom:0;
 
-    height:155px;
+    height:180px;
 
     z-index:1;
 
-    background-color:#254b29;
+    background-color:#536b2f;
 
     background-image:
 
-        repeating-radial-gradient(
-            ellipse at 10% 110%,
-            transparent 0px,
-            transparent 22px,
-            rgba(78,125,57,.75) 23px,
-            rgba(78,125,57,.75) 34px,
-            transparent 35px,
-            transparent 62px
-        ),
-
-        repeating-radial-gradient(
-            ellipse at 70% 40%,
-            transparent 0px,
-            transparent 27px,
-            rgba(18,73,36,.75) 28px,
-            rgba(18,73,36,.75) 42px,
-            transparent 43px,
-            transparent 72px
+        repeating-linear-gradient(
+            76deg,
+            rgba(28,45,16,.42) 0px,
+            rgba(28,45,16,.42) 2px,
+            transparent 2px,
+            transparent 7px
         ),
 
         repeating-linear-gradient(
-            160deg,
-            rgba(107,151,66,.18) 0px,
-            rgba(107,151,66,.18) 3px,
+            103deg,
+            rgba(119,137,54,.30) 0px,
+            rgba(119,137,54,.30) 2px,
             transparent 3px,
+            transparent 9px
+        ),
+
+        repeating-linear-gradient(
+            87deg,
+            rgba(68,87,33,.45) 0px,
+            rgba(68,87,33,.45) 1px,
+            transparent 1px,
+            transparent 5px
+        ),
+
+        repeating-linear-gradient(
+            94deg,
+            rgba(154,157,70,.13) 0px,
+            rgba(154,157,70,.13) 1px,
+            transparent 2px,
             transparent 11px
+        ),
+
+        radial-gradient(
+            ellipse at 18% 65%,
+            rgba(38,53,22,.48) 0%,
+            rgba(38,53,22,.18) 25%,
+            transparent 48%
+        ),
+
+        radial-gradient(
+            ellipse at 68% 42%,
+            rgba(130,143,59,.22) 0%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            ellipse at 88% 80%,
+            rgba(38,58,22,.42) 0%,
+            transparent 34%
+        ),
+
+        linear-gradient(
+            180deg,
+            #66783b 0%,
+            #566c30 28%,
+            #4a612a 65%,
+            #3e5425 100%
         );
 
     box-shadow:
-        inset 0 18px 30px rgba(0,0,0,.45),
-        inset 0 -10px 20px rgba(0,0,0,.35);
+
+        inset 0 20px 28px rgba(0,0,0,.34),
+
+        inset 0 -14px 24px rgba(25,36,14,.50);
+}
+
+
+/* FIBER HIGHLIGHTS */
+
+.carpet::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.55;
+
+    background-image:
+
+        repeating-linear-gradient(
+            82deg,
+            transparent 0px,
+            transparent 5px,
+            rgba(180,184,92,.20) 6px,
+            transparent 7px,
+            transparent 13px
+        ),
+
+        repeating-linear-gradient(
+            97deg,
+            transparent 0px,
+            transparent 8px,
+            rgba(30,48,17,.32) 9px,
+            transparent 11px,
+            transparent 17px
+        );
+}
+
+
+/* MATTED AREA UNDER TV */
+
+.carpet::after {
+
+    content:"";
+
+    position:absolute;
+
+    left:22%;
+
+    right:22%;
+
+    top:15px;
+
+    height:90px;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(31,45,19,.35) 0%,
+            rgba(31,45,19,.18) 38%,
+            transparent 72%
+        );
+
+    filter:blur(3px);
 }
 
 
@@ -241,10 +335,6 @@ body {
         inset 0 -10px 18px rgba(0,0,0,.45);
 }
 
-
-/* =========================================
-   SUBTLE CABINET HIGHLIGHT
-========================================= */
 
 .crt::before {
 
@@ -327,8 +417,6 @@ body {
         inset 0 -8px 12px rgba(0,0,0,.55);
 }
 
-
-/* BASE HIGHLIGHT LINE */
 
 .tv-base::before {
 
@@ -564,7 +652,7 @@ body {
 
 
 /* =========================================
-   SILVER SCREEN BEZEL
+   SCREEN BEZEL
 ========================================= */
 
 .screen-bezel {
@@ -640,8 +728,6 @@ body {
 }
 
 
-/* SCREEN REFLECTION */
-
 .tv-screen::before {
 
     content:"";
@@ -666,8 +752,6 @@ body {
         );
 }
 
-
-/* SCREEN EDGE */
 
 .tv-screen::after {
 
@@ -738,10 +822,6 @@ body {
 }
 
 
-/* =========================================
-   OFF SCREEN
-========================================= */
-
 .tv-screen.off {
 
     background:
@@ -802,10 +882,6 @@ body {
 }
 
 
-/* =========================================
-   POWER
-========================================= */
-
 .power-button {
 
     width:52px;
@@ -846,7 +922,6 @@ body {
 
 
 .power-button:active {
-
     transform:translateY(2px);
 }
 
@@ -875,10 +950,6 @@ body {
         0 0 6px rgba(255,40,20,.75);
 }
 
-
-/* =========================================
-   KNOBS
-========================================= */
 
 .knob-group {
 
@@ -950,7 +1021,6 @@ body {
 
 
 .knob:active {
-
     transform:scale(.96);
 }
 
@@ -970,10 +1040,6 @@ body {
     letter-spacing:1px;
 }
 
-
-/* =========================================
-   SPEAKER
-========================================= */
 
 .speaker-panel {
 
@@ -1024,10 +1090,6 @@ body {
 }
 
 
-/* =========================================
-   TV LOGO
-========================================= */
-
 .tv-badge {
 
     margin-top:9px;
@@ -1056,10 +1118,6 @@ body {
     letter-spacing:1px;
 }
 
-
-/* =========================================
-   SELL BUTTON
-========================================= */
 
 .sell-games-button {
 
@@ -1114,7 +1172,6 @@ body {
 
 
 .sell-games-button:active {
-
     transform:translateY(2px);
 }
 
@@ -1188,7 +1245,6 @@ body {
     padding:20px;
 
     background:
-
         linear-gradient(
             180deg,
             #242424 0%,
@@ -1198,9 +1254,7 @@ body {
     border:4px ridge #777;
 
     box-shadow:
-
         inset 0 0 15px rgba(0,0,0,.9),
-
         0 4px 10px rgba(0,0,0,.6);
 
     font-family:"Courier New",monospace;
@@ -1260,9 +1314,7 @@ body {
     letter-spacing:5px;
 
     text-shadow:
-
         0 0 5px #39ff14,
-
         0 0 12px rgba(57,255,20,.5);
 }
 
@@ -1292,10 +1344,6 @@ body {
     letter-spacing:2px;
 }
 
-
-/* =========================================
-   FOOTER
-========================================= */
 
 footer {
 
@@ -1348,7 +1396,6 @@ footer {
     padding:25px;
 
     background:
-
         linear-gradient(
             180deg,
             #3a3a38 0%,
@@ -1361,7 +1408,6 @@ footer {
 
     box-shadow:
         0 20px 60px rgba(0,0,0,.9),
-
         inset 0 0 15px rgba(255,255,255,.08);
 
     text-align:left;
@@ -1596,7 +1642,6 @@ footer {
 
 
     .blink {
-
         font-size:12px;
     }
 
@@ -1646,7 +1691,6 @@ footer {
 
 
     .speaker-grille {
-
         height:64px;
     }
 
@@ -1725,8 +1769,7 @@ footer {
 
 
     .carpet {
-
-        height:120px;
+        height:145px;
     }
 
 
@@ -1797,10 +1840,6 @@ footer {
 <body>
 
 
-<!-- =========================================
-     TV
-========================================= -->
-
 <section class="tv-stage">
 
 
@@ -1809,8 +1848,6 @@ footer {
 
 <div class="crt">
 
-
-<!-- ANTENNAS -->
 
 <div class="antennas">
 
@@ -1823,8 +1860,6 @@ footer {
 </div>
 
 
-<!-- LOWER BASE -->
-
 <div class="tv-base">
 
     <div class="tv-foot left"></div>
@@ -1834,12 +1869,8 @@ footer {
 </div>
 
 
-<!-- TV FRONT -->
-
 <div class="tv-front">
 
-
-<!-- SCREEN -->
 
 <div class="screen-bezel">
 
@@ -1857,8 +1888,6 @@ footer {
 
 </div>
 
-
-<!-- CONTROLS -->
 
 <div class="tv-controls">
 
@@ -1914,8 +1943,6 @@ footer {
 </div>
 
 
-<!-- SELL GAMES -->
-
 <button
     type="button"
     class="sell-games-button"
@@ -1943,18 +1970,12 @@ footer {
 
 </div>
 
-
 </div>
-
 
 </div>
 
 </section>
 
-
-<!-- =========================================
-     MANUAL
-========================================= -->
 
 <section class="manual-section">
 
@@ -1973,10 +1994,6 @@ footer {
 
 </section>
 
-
-<!-- =========================================
-     VISITOR COUNTER
-========================================= -->
 
 <div class="visitor-counter">
 
@@ -2029,10 +2046,6 @@ footer {
 
 </footer>
 
-
-<!-- =========================================
-     SELL YOUR GAMES FORM
-========================================= -->
 
 <div
     id="sell-form-overlay"
@@ -2258,26 +2271,14 @@ CLOSE
 </div>
 
 
-<!-- =========================================
-     EXISTING SCRIPT
-========================================= -->
-
 <script src="script.js"></script>
 
-
-<!-- =========================================
-     COUNTER API
-========================================= -->
 
 <script
     src="https://counterapi.com/c.js?ns=retroreminder.com"
     async
 ></script>
 
-
-<!-- =========================================
-     VISITOR COUNTER + FORM
-========================================= -->
 
 <script>
 
@@ -2314,10 +2315,6 @@ setTimeout(updateVisitorNumber,2000);
 
 setTimeout(updateVisitorNumber,4000);
 
-
-/* =========================================
-   SELL FORM
-========================================= */
 
 function openSellForm() {
 
