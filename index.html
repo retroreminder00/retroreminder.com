@@ -24,9 +24,7 @@ html {
 }
 
 body {
-
     margin:0;
-
     min-height:100vh;
 
     background:
@@ -38,11 +36,8 @@ body {
         );
 
     color:white;
-
     font-family:Arial,sans-serif;
-
     text-align:center;
-
     overflow-x:hidden;
 }
 
@@ -52,19 +47,13 @@ body {
 ========================================= */
 
 .tv-stage {
-
     position:relative;
-
     width:100%;
-
     min-height:735px;
-
     padding-top:120px;
 
     display:flex;
-
     justify-content:center;
-
     align-items:flex-start;
 
     overflow:hidden;
@@ -117,13 +106,9 @@ body {
 ========================================= */
 
 .carpet {
-
     position:absolute;
-
     left:0;
-
     right:0;
-
     bottom:0;
 
     height:180px;
@@ -194,9 +179,7 @@ body {
         );
 
     box-shadow:
-
         inset 0 20px 28px rgba(0,0,0,.34),
-
         inset 0 -14px 24px rgba(25,36,14,.50);
 }
 
@@ -204,11 +187,8 @@ body {
 /* FIBER HIGHLIGHTS */
 
 .carpet::before {
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     pointer-events:none;
@@ -240,15 +220,12 @@ body {
 /* MATTED AREA UNDER TV */
 
 .carpet::after {
-
     content:"";
 
     position:absolute;
 
     left:22%;
-
     right:22%;
-
     top:15px;
 
     height:90px;
@@ -272,18 +249,15 @@ body {
 ========================================= */
 
 .crt {
-
     position:relative;
 
     z-index:5;
 
     width:90%;
+    max-width:590px;
+    min-height:455px;
 
-    max-width:650px;
-
-    min-height:505px;
-
-    padding:28px 28px 80px;
+    padding:20px 20px 58px;
 
     background:
 
@@ -325,19 +299,14 @@ body {
     border-radius:18px 18px 13px 13px;
 
     box-shadow:
-
         0 30px 45px rgba(0,0,0,.85),
-
         0 10px 15px rgba(0,0,0,.7),
-
         inset 0 2px 3px rgba(255,255,255,.16),
-
         inset 0 -10px 18px rgba(0,0,0,.45);
 }
 
 
 .crt::before {
-
     content:"";
 
     position:absolute;
@@ -349,7 +318,6 @@ body {
     pointer-events:none;
 
     background:
-
         linear-gradient(
             90deg,
             rgba(255,255,255,.05),
@@ -367,16 +335,14 @@ body {
 ========================================= */
 
 .tv-base {
-
     position:absolute;
 
-    left:8%;
+    left:7%;
+    right:7%;
 
-    right:8%;
+    bottom:-58px;
 
-    bottom:-72px;
-
-    height:72px;
+    height:58px;
 
     z-index:20;
 
@@ -399,33 +365,25 @@ body {
         );
 
     border-top:5px solid #201108;
-
     border-left:3px solid #261309;
-
     border-right:3px solid #261309;
-
     border-bottom:3px solid #180b06;
 
     border-radius:0 0 8px 8px;
 
     box-shadow:
-
         0 8px 12px rgba(0,0,0,.75),
-
         inset 0 3px 3px rgba(255,255,255,.08),
-
         inset 0 -8px 12px rgba(0,0,0,.55);
 }
 
 
 .tv-base::before {
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     right:0;
 
     top:-5px;
@@ -433,7 +391,6 @@ body {
     height:5px;
 
     background:
-
         linear-gradient(
             90deg,
             #1c0d07,
@@ -452,17 +409,14 @@ body {
 ========================================= */
 
 .tv-foot {
-
     position:absolute;
 
-    bottom:-18px;
+    bottom:-15px;
 
-    width:54px;
-
-    height:30px;
+    width:46px;
+    height:24px;
 
     background:
-
         linear-gradient(
             90deg,
             #20110a,
@@ -492,15 +446,12 @@ body {
 ========================================= */
 
 .antennas {
-
     position:absolute;
 
     top:-105px;
-
     left:50%;
 
     width:130px;
-
     height:112px;
 
     transform:translateX(-50%);
@@ -512,15 +463,12 @@ body {
 
 
 .antenna-base {
-
     position:absolute;
 
     bottom:0;
-
     left:50%;
 
     width:32px;
-
     height:20px;
 
     transform:translateX(-50%);
@@ -545,13 +493,11 @@ body {
 
 .antenna-left,
 .antenna-right {
-
     position:absolute;
 
     bottom:12px;
 
     width:6px;
-
     height:95px;
 
     border-radius:5px;
@@ -572,7 +518,6 @@ body {
 
 
 .antenna-left {
-
     left:50%;
 
     transform:
@@ -584,7 +529,6 @@ body {
 
 
 .antenna-right {
-
     right:50%;
 
     transform:
@@ -597,17 +541,14 @@ body {
 
 .antenna-left::after,
 .antenna-right::after {
-
     content:"";
 
     position:absolute;
 
     top:-3px;
-
     left:50%;
 
     width:9px;
-
     height:9px;
 
     transform:translateX(-50%);
@@ -632,20 +573,19 @@ body {
 ========================================= */
 
 .tv-front {
-
     position:relative;
 
     z-index:3;
 
     width:100%;
 
-    min-height:385px;
+    min-height:340px;
 
     display:grid;
 
-    grid-template-columns:minmax(0,1fr) 110px;
+    grid-template-columns:minmax(0,1fr) 92px;
 
-    gap:20px;
+    gap:14px;
 
     align-items:center;
 }
@@ -656,7 +596,6 @@ body {
 ========================================= */
 
 .screen-bezel {
-
     position:relative;
 
     width:100%;
@@ -664,7 +603,6 @@ body {
     padding:15px;
 
     background:
-
         linear-gradient(
             145deg,
             #ededed 0%,
@@ -679,11 +617,8 @@ body {
     border-radius:36px;
 
     box-shadow:
-
         0 5px 8px rgba(0,0,0,.65),
-
         inset 0 2px 3px rgba(255,255,255,.9),
-
         inset 0 -3px 5px rgba(0,0,0,.35);
 }
 
@@ -693,11 +628,9 @@ body {
 ========================================= */
 
 .tv-screen {
-
     position:relative;
 
     width:100%;
-
     height:265px;
 
     overflow:hidden;
@@ -707,7 +640,6 @@ body {
     border-radius:29px;
 
     background:
-
         radial-gradient(
             ellipse at center,
             #777 0%,
@@ -719,17 +651,13 @@ body {
     border:7px solid #171717;
 
     box-shadow:
-
         inset 0 0 35px rgba(0,0,0,.95),
-
         inset 0 0 9px rgba(255,255,255,.16),
-
         0 0 7px rgba(0,0,0,.8);
 }
 
 
 .tv-screen::before {
-
     content:"";
 
     position:absolute;
@@ -743,7 +671,6 @@ body {
     border-radius:23px;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,255,255,.14) 0%,
@@ -754,7 +681,6 @@ body {
 
 
 .tv-screen::after {
-
     content:"";
 
     position:absolute;
@@ -768,15 +694,12 @@ body {
     border-radius:23px;
 
     box-shadow:
-
         inset 0 0 20px rgba(0,0,0,.85),
-
         inset 0 0 5px rgba(255,255,255,.12);
 }
 
 
 .tv-screen h2 {
-
     position:relative;
 
     z-index:10;
@@ -793,7 +716,6 @@ body {
 
 
 .blink {
-
     position:relative;
 
     z-index:10;
@@ -825,7 +747,6 @@ body {
 .tv-screen.off {
 
     background:
-
         radial-gradient(
             ellipse at center,
             #181818 0%,
@@ -834,9 +755,7 @@ body {
         );
 
     box-shadow:
-
         inset 0 0 35px rgba(0,0,0,.98),
-
         0 0 3px rgba(0,0,0,.8);
 }
 
@@ -851,14 +770,13 @@ body {
 ========================================= */
 
 .tv-controls {
-
     position:relative;
 
     height:100%;
 
-    min-height:350px;
+    min-height:315px;
 
-    padding:12px 8px;
+    padding:9px 6px;
 
     display:flex;
 
@@ -869,7 +787,6 @@ body {
     justify-content:center;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(45,20,10,.65),
@@ -883,10 +800,8 @@ body {
 
 
 .power-button {
-
-    width:52px;
-
-    height:38px;
+    width:46px;
+    height:34px;
 
     margin-bottom:4px;
 
@@ -895,7 +810,6 @@ body {
     border:3px solid #242424;
 
     background:
-
         linear-gradient(
             180deg,
             #555 0%,
@@ -904,14 +818,12 @@ body {
         );
 
     box-shadow:
-
         0 4px 5px rgba(0,0,0,.8),
-
         inset 0 2px 2px rgba(255,255,255,.18);
 
     color:#ddd;
 
-    font-size:9px;
+    font-size:8px;
 
     font-weight:bold;
 
@@ -927,12 +839,10 @@ body {
 
 
 .power-indicator {
-
     width:7px;
-
     height:7px;
 
-    margin:3px auto 12px;
+    margin:3px auto 9px;
 
     border-radius:50%;
 
@@ -943,7 +853,6 @@ body {
 
 
 .tv-controls.powered .power-indicator {
-
     background:#e21a12;
 
     box-shadow:
@@ -952,31 +861,27 @@ body {
 
 
 .knob-group {
-
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
 
-    margin:4px 0 9px;
+    margin:3px 0 7px;
 }
 
 
 .knob {
-
     position:relative;
 
-    width:52px;
-
-    height:52px;
+    width:46px;
+    height:46px;
 
     border-radius:50%;
 
     border:3px solid #242424;
 
     background:
-
         radial-gradient(
             circle at 32% 28%,
             #d5d5d5 0%,
@@ -987,11 +892,8 @@ body {
         );
 
     box-shadow:
-
         0 5px 7px rgba(0,0,0,.85),
-
         inset 2px 2px 3px rgba(255,255,255,.25),
-
         inset -3px -4px 5px rgba(0,0,0,.65);
 
     cursor:pointer;
@@ -999,18 +901,15 @@ body {
 
 
 .knob::before {
-
     content:"";
 
     position:absolute;
 
     left:50%;
+    top:5px;
 
-    top:6px;
-
-    width:4px;
-
-    height:16px;
+    width:3px;
+    height:14px;
 
     transform:translateX(-50%);
 
@@ -1026,7 +925,6 @@ body {
 
 
 .knob-label {
-
     margin-top:5px;
 
     color:#d6b27c;
@@ -1042,12 +940,11 @@ body {
 
 
 .speaker-panel {
-
     width:100%;
 
     margin-top:3px;
 
-    padding:6px;
+    padding:5px;
 
     border-radius:6px;
 
@@ -1061,15 +958,13 @@ body {
 
 
 .speaker-grille {
-
     width:100%;
 
-    height:82px;
+    height:66px;
 
     border-radius:4px;
 
     background:
-
         repeating-linear-gradient(
             90deg,
             #090909 0px,
@@ -1083,16 +978,13 @@ body {
     border:2px solid #171717;
 
     box-shadow:
-
         inset 2px 2px 6px rgba(0,0,0,.95),
-
         inset -1px -1px 2px rgba(255,255,255,.08);
 }
 
 
 .tv-badge {
-
-    margin-top:9px;
+    margin-top:7px;
 
     color:#e0e0e0;
 
@@ -1110,7 +1002,6 @@ body {
 
 
 .tv-badge span {
-
     color:#888;
 
     font-size:7px;
@@ -1120,19 +1011,17 @@ body {
 
 
 .sell-games-button {
-
     position:relative;
 
-    width:68px;
+    width:60px;
 
-    min-height:46px;
+    min-height:40px;
 
-    margin-top:8px;
+    margin-top:6px;
 
     padding:5px 3px;
 
     background:
-
         linear-gradient(
             180deg,
             #e8e8e8 0%,
@@ -1148,16 +1037,13 @@ body {
     border-radius:5px;
 
     box-shadow:
-
         0 3px 5px rgba(0,0,0,.7),
-
         inset 0 1px 1px rgba(255,255,255,.9),
-
         inset 0 -1px 2px rgba(0,0,0,.4);
 
     font-family:Arial,sans-serif;
 
-    font-size:6px;
+    font-size:5.5px;
 
     font-weight:bold;
 
@@ -1181,7 +1067,6 @@ body {
 ========================================= */
 
 .manual-section {
-
     width:100%;
 
     padding:20px 0 20px;
@@ -1196,7 +1081,6 @@ body {
 
 
 .manual-title {
-
     margin:10px auto 18px;
 
     color:#d6b27c;
@@ -1212,7 +1096,6 @@ body {
 
 
 .rr82-manual {
-
     display:block;
 
     width:92%;
@@ -1235,7 +1118,6 @@ body {
 ========================================= */
 
 .visitor-counter {
-
     width:85%;
 
     max-width:650px;
@@ -1264,7 +1146,6 @@ body {
 
 
 .visitor-title {
-
     font-size:14px;
 
     letter-spacing:4px;
@@ -1276,7 +1157,6 @@ body {
 
 
 .visitor-subtitle {
-
     font-size:11px;
 
     letter-spacing:3px;
@@ -1288,7 +1168,6 @@ body {
 
 
 .visitor-display {
-
     display:flex;
 
     justify-content:center;
@@ -1320,13 +1199,11 @@ body {
 
 
 #counterapi-source {
-
     position:absolute;
 
     left:-9999px;
 
     width:1px;
-
     height:1px;
 
     overflow:hidden;
@@ -1334,7 +1211,6 @@ body {
 
 
 .visitor-footer {
-
     margin-top:10px;
 
     font-size:9px;
@@ -1346,7 +1222,6 @@ body {
 
 
 footer {
-
     padding:0 20px 35px;
 
     color:#777;
@@ -1360,7 +1235,6 @@ footer {
 ========================================= */
 
 .sell-form-overlay {
-
     display:none;
 
     position:fixed;
@@ -1378,7 +1252,6 @@ footer {
 
 
 .sell-form-overlay.active {
-
     display:flex;
 
     align-items:center;
@@ -1388,7 +1261,6 @@ footer {
 
 
 .sell-form {
-
     width:100%;
 
     max-width:520px;
@@ -1415,7 +1287,6 @@ footer {
 
 
 .sell-form h2 {
-
     text-align:center;
 
     color:#00d9ff;
@@ -1429,7 +1300,6 @@ footer {
 
 
 .sell-form-intro {
-
     text-align:center;
 
     color:#ccc;
@@ -1443,7 +1313,6 @@ footer {
 
 
 .sell-form label {
-
     display:block;
 
     color:#d6b27c;
@@ -1461,7 +1330,6 @@ footer {
 .sell-form input,
 .sell-form textarea,
 .sell-form select {
-
     width:100%;
 
     padding:10px;
@@ -1483,7 +1351,6 @@ footer {
 .sell-form input:focus,
 .sell-form textarea:focus,
 .sell-form select:focus {
-
     outline:none;
 
     border-color:#00d9ff;
@@ -1494,7 +1361,6 @@ footer {
 
 
 .sell-form textarea {
-
     min-height:100px;
 
     resize:vertical;
@@ -1502,7 +1368,6 @@ footer {
 
 
 .sell-form-buttons {
-
     display:flex;
 
     gap:10px;
@@ -1513,7 +1378,6 @@ footer {
 
 .sell-submit,
 .sell-cancel {
-
     flex:1;
 
     padding:12px 8px;
@@ -1527,7 +1391,6 @@ footer {
 
 
 .sell-submit {
-
     background:#00d9ff;
 
     color:#111;
@@ -1537,7 +1400,6 @@ footer {
 
 
 .sell-cancel {
-
     background:#444;
 
     color:#fff;
@@ -1557,7 +1419,6 @@ footer {
 
 
 .sell-thank-you {
-
     display:none;
 
     text-align:center;
@@ -1572,7 +1433,6 @@ footer {
 
 
 .sell-thank-you p {
-
     color:#ddd;
 
     line-height:1.6;
@@ -1586,57 +1446,41 @@ footer {
 @media(max-width:600px){
 
     .tv-stage {
-
         min-height:650px;
-
         padding-top:105px;
     }
 
 
     .crt {
-
-        width:85%;
-
-        min-height:445px;
-
-        padding:22px 18px 68px;
+        width:82%;
+        min-height:405px;
+        padding:16px 14px 52px;
     }
 
 
     .tv-front {
-
-        grid-template-columns:minmax(0,1fr) 72px;
-
-        gap:10px;
-
-        min-height:350px;
+        grid-template-columns:minmax(0,1fr) 64px;
+        gap:8px;
+        min-height:315px;
     }
 
 
     .screen-bezel {
-
         padding:10px;
-
         border-width:3px;
-
         border-radius:28px;
     }
 
 
     .tv-screen {
-
         height:225px;
-
         border-width:6px;
-
         border-radius:23px;
     }
 
 
     .tv-screen h2 {
-
         font-size:17px;
-
         letter-spacing:2px;
     }
 
@@ -1647,123 +1491,89 @@ footer {
 
 
     .tv-controls {
-
-        min-height:330px;
-
-        padding:8px 3px;
+        min-height:300px;
+        padding:6px 2px;
     }
 
 
     .power-button {
-
-        width:43px;
-
-        height:33px;
-
-        font-size:7px;
+        width:39px;
+        height:30px;
+        font-size:6.5px;
     }
 
 
     .knob {
-
-        width:43px;
-
-        height:43px;
+        width:39px;
+        height:39px;
     }
 
 
     .knob::before {
-
         top:5px;
-
         height:14px;
-
         width:3px;
     }
 
 
     .knob-label {
-
         font-size:7px;
-
         letter-spacing:.7px;
     }
 
 
     .speaker-grille {
-        height:64px;
+        height:54px;
     }
 
 
     .tv-badge {
-
         font-size:6px;
-
         letter-spacing:1px;
     }
 
 
     .tv-base {
-
-        height:60px;
-
-        left:9%;
-
-        right:9%;
-
-        bottom:-60px;
-
+        height:50px;
+        left:8%;
+        right:8%;
+        bottom:-50px;
         z-index:20;
     }
 
 
     .tv-foot {
-
-        width:43px;
-
-        height:25px;
-
-        bottom:-16px;
+        width:38px;
+        height:22px;
+        bottom:-14px;
     }
 
 
     .sell-games-button {
-
-        width:58px;
-
-        min-height:42px;
-
-        margin-top:6px;
-
-        font-size:5.5px;
-
+        width:52px;
+        min-height:36px;
+        margin-top:5px;
+        font-size:5px;
         z-index:25;
     }
 
 
     .antennas {
-
         top:-90px;
-
         width:105px;
-
         height:98px;
     }
 
 
     .antenna-left,
     .antenna-right {
-
         height:82px;
-
         width:5px;
     }
 
 
     .antenna-base {
-
         width:28px;
-
         height:17px;
     }
 
@@ -1774,59 +1584,44 @@ footer {
 
 
     .manual-title {
-
         font-size:11px;
-
         letter-spacing:3px;
     }
 
 
     .rr82-manual {
-
         width:94%;
-
         margin-bottom:40px;
     }
 
 
     .visitor-counter {
-
         width:88%;
-
         padding:16px;
     }
 
 
     .visitor-title {
-
         font-size:11px;
-
         letter-spacing:3px;
     }
 
 
     .visitor-display {
-
         font-size:22px;
-
         min-width:150px;
-
         letter-spacing:4px;
     }
 
 
     .sell-form {
-
         padding:18px;
-
         border-width:6px;
     }
 
 
     .sell-form h2 {
-
         font-size:20px;
-
         letter-spacing:2px;
     }
 
